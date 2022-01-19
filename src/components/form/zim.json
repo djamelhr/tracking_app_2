@@ -1,0 +1,4885 @@
+[
+  {
+    "id": "99feee28-6817-4f3b-ae68-7b1990a8cadd",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH20479440",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:01Z",
+      "created-at": "2022-01-18T08:10:26Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T06:45:08Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "e29caa3d-791d-4d2d-9ccf-ca265570c7ad",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "013f700e-ef0e-4d32-ab25-efcc24bb33a5",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "60bc0011-229e-452d-a05c-aab839e20f32",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9817753",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T12:32:36Z",
+      "created-at": "2022-01-18T08:27:12Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T10:33:27Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "7cec504a-1c1b-45a0-90bd-5ece10d05d3d",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "bb30c002-41ae-4c32-a73c-e3bea6998bdd",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "e23ec847-041f-4103-8bed-84e6c3d14943",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9817752",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T12:05:39Z",
+      "created-at": "2022-01-18T00:02:05Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T08:30:42Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "930329fd-c64e-44b0-99f1-45dfd7f373cb",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "e4589756-5775-47c6-a7ce-2a2783d15087",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "bea86864-c922-48ed-b27e-5db29d2a4b23",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9817482",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:48Z",
+      "created-at": "2022-01-18T01:56:56Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T08:51:31Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "8abbb755-4c0e-4e13-8672-0285aa7fcbaf",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "7590c549-6e5f-43c1-a3b3-3d4548751f4b",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "1b9f1849-86cd-4e1e-80a9-f795816f714a",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB1132015",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T12:05:38Z",
+      "created-at": "2022-01-18T00:02:15Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T11:04:07Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "4af43c28-db13-457c-b102-a169ec4b4861",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "cdaca81c-d087-40b8-9dd7-ad79653e6d21",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "dad658af-45d0-47d3-b887-b9508090f18d",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB1132016",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:21:03Z",
+      "created-at": "2022-01-16T00:03:06Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T14:21:03Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "6c019fca-3ab2-42b3-808d-809561444cc0",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": []
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "f8622709-bb3b-4a29-b6b1-e456e90071e5",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "5b9725d3-aef6-4f28-a122-f33af9b6ff76",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007410",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:49Z",
+      "created-at": "2022-01-06T05:33:22Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T11:58:53Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "64657736-9468-49c9-9226-8f7de4cb2fbe",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "1e97a4de-c258-439b-b706-d222a7090371",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "4238d4c5-5298-4d23-b5e3-9959cd12e658",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "8bc4903b-03dc-4b6c-81fc-9b5924c32eaf",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007409",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:58Z",
+      "created-at": "2022-01-05T07:21:04Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T01:07:38Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "5125b76f-8d4f-4ee0-af3b-b82ad3007fde",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "146a8f1e-925b-4266-a8c2-d029f2a374f3",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "863b5901-e473-410c-b787-99c284b43f4a",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "10929921-2b91-4f2f-b0b4-1e610f3edc01",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUHKG83292565",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:21:53Z",
+      "created-at": "2021-12-21T08:35:14Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USBAL",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T15:21:53Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "540125d5-1096-431f-a30e-f9fe9699d5ef",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "bac9de19-6a25-440b-a1c1-ba83ad7107a8",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "a8a4b06d-4af1-4625-8fff-99d99576d6b8",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "4c635abc-7dcc-468a-aeb5-a163799b9dcc",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "626da297-6d1f-4605-84e7-d50e372cfa15",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "7066e05d-516d-4970-b60a-34c5deb703dc",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30764577",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:34:41Z",
+      "created-at": "2022-01-06T06:25:37Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T10:26:09Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "b7e50994-12af-4266-b89f-442ac9c9293e",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "cfd48d7c-d936-4f92-8a88-c0f441b3b184",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "607abaa4-93f7-404d-9185-481421434e2b",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "48565e94-5aae-4205-be90-b129f9ff7123",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025722",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:52:48Z",
+      "created-at": "2021-12-28T07:48:30Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T08:07:34Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "54b3a192-0d71-4835-a507-c580491a9f88",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "b0206941-21cb-4742-ab41-fe7bd96a361d",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "b9fad9e0-5165-4696-89bb-3a6d331b2b52",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "f59726c3-74cd-4f61-9b43-e5c7532a7734",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025721",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:00Z",
+      "created-at": "2021-12-28T07:52:54Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T00:47:54Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "c3e379b1-65fb-41a9-b0fc-6c4b91b9a2ad",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "bf3c3594-6e15-4a74-914e-7b6e3b6f6060",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "14869da1-e48c-4b65-95cf-d1dba227cfd9",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "ee623b4c-8b8f-4f6d-87e0-d96466ec23e8",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007218",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:06Z",
+      "created-at": "2021-12-22T06:05:18Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T12:39:25Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "a5885ae6-5c46-428f-91b1-69874de4a988",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "8386c020-f384-48a9-98ec-2e85d5b4902d",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "01085760-7885-40b1-b1e7-778206ed38de",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "abd7ceec-df10-4944-a753-b4d6a79f580f",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB1124092",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:53Z",
+      "created-at": "2021-12-20T06:28:56Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T08:59:07Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "92548822-c9de-4025-94d0-ee6e6821ae14",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "90d711b0-854d-410c-9a87-ceea9314f423",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "f81dd9a4-c5e4-496d-a1f2-17835ef78828",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "9a981fb8-fb2b-454b-b026-3e8de89ed109",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007219",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:54Z",
+      "created-at": "2021-12-22T06:15:17Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T06:01:16Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "bfb8508c-e852-43c2-a484-8a75b5e831f8",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "9a02c97a-ea9e-46cb-acfd-fb7bb42ba296",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "564016e4-952e-43ef-8501-17ceca078086",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "9d9d4330-5b6b-4c51-9e8c-9d8235627973",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30765447",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:52:42Z",
+      "created-at": "2022-01-10T02:47:25Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "CAVAN",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T07:44:15Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "b1b4812e-ea4e-418c-a1f6-5702026de021",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "48aab466-5308-4162-b774-d15198f6729b",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": null
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "5c69c2e5-8c3f-4aa5-a5b7-3cd9f68f11a4",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "0397e99c-f8e3-4bc5-a920-425efdb2e843",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "eca7f578-9a81-4925-bcf8-8f5ddd4037be",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30747979",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:06Z",
+      "created-at": "2021-12-22T16:56:43Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T11:49:42Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "3b72f6ea-7b08-479f-96f7-0e7657d67d93",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "5a79e5bf-50a2-4d2a-b77d-0ed3dbc2152a",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "532bf4eb-309e-4039-b8dc-e2fbd3c27c3d",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "010057dd-389c-4eda-88b1-7f22dd2fbfa9",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB1124095",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:21:19Z",
+      "created-at": "2021-12-20T06:22:21Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T14:21:19Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "f725233d-38c2-4bb2-a96f-825db1742c3e",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "29865a55-c014-4449-8ade-d0996247427a",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "2ad37e65-6b3f-4077-93c2-dc628ab762d1",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "5631cda3-a82c-4929-a2a1-520365002ea8",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUHKG83290241",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:52Z",
+      "created-at": "2021-12-04T00:01:36Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T13:03:28Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "6849b511-556b-4a70-bc34-8f0f3bc4b75f",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "f2aa547f-c2fa-451a-b68e-828fe13cf5a0",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "9287cde3-a16b-4d32-b8fc-92c3e9c05927",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "0f4ecb67-1d3d-4dc5-841b-4a787b6f9afc",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30736459",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:07Z",
+      "created-at": "2021-12-10T08:46:29Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T06:11:06Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "bce9d2cc-add4-4324-a6d5-0340db50bb03",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "2988d856-fc5f-4223-8e66-dd99a20cbc93",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "daf77227-2525-494a-a27f-3f43bcab8f8e",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "5ec5b237-50c6-4edc-94e2-5aaef800b3de",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30755855",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:46Z",
+      "created-at": "2022-01-07T00:01:53Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T23:52:54Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "450087b3-5753-4504-add3-9cb9ec952fe2",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "2b4fb9bb-e9c1-4207-9820-aa003a089255",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "61b25fcc-475f-45c6-9afc-79936e11b1ea",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "0d885660-6345-403c-96a8-8a2af19780aa",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30754147",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:48Z",
+      "created-at": "2022-01-05T12:30:45Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T11:19:00Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "d1bf1f43-7f69-4c75-9400-26ed9f82b78f",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "77d5a2f7-e129-48db-88f9-4d17fc12878f",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "22aa3e3f-0946-4c9f-b45e-51e9714e5cc1",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "e4d88aeb-c76e-4118-92ef-630add3264d5",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30754555",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:00Z",
+      "created-at": "2022-01-09T06:20:08Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T10:30:51Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "ae91f145-1e3d-4d49-bd9d-96ac4ea2e8b9",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "e12a75d5-7cdf-4523-9e83-c615a21ec2ac",
+            "type": "cargo"
+          },
+          {
+            "id": "cef51652-255d-4139-9550-1da344e238be",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "10b68cfc-c16a-4a89-ae3b-17a52ebf72c0",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "cd9baacd-e632-4fb0-ab18-4bec85de9deb",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH7204557",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:50Z",
+      "created-at": "2021-12-03T20:11:09Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USMIA",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T07:04:47Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "c128ea6f-ede3-4cbf-996b-b76acd1e2974",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "2ccdb411-f0b2-4072-919a-0bd9e23136ff",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "7dc6e9b5-5883-4508-964b-56e3f6e8409d",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "749b6578-af5a-4e47-acb0-4e43f59dd725",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "349ffbd7-56ce-449d-94e4-5108e7051b2c",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "11f9afbe-84bf-4683-8561-7fc89299604d",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025685",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:49Z",
+      "created-at": "2021-12-16T06:13:50Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": "USCHI",
+      "line-tracking-last-succeeded-at": "2022-01-19T12:45:45Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "f162a94f-70d4-4523-b8b2-399df621b59f",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": {
+          "id": "bacf19ca-697d-4dc1-8c0b-6294500bde33",
+          "type": "metro-area"
+        }
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "56b89569-084d-4955-ab08-f006271ab9e4",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "1f9b941b-8a6c-4737-a2aa-e6274f5eb155",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+
+  {
+    "id": "8d7a2283-1ee0-404c-b87e-38669e1755f8",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007243",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:46:38Z",
+      "created-at": "2021-12-09T08:21:31Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T14:46:38Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "38980418-8e82-48d2-8b75-c05edd741a35",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "c72f49c0-7504-44c3-b8a8-eae90d12d455",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "a75b2ede-b952-42b7-88f0-e3c5a6f5205b",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "03e13323-b8ae-484f-81cf-1f8c054d79ce",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025686",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T12:05:39Z",
+      "created-at": "2021-12-20T07:56:27Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T09:28:18Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "fc89d276-3b3c-40c0-ad2d-3b6aeccc760d",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "580ef16d-426d-4a65-84f1-bfae219085a8",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "270a14d5-8dda-47e8-92f1-42818fd8eef3",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "e458a2ef-9039-4c05-a281-91cf303bd514",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH86007244",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:35:43Z",
+      "created-at": "2021-12-13T03:28:15Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T07:38:30Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "6c3c7341-44f9-44d3-873b-2b169176ad2e",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "18177524-5a25-4e11-8a9d-5d02d21d3460",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "f8900045-922c-4200-a977-601c4412789d",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "98c75c33-ab8a-4238-aa55-5cb2bd954ddc",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH7201635",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:22:32Z",
+      "created-at": "2021-11-12T05:50:15Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T15:22:32Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "d7c687e1-9194-49ad-ad4f-10e61e8e357b",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "85f46103-53cd-4c44-87f0-28b1de0b76e9",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "f35007fd-e843-493e-98bf-aacbe087c7fe",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "5ccf6df5-b899-4234-a672-c6a5eaa99a6a",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUHKG83284633",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:23:02Z",
+      "created-at": "2021-11-26T03:53:00Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USHOU",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T06:04:08Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "8f649700-bd39-48e1-9ca7-dbee5ae0c5fd",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "bfa59f0c-e01e-459d-a690-9111d2094c7b",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "4e6d18c0-5d27-4669-b071-a7988153f854",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "452aa1f1-1c67-4474-be90-e82fc4d98abc",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "70bfa02c-c179-455a-8e68-ff884481f308",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "f9c79583-a70c-4f5a-b60c-57094b99b514",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30715349",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:14:50Z",
+      "created-at": "2021-12-09T01:13:28Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T15:14:50Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "3e3f4703-5d20-4318-b199-79f09fc10a17",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "c28a12d5-1c23-4255-a551-4e9ffa86be8e",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "aa03feec-d3b7-4ea7-97a5-ae10c1b32bc1",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "8df89cac-a5c8-42a2-8aa1-b7af8dbc8bc5",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH1610104",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:48Z",
+      "created-at": "2021-11-24T03:50:05Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USHOU",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T07:12:06Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "253a1715-1449-417d-a2bd-e005c7927021",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "bfa59f0c-e01e-459d-a690-9111d2094c7b",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "4e6d18c0-5d27-4669-b071-a7988153f854",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "d3661496-fab5-4e78-b3a8-9e8e15b6d2f8",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "abc8b91a-8aa8-4bcf-9473-8a50fb649942",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "02b67fb9-2ff6-47fd-8224-5f3d2aac8203",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUVLC10111487",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-16T02:27:13Z",
+      "created-at": "2021-12-09T14:52:48Z",
+      "tags": [],
+      "pol-raw": "ESVLC",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-16T02:27:12Z",
+      "line-tracking-stopped-at": "2022-01-16T02:27:13Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "d24763f7-4536-4dc6-90e7-74f6176d1bd5",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "af71d8ef-bfe9-4fdb-bc20-e5809eed5c77",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "3bb70d2c-4063-4a4f-b7cc-0941fae436e6",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "2680a3ba-578a-4d3e-8c04-b1f3ff326bc7",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "ad7366c3-f164-496c-8bc2-418b8b21b655",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "37ece831-363d-45bb-b766-c254dd8cfcb8",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30712297",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-18T13:50:43Z",
+      "created-at": "2021-12-03T00:25:20Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T01:46:00Z",
+      "line-tracking-stopped-at": "2022-01-18T13:50:43Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "dc6ba4b1-8345-48aa-ba6f-54cc11ec4e29",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "34a9a58e-0141-4780-92f9-32f49fdd857e",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "18ff10e3-136b-44e5-8018-9d6ce4655d2e",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "419ce32f-9b06-4cfc-ab80-6538d5ac57aa",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH7201597",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T14:22:57Z",
+      "created-at": "2021-10-28T03:50:10Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T22:00:02Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "b43bd103-74f5-4ff7-992a-63ca1b5e579e",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "6308735e-9add-4b9a-98a7-d21b42439a36",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "5f12bccf-d819-421f-9f1f-343e9b59c158",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "b03dba24-1168-42d3-b214-7e9788a6e513",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH1564355",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-29T03:59:52Z",
+      "created-at": "2021-10-29T09:50:26Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-29T03:59:52Z",
+      "line-tracking-stopped-at": "2021-12-29T03:59:52Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "0165d8aa-7f95-4baf-be5f-30efb2bdccb2",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "3296a589-ae96-4728-aa9a-cc003a260511",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "23c5c822-1933-4cb6-b3b8-f898271f66b1",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "952aa6e7-732c-4773-9f4b-fa6c7995a311",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH1564354",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-29T09:46:02Z",
+      "created-at": "2021-10-29T09:56:56Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-29T09:46:02Z",
+      "line-tracking-stopped-at": "2021-12-29T09:46:02Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "92aab4fb-74a1-405d-b9f5-dc1f877f9b36",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "bff7497d-06b1-4697-8938-a65f39497a17",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "98a793cd-0823-4d25-98be-3e38babddc8c",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "5ccbbc1d-8811-4cf6-a7d1-8eaf97dc9545",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9754592",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-18T20:31:51Z",
+      "created-at": "2021-10-20T03:45:28Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-18T20:31:50Z",
+      "line-tracking-stopped-at": "2021-12-18T20:31:51Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "232663b5-8e9e-4a01-8ca0-70d8624be507",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "40ea47c2-f892-4035-bde9-1a9891a3b0a0",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "f736aa1a-5b82-4e9b-9794-d3a3f95b26b0",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "f72922d3-7818-49c3-a547-27af9fb2740f",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9800873",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-22T05:34:53Z",
+      "created-at": "2021-10-21T07:07:39Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-22T05:34:53Z",
+      "line-tracking-stopped-at": "2021-12-22T05:34:53Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "92b7ed0c-a5df-4917-aebb-57fe85081f64",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "6a29f3a3-75c3-4cec-8214-e46ee3c4df3a",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "7723daa3-21b4-418f-86ad-0139c172c6a6",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "7f79c9e9-ff58-46c6-b7db-d065e40389dd",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9800874",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-21T23:54:01Z",
+      "created-at": "2021-10-21T07:00:18Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-21T23:54:01Z",
+      "line-tracking-stopped-at": "2021-12-21T23:54:01Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "60aeb2fa-2cec-4618-8bf2-2d790c8b0af6",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "23842947-59db-458f-a8eb-a4a3ed1bb045",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "4ec6a98a-084b-4a77-bfed-22791c7ed23a",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "0c84bd2b-bcbd-40fe-92ed-8f9a8db7502e",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9815266",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-10T14:11:37Z",
+      "created-at": "2021-10-20T03:31:18Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-10T14:11:37Z",
+      "line-tracking-stopped-at": "2022-01-10T14:11:37Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "97d58989-4fa3-487b-b392-bbb69e14f376",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "d66b29e4-a8c0-4ff4-b105-55634fcc6a55",
+            "type": "cargo"
+          },
+          {
+            "id": "13138c8f-4d2d-4020-aa85-b4cdff6a5da0",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "0e933b41-b8fd-4ba7-8cc3-274ada28b7ce",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "4750bb0c-5322-4d4e-938f-242ea327bd3e",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025545",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-16T17:51:13Z",
+      "created-at": "2021-10-19T03:31:37Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-16T17:51:13Z",
+      "line-tracking-stopped-at": "2021-12-16T17:51:13Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "5bd0c04c-ffed-4639-9368-ba6d0748f188",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "e551ecea-c097-4fdb-8534-2d194d4e8aad",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "53028bd1-a19c-4781-a076-a4dc3669cea5",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "edd416dd-bed2-4fae-9202-4f16d2c20d27",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB86025544",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-15T22:15:49Z",
+      "created-at": "2021-10-19T03:21:12Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-15T22:15:48Z",
+      "line-tracking-stopped-at": "2021-12-15T22:15:49Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "687dc432-016d-4594-b432-d4159376db75",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "15be2180-8067-450b-a84b-f5f4ad9b1be8",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "6b653de9-b511-4311-90fc-31b4c89bf99c",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "61d7c696-da66-4654-97e4-0ee609e24aa6",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUGOA1035046",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-19T15:24:52Z",
+      "created-at": "2021-09-20T13:27:58Z",
+      "tags": [],
+      "pol-raw": "ITGOA",
+      "pod-raw": "USLGB",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-19T05:57:25Z",
+      "line-tracking-stopped-at": null
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "8b2bef07-31f4-4506-b6e7-a35f1892fa8f",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "98818268-0d4f-4147-88a3-3b22b5cc9409",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "ce1f3283-4396-4b3f-b26a-025983bd8167",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "b6cb804b-3b95-4034-abb7-987fcd882629",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "64e8921d-b7cc-4a47-8450-0ab73e9d09f8",
+            "type": "cargo"
+          },
+          {
+            "id": "8458e050-a0fd-454b-911e-18d873408446",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "eaac965b-0d0c-4655-87e6-0ddc1b43d080",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "19086488-c044-41de-ba6b-9c5fb20c29c6",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSHH30702407",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-09T23:30:04Z",
+      "created-at": "2021-11-24T18:01:06Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-09T23:30:03Z",
+      "line-tracking-stopped-at": "2021-12-09T23:30:04Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "8f7e981d-afa5-4343-b5c0-fc8fe3e121f1",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "be063b62-b1cd-49c4-b945-f777fda672cb",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "8a00d65d-2a40-48bc-8fdd-26a02169b2df",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "73dcdeb9-e6f7-4f46-bbe5-df6314e1c43b",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUHKG83265525",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2022-01-18T13:08:49Z",
+      "created-at": "2021-10-10T00:00:17Z",
+      "tags": [],
+      "pol-raw": "CNYTN",
+      "pod-raw": "USLAX",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2022-01-18T13:08:49Z",
+      "line-tracking-stopped-at": "2022-01-18T13:08:49Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "9b294089-6d70-4bae-987b-1aa0eb03aaf9",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "87de081f-2471-4330-9b36-0fe9e36ed40e",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "47b27584-4ec9-4e2f-95e1-7a42928cc40c",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "495de461-2688-4e98-b7bd-89a57a8cc1ba",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "23744e25-5337-4c38-aaa7-eae463505e6e",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "bfdba789-e598-4404-9f67-e1c83ea1d168",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "01ff69cd-ef3a-4e2d-9b1c-dd99f54b36d6",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9800808",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-09T03:26:47Z",
+      "created-at": "2021-10-15T09:30:31Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-09T03:26:47Z",
+      "line-tracking-stopped-at": "2021-12-09T03:26:47Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "0290f19f-b038-445b-9208-b8848e077230",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "3ad9ac11-1a1a-4cd1-af2d-2d56d22b1f4f",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "89978e51-5f23-4b42-9a34-f1904966514d",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "edac0eb9-281c-480c-9780-a27a2a327351",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUNGB9800806",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-04T01:59:20Z",
+      "created-at": "2021-10-15T09:35:17Z",
+      "tags": [],
+      "pol-raw": "CNNGB",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-04T01:59:19Z",
+      "line-tracking-stopped-at": "2021-12-04T01:59:20Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "116d2d77-e289-487f-916c-e91e82be3f2b",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "2a90c27b-c2ee-45e2-892f-5c695d74e2d0",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "6b3b8337-6e4b-48b4-89f2-fc54e710c685",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "6075a495-f57e-4333-931b-7acdeb00789a",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "79521fb2-ffee-4980-8186-ef541da99ba5",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUXNG4169392",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-10T20:22:34Z",
+      "created-at": "2021-10-11T19:18:09Z",
+      "tags": [],
+      "pol-raw": "CNTXG",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-10T20:22:34Z",
+      "line-tracking-stopped-at": "2021-12-10T20:22:34Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "b66221fa-c2b1-44ef-8f9f-0e6233ccf4cc",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "ab50f08a-48b5-42b9-94c3-86fcb7660b3c",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "4332b875-f371-4676-bb32-70875dbea819",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "a611f655-58d1-4a0e-b2ed-878a0dab1de9",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  },
+  {
+    "id": "f67876bc-9f60-467e-a02b-acd36477c6a7",
+    "type": "shipment",
+    "attributes": {
+      "number": "ZIMUSNH7201571",
+      "ref-number": null,
+      "ref-numbers": [],
+      "updated-at": "2021-12-10T20:11:14Z",
+      "created-at": "2021-09-30T08:19:16Z",
+      "tags": [],
+      "pol-raw": "CNSGH",
+      "pod-raw": "USNYC",
+      "destination-raw": null,
+      "line-tracking-last-succeeded-at": "2021-12-10T20:11:14Z",
+      "line-tracking-stopped-at": "2021-12-10T20:11:14Z"
+    },
+    "relationships": {
+      "creator": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "bc0ccef0-7cd1-4e0b-b0ed-5222c7a7736d",
+          "type": "account"
+        }
+      },
+      "voyage": {
+        "data": {
+          "id": "8d20a988-51b3-428c-9f13-d7064e1d6e06",
+          "type": "voyage"
+        }
+      },
+      "shipping-line": {
+        "data": {
+          "id": "5e107f58-f73f-4c85-bd2a-da28b0778e68",
+          "type": "shipping-line"
+        }
+      },
+      "port-of-lading": {
+        "data": {
+          "id": "c8db7333-7912-4092-a370-9823965d1394",
+          "type": "port"
+        }
+      },
+      "port-of-discharge": {
+        "data": {
+          "id": "f7cb530a-9e60-412c-a5bc-205a2f34ba54",
+          "type": "port"
+        }
+      },
+      "pod-terminal": {
+        "data": {
+          "id": "f72f33ae-c1e9-49ab-811b-efafbbb3ce2f",
+          "type": "terminal"
+        }
+      },
+      "destination": {
+        "data": null
+      },
+      "destination-terminal": {
+        "data": null
+      },
+      "user": {
+        "data": null
+      },
+      "cargos": {
+        "data": [
+          {
+            "id": "97ce6ea2-d8fd-4033-91af-ccc5e259bf6d",
+            "type": "cargo"
+          }
+        ]
+      },
+      "booking-orders": {
+        "data": []
+      },
+      "shipment-participants": {
+        "data": [
+          {
+            "id": "98cdf126-da51-4145-a62c-341dce20032c",
+            "type": "shipment-participant"
+          }
+        ]
+      },
+      "cargo-shipment-events": {
+        "meta": {}
+      },
+      "documents": {
+        "meta": {}
+      },
+      "activities": {
+        "meta": {}
+      }
+    }
+  }
+]

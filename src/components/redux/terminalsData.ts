@@ -35,4 +35,8 @@ export const terminalsAvailable = [
     name: "Port Newark Container Terminal (PNCT)",
     firms: "F577",
   },
+  {
+    name: "GCT Bayonne LP",
+    firms: "E364",
+  },
 ];
