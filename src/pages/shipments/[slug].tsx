@@ -26,7 +26,7 @@ export default function ShipmentPage(data: any) {
   );
 }
 
-export async function getStaticProps(context: any) {
+export async function getServerSideProps(context: any) {
   console.log("hi", context);
   const { params } = context;
 
@@ -50,24 +50,24 @@ export async function getStaticProps(context: any) {
   };
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(
-    `https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2/shipments`,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  const content = await res.json();
-  return {
-    paths: content.map((ship: any) => ({
-      params: {
-        slug: ship.id,
-      },
-    })),
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     `https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2/shipments`,
+//     {
+//       method: "GET",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   );
+//   const content = await res.json();
+//   return {
+//     paths: content.map((ship: any) => ({
+//       params: {
+//         slug: ship.id,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
