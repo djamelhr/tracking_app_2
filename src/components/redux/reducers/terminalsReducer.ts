@@ -18,6 +18,7 @@ const initialState: terminalState = {
   message: "",
   terminal_name: "",
   terminal_frims: "",
+  terminal_description: "",
   contianer_number: "",
   bol: "",
 };
@@ -45,6 +46,7 @@ export default (
         ...state,
         terminal_name: action.payload,
         terminal_frims: objNames?.firms,
+        terminal_description: objNames?.description,
       };
     case SET_TERMINAL_FIRMS:
       let objFirms = terminalsAvailable.find(
@@ -54,6 +56,7 @@ export default (
         ...state,
         terminal_frims: action.payload,
         terminal_name: objFirms?.name,
+        terminal_description: objFirms?.description,
       };
     case SET_BOL:
       return {

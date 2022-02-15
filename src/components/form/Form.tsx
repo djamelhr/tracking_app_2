@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,13 +10,16 @@ import {
 } from "../redux/actions/terminalsActions";
 import { RootState } from "../redux/store";
 import { terminalsAvailable } from "../redux/terminalsData";
-
+const myLoader = ({ src, width, height }: any) => {
+  return `https://res.cloudinary.com/superbass/image/upload/b_rgb:2be513,c_scale,h_${height},w_${width}${src}`;
+};
 const Form = () => {
   const dispatch = useDispatch();
   const {
     data,
     terminal_frims,
     terminal_name,
+    terminal_description,
     bol,
     contianer_number,
     loading,
@@ -109,6 +113,15 @@ const Form = () => {
             </div>
           </div>
 
+          <div className="w-full px-3 mt-2">
+            <div className="relative">
+              <p className="ml-2 text-green-700 uppercase font-bold">
+                {" "}
+                {terminal_description}
+              </p>
+            </div>
+          </div>
+
           <div className="w-full md:w-1/2 px-3 mb-6 mt-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -117,15 +130,16 @@ const Form = () => {
               Container
             </label>
             <div className="relative">
-              <input
+              <textarea
+                placeholder="Enter one or more Container Numbers , separated by commas."
                 className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
-                type="text"
+                rows={4}
                 onChange={(event) =>
                   dispatch(SetContainerNumber(event.target.value))
                 }
                 value={contianer_number}
-              ></input>
+              ></textarea>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
             </div>
           </div>
@@ -137,13 +151,14 @@ const Form = () => {
               BOL
             </label>
             <div className="relative">
-              <input
+              <textarea
+                placeholder="Enter one or more Bills of Lading, separated by commas."
                 className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
+                rows={4}
                 value={bol}
-                type="text"
                 onChange={(event) => dispatch(SetBol(event.target.value))}
-              ></input>
+              ></textarea>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"></div>
             </div>
           </div>

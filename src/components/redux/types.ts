@@ -6,6 +6,18 @@ export const SET_TERMINAL_NAME = "SET_TERMINAL_NAME";
 export const SET_TERMINAL_FIRMS = "SET_TERMINAL_FIRMS";
 export const SET_BOL = "SET_BOL";
 export const SET_CONTAINER_NUMBER = "SET_CONTAINER_NUMBER";
+export const GET_SHIPMENTS = "GET_SHIPMENTS";
+export const REFRESH_SHIPMENT = "REFRESH_SHIPMENT";
+export const SET_SHIPPING_LINES = "SET_SHIPPING_LINES";
+export const GET_SHIPPING_LINES = "GET_SHIPPING_LINES";
+export const SET_REQUEST_NUMBER = "SET_REQUEST_NUMBER";
+export const ADD_SHIPMENT = "ADD_SHIPMENT";
+export const GET_TRACKING_REQUESTS = "GET_TRACKING_REQUESTS";
+export const SET_LOADING_TRACKING_REQUESTS = "SET_LOADING_TRACKING_REQUESTS";
+export const SET_ERROR_TRACKING_REQUESTS = "SET_ERROR_TRACKING_REQUESTS";
+export const SET_TRACKING_REQUEST_SUCCESS = "SET_ERROR_TRACKING_REQUESTS";
+export const SET_LOADING_SHIPMENTS = "SET_LOADING_SHIPMENTS";
+export const REFRESHE_SHIPMENT = "REFRESHE_SHIPMENT";
 
 export interface ResponseData {
   request_type: string;
@@ -32,6 +44,23 @@ export interface Holds_Released {
   name: string;
   status: string;
 }
+export interface shipmentState {
+  data: any[] | null;
+  loadingShipments: boolean;
+  error: string;
+  success: string;
+  message: string;
+  shipping_line_name?: string;
+  request_number?: string;
+}
+
+export interface trackingRequestsState {
+  TrackingRequestsdata: any[] | null;
+  trackingRequestsLoading: boolean;
+  trackingRequestsError: string;
+  trackingRequestsSuccess: string;
+  trackingRequestsMessage: string;
+}
 export interface terminalState {
   data: any;
   loading: boolean;
@@ -40,6 +69,7 @@ export interface terminalState {
   message: string;
   terminal_name?: string;
   terminal_frims?: string;
+  terminal_description?: string;
   contianer_number?: string;
   bol?: string;
 }
@@ -53,6 +83,30 @@ export interface TerminalData {
   pickup_at?: string | null;
 }
 
+interface GetShipments {
+  type: typeof GET_SHIPMENTS;
+  payload: any;
+}
+interface GetTracking_requests {
+  type: typeof GET_TRACKING_REQUESTS;
+  payload: any;
+}
+interface AddShipment {
+  type: typeof ADD_SHIPMENT;
+}
+interface SetShippingLinesName {
+  type: typeof SET_SHIPPING_LINES;
+  payload: string;
+}
+
+interface SetRequestNumber {
+  type: typeof SET_REQUEST_NUMBER;
+  payload: string;
+}
+interface RefreshShipment {
+  type: typeof REFRESH_SHIPMENT;
+}
+
 interface GetTerminals {
   type: typeof GET_TERMINAL;
   payload: any;
@@ -61,6 +115,11 @@ interface SetLoadingAction {
   type: typeof SET_LOADING;
   payload: boolean;
 }
+interface SetLoadingShipmentsAction {
+  type: typeof SET_LOADING_SHIPMENTS;
+  payload: boolean;
+}
+
 interface SetErrorAction {
   type: typeof SET_ERROR;
   payload: string;
@@ -81,11 +140,26 @@ interface SetBol {
   type: typeof SET_BOL;
   payload: string;
 }
+interface refresheShipment {
+  type: typeof REFRESHE_SHIPMENT;
+}
+
 interface SetContainerNumber {
   type: typeof SET_CONTAINER_NUMBER;
   payload: string;
 }
-
+interface SetTrackingRequestSuccessAction {
+  type: typeof SET_TRACKING_REQUEST_SUCCESS;
+  payload: string;
+}
+interface SetTrackingRequestErrorAction {
+  type: typeof SET_ERROR_TRACKING_REQUESTS;
+  payload: string;
+}
+interface SetTrackingRequestLoadingAction {
+  type: typeof SET_LOADING_TRACKING_REQUESTS;
+  payload: boolean;
+}
 export type TerminalListAction =
   | GetTerminals
   | SetErrorAction
@@ -95,3 +169,19 @@ export type TerminalListAction =
   | SetTerminalName
   | SetBol
   | SetContainerNumber;
+
+export type ShipmentListAction =
+  | GetShipments
+  | SetShippingLinesName
+  | SetRequestNumber
+  | RefreshShipment
+  | SetErrorAction
+  | SetLoadingShipmentsAction
+  | SetSuccessAction
+  | refresheShipment
+  | AddShipment;
+export type TrackingRequestsListAction =
+  | GetTracking_requests
+  | SetTrackingRequestErrorAction
+  | SetTrackingRequestLoadingAction
+  | SetTrackingRequestSuccessAction;
