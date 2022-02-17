@@ -14,7 +14,7 @@ import {
 const proxy =
   process.env.NODE_ENV === "production"
     ? "https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2"
-    : "https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2";
+    : "http://localhost:4005/djomake/us-central1/nbl_function/api/v2";
 
 export const getTrackingRequests = (): ThunkAction<
   void,

@@ -13,10 +13,19 @@ const TrackingRequestsCard = ({ trackingRequest }: any) => {
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {trackingRequest.scac}
         </div>
-        <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
-          {trackingRequest.status}
+        {trackingRequest.status === "not found" ? (
+          <div className=" text-xs uppercase px-2 py-1   text-red-500 font-bold">
+            {trackingRequest.status}
+          </div>
+        ) : (
+          <div className=" text-xs uppercase px-2 py-1   text-black-200 font-bold">
+            {trackingRequest.status}
+          </div>
+        )}
+
+        <div className="text-sm">
+          {moment(trackingRequest.created_at).format("MMM DD ,h:mma")}{" "}
         </div>
-        <div className="text-sm">{trackingRequest.created_at}</div>
       </div>
     </div>
   );

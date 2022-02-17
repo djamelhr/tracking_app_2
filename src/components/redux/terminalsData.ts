@@ -84,6 +84,11 @@ export const terminalsAvailable = [
     description: "input one bl , get one or many containers",
     firms: "Y773",
   },
+  {
+    name: "GCT New York LP - (NJ)",
+    description: "input  bl(s) & Container(s) ",
+    firms: "E005",
+  },
 ];
 
 //add multiple

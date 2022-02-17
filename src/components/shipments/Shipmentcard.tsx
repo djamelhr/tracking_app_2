@@ -8,7 +8,7 @@ const Shipmentcard = ({ shipment }: any) => {
   return (
     <a className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
       <div className="flex justify-between items-center px-6 py-4">
-        <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
+        <div className="bg-orange-600 text-lg uppercase px-2 py-1 text-green-500   font-bold">
           <Link key={shipment.id} href={`/shipments/${shipment.id}`}>
             <a> {shipment.number}</a>
           </Link>
@@ -18,9 +18,17 @@ const Shipmentcard = ({ shipment }: any) => {
         </div>
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {shipment.port_of_discharge_name}
+          <p>{shipment.destination_name ? shipment.destination_name : ""}</p>
         </div>
         <div className="text-sm">
-          {shipment.voyage.pod_eta_at ? shipment.voyage.pod_eta_at : "No ETA"}{" "}
+          {shipment.voyage.pod_eta_at
+            ? moment(shipment.voyage.pod_eta_at).format("MMM DD ")
+            : "No ETA"}{" "}
+          <p>
+            {shipment.voyage.destination_eta_at
+              ? moment(shipment.voyage.destination_eta_at).format("MMM DD ")
+              : ""}
+          </p>
         </div>
       </div>
     </a>
