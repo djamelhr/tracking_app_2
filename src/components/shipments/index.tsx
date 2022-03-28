@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getShipments } from "../redux/actions/shipmentsActions";
+import { Ishipment } from "../redux/interfaces";
 import { RootState } from "../redux/store";
 import Shipmentcard from "./Shipmentcard";
 
@@ -15,9 +16,18 @@ const MainShipments = () => {
     dispatch(getShipments());
   }, [dispatch]);
 
-  const fer = (data: any) => {
-    return data.map((shipment: any) => {
-      <Shipmentcard shipment={shipment} />;
+  const fer = (data: Ishipment[]) => {
+    return data.map((shipment: Ishipment) => {
+      <Shipmentcard
+        containers={shipment.containers}
+        id={shipment.id}
+        number={shipment.number}
+        pod_terminal={shipment.pod_terminal}
+        voyage={shipment.voyage}
+        port_of_lading_name={shipment.port_of_lading_name}
+        port_of_discharge_name={shipment.port_of_discharge_name}
+        destination_name={shipment.destination_name}
+      />;
     });
   };
 
@@ -50,8 +60,18 @@ const MainShipments = () => {
 
         {data?.length === 0
           ? "No shipment"
-          : data.map((shipment: any) => (
-              <Shipmentcard key={shipment.id} shipment={shipment} />
+          : data.map((shipment: Ishipment) => (
+              <Shipmentcard
+                key={shipment.id}
+                containers={shipment.containers}
+                id={shipment.id}
+                number={shipment.number}
+                pod_terminal={shipment.pod_terminal}
+                voyage={shipment.voyage}
+                port_of_lading_name={shipment.port_of_lading_name}
+                port_of_discharge_name={shipment.port_of_discharge_name}
+                destination_name={shipment.destination_name}
+              />
             ))}
       </div>
     </div>
