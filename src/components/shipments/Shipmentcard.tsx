@@ -14,6 +14,11 @@ const Shipmentcard = ({
   port_of_lading_name,
   port_of_discharge_name,
   destination_name,
+  created_at,
+  pod_terminal_name,
+  shipping_lines,
+  updated_at,
+  vessel,
 }: Ishipment) => {
   return (
     <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">

@@ -19,6 +19,7 @@ const MainShipments = () => {
   const fer = (data: Ishipment[]) => {
     return data.map((shipment: Ishipment) => {
       <Shipmentcard
+        key={shipment.id}
         containers={shipment.containers}
         id={shipment.id}
         number={shipment.number}
@@ -27,6 +28,11 @@ const MainShipments = () => {
         port_of_lading_name={shipment.port_of_lading_name}
         port_of_discharge_name={shipment.port_of_discharge_name}
         destination_name={shipment.destination_name}
+        created_at={shipment.created_at}
+        pod_terminal_name={shipment.pod_terminal_name}
+        shipping_lines={shipment.shipping_lines}
+        updated_at={shipment.updated_at}
+        vessel={shipment.vessel}
       />;
     });
   };
@@ -71,6 +77,11 @@ const MainShipments = () => {
                 port_of_lading_name={shipment.port_of_lading_name}
                 port_of_discharge_name={shipment.port_of_discharge_name}
                 destination_name={shipment.destination_name}
+                created_at={shipment.created_at}
+                pod_terminal_name={shipment.pod_terminal_name}
+                shipping_lines={shipment.shipping_lines}
+                updated_at={shipment.updated_at}
+                vessel={shipment.vessel}
               />
             ))}
       </div>
