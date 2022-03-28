@@ -4,13 +4,9 @@ import moment from "moment";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addShipmentNotracking,
-  AddTermialToShipment,
-  getShipmentById,
   getShipments,
   refresheShipment,
   removeShipment,
-  tracking_requests_at_terminal,
 } from "../../components/redux/actions/shipmentsActions";
 import Containershipment from "../../components/shipments/ContainerData";
 import { useEffect, useState } from "react";
@@ -24,6 +20,8 @@ export default function ShipmentPage(shipment: any) {
   const dispatch = useDispatch();
   const [terminalname, setTerminalName] = useState<string>("");
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const { res } = useSelector((state: RootState) => state.shipments);
   const router = useRouter();
   // Call this function whenever you want to
@@ -110,6 +108,7 @@ export default function ShipmentPage(shipment: any) {
       if (shipment.containers[0].cntnr === null) {
         request_type = "initial_request";
       }
+      setLoading(true);
       const res = await fetch(
         `${proxy}/v2/cargo/${request_type}/${shipment.id}`,
         {
@@ -122,6 +121,7 @@ export default function ShipmentPage(shipment: any) {
       );
 
       if (res.status < 300) {
+        setLoading(false);
         refreshData();
       }
     } catch (error) {
@@ -262,13 +262,20 @@ export default function ShipmentPage(shipment: any) {
           {" "}
           <button
             onClick={trackShipmentAtTerminal}
-            className="block appearance-none w-full bg-gray-900 border text-center border-gray-200 text-white py-3 px-4 pr-8 rounded-full leading-tight focus:outline-none focus:bg-blue-900 focus:border-gray-500"
+            className="block appearance-none w-full bg-gray-900 border text-center border-gray-200 text-white py-3 px-4 pr-8 rounded-full leading-tight  focus:border-gray-500"
             type="submit"
           >
             Track on terminal
           </button>
+          {loading && (
+            <svg
+              className="animate-spin  h-5 w-5 mr-3 border-t-2 border-b-2 border-black"
+              viewBox="0 0 24 24"
+            ></svg>
+          )}
         </div>
       </div>
+
       <div className="m-2 p-3 bg-white w-2/3   items-center mt-1   border-lg">
         {shipment.containers.map((con: any) => (
           <Containershipment

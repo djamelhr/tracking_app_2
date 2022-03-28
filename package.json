@@ -23,6 +23,7 @@
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.180",
     "@types/react": "^17.0.38",
     "@types/redux-logger": "^3.0.9",
     "@types/redux-thunk": "^2.1.0",
