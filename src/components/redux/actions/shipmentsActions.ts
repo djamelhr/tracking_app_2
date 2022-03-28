@@ -1,4 +1,5 @@
 import { ThunkAction } from "redux-thunk";
+import { proxy } from "../proxy";
 
 import { RootState } from "../store";
 
@@ -13,12 +14,14 @@ import {
   ADD_SHIPMENT,
   SET_REQUEST_NUMBER,
   SET_LOADING_SHIPMENTS,
+  REMOVE_SHIPMENT,
+  TRACKING_REQUEST_AT_TERMINAL,
+  ADD_SHIPMENT_NO_TRACKING,
+  SET_NOTIFICATION,
+  NotificationAction,
+  ADD_TERMINAL_TO_SHIPMENT,
+  GET_SHIPMENT_BY_ID,
 } from "../types";
-
-const proxy =
-  process.env.NODE_ENV === "production"
-    ? "https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2"
-    : "http://localhost:4005/djomake/us-central1/nbl_function/api/v2";
 
 export const getShipments = (): ThunkAction<
   void,
@@ -32,7 +35,7 @@ export const getShipments = (): ThunkAction<
         type: SET_LOADING_SHIPMENTS,
         payload: true,
       });
-      const res = await fetch(`${proxy}/shipments`, {
+      const res = await fetch(`${proxy}/v2/shipments`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -53,12 +56,128 @@ export const getShipments = (): ThunkAction<
     }
   };
 };
+
+export const tracking_requests_at_terminal = (
+  data: any
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        `${proxy}/v2/cargo/${data.request_type}/${data.shipmentId}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const content = await res.json();
+      console.log("rresss", content);
+
+      if (res.status === 200) {
+        dispatch({
+          type: TRACKING_REQUEST_AT_TERMINAL,
+          payload: res,
+        });
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: "updated!!",
+            type: "succss",
+          },
+        });
+      } else {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: res.statusText,
+            type: "danger",
+          },
+        });
+        dispatch({
+          type: SET_ERROR,
+          payload: "error.message",
+        });
+      }
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const removeShipment = (
+  id: string
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v2/shipments/${id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      if (res) {
+        dispatch({
+          type: REMOVE_SHIPMENT,
+        });
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: "deleted !!",
+            type: "danger",
+          },
+        });
+      } else {
+        dispatch({
+          type: SET_ERROR,
+          payload: "error.message",
+        });
+      }
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const getShipmentById = (
+  id: string
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v2/shipments/${id}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const content = await res.json();
+      dispatch({
+        type: GET_SHIPMENT_BY_ID,
+        payload: content,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
 export const refresheShipment = (
   id: string
 ): ThunkAction<void, RootState, null, ShipmentListAction> => {
   return async (dispatch) => {
     try {
-      const res = await fetch(`${proxy}/shipments/${id}`, {
+      const res = await fetch(`${proxy}/v2/shipments/${id}`, {
         method: "PUT",
         headers: {
           Accept: "application/json",
@@ -68,6 +187,95 @@ export const refresheShipment = (
 
       dispatch({
         type: REFRESH_SHIPMENT,
+      });
+      dispatch({
+        type: SET_NOTIFICATION,
+        payload: {
+          msg: "updated !!",
+          type: "succss",
+        },
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const addShipmentNotracking = (
+  data: any
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      // dispatch({
+      //   type: SET_LOADING,
+      //   payload: true,
+      // });
+      const res = await fetch(`${proxy}/v2/shipments/addshipment`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const content = await res.json();
+      if (content.status === 200) {
+        dispatch({
+          type: ADD_SHIPMENT_NO_TRACKING,
+        });
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: "added !!",
+            type: "succss",
+          },
+        });
+      } else {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: content.errors[0].detail,
+            type: "danger",
+          },
+        });
+      }
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const AddTermialToShipment = (
+  data: any
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      // dispatch({
+      //   type: SET_LOADING,
+      //   payload: true,
+      // });
+      const res = await fetch(`${proxy}/v2/shipments/addTerminal`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      dispatch({
+        type: ADD_TERMINAL_TO_SHIPMENT,
+      });
+      dispatch({
+        type: SET_NOTIFICATION,
+        payload: {
+          msg: "added !!",
+          type: "succss",
+        },
       });
     } catch (error: any) {
       dispatch({
@@ -86,7 +294,7 @@ export const addShipment = (
       //   type: SET_LOADING,
       //   payload: true,
       // });
-      const res = await fetch(`${proxy}/tracking_requests`, {
+      const res = await fetch(`${proxy}/v2/tracking_requests`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -97,6 +305,13 @@ export const addShipment = (
 
       dispatch({
         type: ADD_SHIPMENT,
+      });
+      dispatch({
+        type: SET_NOTIFICATION,
+        payload: {
+          msg: "added !!",
+          type: "succss",
+        },
       });
     } catch (error: any) {
       dispatch({

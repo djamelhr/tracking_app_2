@@ -1,4 +1,5 @@
 import { ThunkAction } from "redux-thunk";
+import { proxy } from "../proxy";
 
 import { RootState } from "../store";
 
@@ -10,11 +11,6 @@ import {
   SET_LOADING_TRACKING_REQUESTS,
   SET_ERROR_TRACKING_REQUESTS,
 } from "../types";
-
-const proxy =
-  process.env.NODE_ENV === "production"
-    ? "https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v2"
-    : "http://localhost:4005/djomake/us-central1/nbl_function/api/v2";
 
 export const getTrackingRequests = (): ThunkAction<
   void,
@@ -28,7 +24,7 @@ export const getTrackingRequests = (): ThunkAction<
         type: SET_LOADING_TRACKING_REQUESTS,
         payload: true,
       });
-      const res = await fetch(`${proxy}/tracking_requests`, {
+      const res = await fetch(`${proxy}/v2/tracking_requests`, {
         method: "GET",
         headers: {
           Accept: "application/json",

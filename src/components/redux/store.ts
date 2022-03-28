@@ -8,12 +8,14 @@ import themeModeReducer from "./reducers/darkMode";
 import TerminalsReducer from "./reducers/terminalsReducer";
 import shipmentsReducer from "./reducers/shipments.Reducer";
 import trackingRequestsReducer from "./reducers/trackingRequestsReducer";
+import notificationReducer from "./reducers/notificationReducer";
 
 const rootReducer = combineReducers({
   themeMode: themeModeReducer,
   terminal: TerminalsReducer,
   shipments: shipmentsReducer,
   tracking_requests: trackingRequestsReducer,
+  notification: notificationReducer,
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

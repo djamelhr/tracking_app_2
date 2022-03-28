@@ -21,7 +21,7 @@ export const terminalsAvailable = [
   },
   {
     name: "Maher Terminal",
-    description: "Maher fetch by BOL(s)",
+    description: "Maher  Container(s) & Bol check",
     firms: "E416",
   },
   {
@@ -46,7 +46,7 @@ export const terminalsAvailable = [
   },
   {
     name: "GCT Bayonne LP",
-    description: "FMS fetch by Container(s) & Bol check",
+    description: "fetch Bol",
     firms: "E364",
   },
   {
@@ -78,6 +78,11 @@ export const terminalsAvailable = [
     name: "Everport Terminal Services (ETS) - (LA)",
     description: "ETS fetch by BOL(s)",
     firms: "Y124",
+  },
+  {
+    name: "Everport Terminal Services (ETS) - (OAK)",
+    description: "ETS fetch by BOL(s)",
+    firms: "Y738",
   },
   {
     name: "West Basin Container Terminal (WBCT) - (LA)",

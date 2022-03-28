@@ -1,17 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import moment from "moment";
 import Link from "next/link";
+import Containercard from "./containerCard";
+import { useDispatch } from "react-redux";
+import { getShipmentById } from "../redux/actions/shipmentsActions";
 const Shipmentcard = ({ shipment }: any) => {
   console.log(shipment, "ffff");
+  const dispatch = useDispatch();
 
   return (
-    <a className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
+    <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
       <div className="flex justify-between items-center px-6 py-4">
-        <div className="bg-orange-600 text-lg uppercase px-2 py-1 text-green-500   font-bold">
+        <div className="bg-orange-600  uppercase px-2 py-1 text-green-500   ">
           <Link key={shipment.id} href={`/shipments/${shipment.id}`}>
-            <a> {shipment.number}</a>
+            <a
+              //  onClick={() => dispatch(getShipmentById(shipment.id))}
+              className="font-bold text-lg "
+            >
+              {" "}
+              {shipment.number}
+            </a>
           </Link>
+          <p className="text-gray-700 lowercase ">
+            {shipment.containers?.length}{" "}
+            {shipment.containers?.length === 1 ? "container" : "containers"}{" "}
+          </p>
+          <p className="text-sm text-gray-700">
+            {shipment.pod_terminal?.nickname
+              ? shipment.pod_terminal?.nickname
+              : null}
+            /
+            <strong className="text-xs">
+              {shipment.pod_terminal?.nickname
+                ? shipment.pod_terminal?.frims_code
+                : null}
+            </strong>
+          </p>
         </div>
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {shipment.port_of_lading_name}
@@ -20,18 +45,29 @@ const Shipmentcard = ({ shipment }: any) => {
           {shipment.port_of_discharge_name}
           <p>{shipment.destination_name ? shipment.destination_name : ""}</p>
         </div>
-        <div className="text-sm">
-          {shipment.voyage.pod_eta_at
-            ? moment(shipment.voyage.pod_eta_at).format("MMM DD ")
-            : "No ETA"}{" "}
-          <p>
-            {shipment.voyage.destination_eta_at
-              ? moment(shipment.voyage.destination_eta_at).format("MMM DD ")
-              : ""}
-          </p>
-        </div>
+        {shipment.voyage ? (
+          <div className="text-sm">
+            {shipment.voyage.pod_eta_at
+              ? moment(shipment.voyage.pod_eta_at).format("MMM DD ")
+              : "No ETA"}{" "}
+            <p>
+              {shipment.voyage.destination_eta_at
+                ? moment(shipment.voyage.destination_eta_at).format("MMM DD ")
+                : ""}
+            </p>
+          </div>
+        ) : (
+          <div className="text-sm">
+            <p></p>
+          </div>
+        )}
       </div>
-    </a>
+      <div>
+        {shipment.containers.map((con: any) => (
+          <Containercard key={con.id} container={con} />
+        ))}
+      </div>
+    </div>
   );
 };
 

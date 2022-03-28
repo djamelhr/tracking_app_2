@@ -27,7 +27,7 @@ const MainShipments = () => {
   return (
     <div>
       <Link href="/new_bl">
-        <button className=" absolute bottom-5 right-5  px-5 py-2 text-lg font-bold tracking-wide text-white bg-green-500 rounded-full focus:outline-none">
+        <button className=" fixed bottom-5 right-5  px-5 py-2 text-lg font-bold tracking-wide text-white bg-green-500 rounded-full focus:outline-none">
           Add Shipment
         </button>
       </Link>

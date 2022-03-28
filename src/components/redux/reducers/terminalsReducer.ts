@@ -8,6 +8,7 @@ import {
   SET_CONTAINER_NUMBER,
   SET_BOL,
   SET_LOADING,
+  SET_ERROR,
 } from "../types";
 
 const initialState: terminalState = {
@@ -72,6 +73,12 @@ export default (
       return {
         ...state,
         loading: action.payload,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     default:
       return state;

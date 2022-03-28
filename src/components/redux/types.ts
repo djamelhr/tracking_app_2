@@ -18,6 +18,12 @@ export const SET_ERROR_TRACKING_REQUESTS = "SET_ERROR_TRACKING_REQUESTS";
 export const SET_TRACKING_REQUEST_SUCCESS = "SET_ERROR_TRACKING_REQUESTS";
 export const SET_LOADING_SHIPMENTS = "SET_LOADING_SHIPMENTS";
 export const REFRESHE_SHIPMENT = "REFRESHE_SHIPMENT";
+export const REMOVE_SHIPMENT = "REMOVE_SHIPMENT";
+export const TRACKING_REQUEST_AT_TERMINAL = "TRACKING_REQUEST_AT_TERMINAL";
+export const ADD_SHIPMENT_NO_TRACKING = "ADD_SHIPMENT_NO_TRACKING";
+export const SET_NOTIFICATION = "SET_NOTIFICATION";
+export const ADD_TERMINAL_TO_SHIPMENT = "ADD_TERMINAL_TO_SHIPMENT";
+export const GET_SHIPMENT_BY_ID = "GET_SHIPMENT_BY_ID";
 
 export interface ResponseData {
   request_type: string;
@@ -52,6 +58,8 @@ export interface shipmentState {
   message: string;
   shipping_line_name?: string;
   request_number?: string;
+  shipment: any;
+  res: any;
 }
 
 export interface trackingRequestsState {
@@ -87,12 +95,30 @@ interface GetShipments {
   type: typeof GET_SHIPMENTS;
   payload: any;
 }
+interface getShipmentById {
+  type: typeof GET_SHIPMENT_BY_ID;
+  payload: any;
+}
+interface tracking_requests_at_terminal {
+  type: typeof TRACKING_REQUEST_AT_TERMINAL;
+  payload: any;
+}
 interface GetTracking_requests {
   type: typeof GET_TRACKING_REQUESTS;
   payload: any;
 }
 interface AddShipment {
   type: typeof ADD_SHIPMENT;
+}
+interface AddTermialToShipment {
+  type: typeof ADD_TERMINAL_TO_SHIPMENT;
+}
+
+interface AddShipmentNotracking {
+  type: typeof ADD_SHIPMENT_NO_TRACKING;
+}
+interface RemoveShipment {
+  type: typeof REMOVE_SHIPMENT;
 }
 interface SetShippingLinesName {
   type: typeof SET_SHIPPING_LINES;
@@ -160,6 +186,14 @@ interface SetTrackingRequestLoadingAction {
   type: typeof SET_LOADING_TRACKING_REQUESTS;
   payload: boolean;
 }
+
+interface SetNotificationAction {
+  type: typeof SET_NOTIFICATION;
+  payload: {
+    msg: string;
+    type: string;
+  };
+}
 export type TerminalListAction =
   | GetTerminals
   | SetErrorAction
@@ -179,9 +213,22 @@ export type ShipmentListAction =
   | SetLoadingShipmentsAction
   | SetSuccessAction
   | refresheShipment
-  | AddShipment;
+  | AddShipment
+  | tracking_requests_at_terminal
+  | AddShipmentNotracking
+  | SetNotificationAction
+  | AddTermialToShipment
+  | getShipmentById
+  | RemoveShipment;
 export type TrackingRequestsListAction =
   | GetTracking_requests
   | SetTrackingRequestErrorAction
   | SetTrackingRequestLoadingAction
   | SetTrackingRequestSuccessAction;
+
+export type NotificationAction = SetNotificationAction;
+
+export interface NotificationState {
+  message: string;
+  type: string;
+}

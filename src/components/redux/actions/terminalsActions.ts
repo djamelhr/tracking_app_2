@@ -1,4 +1,5 @@
 import { ThunkAction } from "redux-thunk";
+import { proxy } from "../proxy";
 
 import { RootState } from "../store";
 
@@ -13,11 +14,6 @@ import {
   SET_CONTAINER_NUMBER,
 } from "../types";
 
-const proxy =
-  process.env.NODE_ENV === "production"
-    ? "https://us-central1-djomake.cloudfunctions.net/nbl_function/api/v1"
-    : "http://localhost:4005/djomake/us-central1/nbl_function/api/v1";
-
 export const getContainer = (
   data: any
 ): ThunkAction<void, RootState, null, TerminalListAction> => {
@@ -27,7 +23,7 @@ export const getContainer = (
         type: SET_LOADING,
         payload: true,
       });
-      const res = await fetch(`${proxy}/terminal`, {
+      const res = await fetch(`${proxy}/v2/terminal`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -42,9 +38,10 @@ export const getContainer = (
         payload: content,
       });
     } catch (error: any) {
+      console.log(error);
       dispatch({
         type: SET_ERROR,
-        payload: error.message,
+        payload: error,
       });
     }
   };

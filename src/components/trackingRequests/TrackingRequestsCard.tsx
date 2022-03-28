@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 
 import moment from "moment";
 const TrackingRequestsCard = ({ trackingRequest }: any) => {
-  console.log(trackingRequest, "ffff");
-
   return (
     <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
       <div className="flex justify-between items-center px-6 py-4">
