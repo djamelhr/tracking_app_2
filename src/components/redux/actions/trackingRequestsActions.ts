@@ -37,6 +37,7 @@ export const getTrackingRequests = (): ThunkAction<
         type: GET_TRACKING_REQUESTS,
         payload: content,
       });
+      console.log("ferr", content);
     } catch (error: any) {
       dispatch({
         type: SET_ERROR_TRACKING_REQUESTS,

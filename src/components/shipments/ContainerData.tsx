@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 // import { tracking_requests_at_terminal } from "../redux/actions/shipmentsActions";
 // import { terminalsAvailable } from "../redux/terminalsData";
-import moment from "moment";
 
 import TableEvent from "./Eventstable";
 import HistoryAtTerminal from "./HistoryAtTerminal";

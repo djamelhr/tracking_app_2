@@ -25,18 +25,30 @@ const TableEvent = ({ events }: any) => {
 
       <tbody>
         {events?.map((el: any, index: number) => (
-          <tr key={index} className="border-solid border-gray-300 border-2">
+          <tr
+            key={index}
+            style={el.actual_at ? { color: "black" } : { opacity: 0.6 }}
+            className="border-solid border-gray-300 border-2"
+          >
             <th className="border-solid border-2 border-gray-300 px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
               {el.event ? el.event : el.original_event}
             </th>
             <td className="border-solid border-2 border-gray-300 px-6 align-middle  text-xs whitespace-nowrap p-3 ">
-              {el.location_raw}
+              {el.location_raw?.metro_area || el.location_raw?.port
+                ? el.location_raw.metro_area
+                  ? el.location_raw.metro_area?.name +
+                    ", " +
+                    el.location_raw.metro_area?.country_code
+                  : el.location_raw.port?.name +
+                    ", " +
+                    el.location_raw.port?.country_code
+                : el.scraper_location + "*"}
             </td>
             <td className="border-solid border-2 border-gray-300 px-6 align-center  text-xs whitespace-nowrap p-3">
               {el.voyage_num ? el.voyage_num : ""}
             </td>
             <td className="border-solid border-2 border-gray-300 px-6 align-center  text-xs whitespace-nowrap p-3">
-              {el.actual_at}
+              {el.actual_at ? el.actual_at : el.estimated_at}
             </td>
           </tr>
         ))}

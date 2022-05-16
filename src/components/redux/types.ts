@@ -24,6 +24,22 @@ export const ADD_SHIPMENT_NO_TRACKING = "ADD_SHIPMENT_NO_TRACKING";
 export const SET_NOTIFICATION = "SET_NOTIFICATION";
 export const ADD_TERMINAL_TO_SHIPMENT = "ADD_TERMINAL_TO_SHIPMENT";
 export const GET_SHIPMENT_BY_ID = "GET_SHIPMENT_BY_ID";
+export const GET_TERMINAL_OTHER_NAMES = "GET_TERMINAL_OTHER_NAMES";
+export const SET_LOADING_OTHER_NAME = "SET_LOADING_OTHER_NAME";
+export const ADD_TERMINAL_OTHER_NAMES = "ADD_TERMINAL_OTHER_NAMES";
+export const GET_ALL_TERMINALS = "GET_ALL_TERMINALS";
+export const GET_PORT_OTHER_NAMES = "GET_PORT_OTHER_NAMES";
+export const ADD_PORT_OTHER_NAMES = "ADD_PORT_OTHER_NAMES";
+export const GET_ALL_PORTS = "GET_ALL_PORTS";
+export const SET_LOADING_PORT_NAME = "SET_LOADING_PORT_NAME";
+export const GET_RAILS_OTHER_NAMES = "GET_RAILS_OTHER_NAMES";
+export const ADD_RAILS_OTHER_NAMES = "ADD_RAILS_OTHER_NAMES";
+export const GET_ALL_RAILS = "GET_ALL_RAILS";
+export const GET_ALL_METRO = "GET_ALL_METRO";
+export const ADD_METRO = "ADD_METRO";
+export const SET_LOADING_RAILS_NAME = "SET_LOADING_RAILS_NAME";
+export const SET_TYPE = "SET_TYPE";
+export const SET_RAILS = "SET_RAILS";
 
 export interface ResponseData {
   request_type: string;
@@ -70,6 +86,13 @@ export interface trackingRequestsState {
   trackingRequestsMessage: string;
 }
 export interface terminalState {
+  allTerminals: any;
+  allPorts: any;
+  allRails: any;
+  allMetro: any;
+  railsNames: any;
+  portsNames: any;
+  names: any;
   data: any;
   loading: boolean;
   error: string;
@@ -80,6 +103,10 @@ export interface terminalState {
   terminal_description?: string;
   contianer_number?: string;
   bol?: string;
+  loadingOtherNames: boolean;
+  loadingOtherNamesPort: boolean;
+  loadingOtherNamesRail: boolean;
+  type: string;
 }
 export interface TerminalData {
   last_free_day_on: string | null;
@@ -91,8 +118,32 @@ export interface TerminalData {
   pickup_at?: string | null;
 }
 
+interface AddMetro {
+  type: typeof ADD_METRO;
+  payload: any;
+}
+interface GetMetro_Area {
+  type: typeof GET_ALL_METRO;
+  payload: any;
+}
 interface GetShipments {
   type: typeof GET_SHIPMENTS;
+  payload: any;
+}
+interface GetAllTerminals {
+  type: typeof GET_ALL_TERMINALS;
+  payload: any;
+}
+interface GetAllPorts {
+  type: typeof GET_ALL_PORTS;
+  payload: any;
+}
+interface GetAllRails {
+  type: typeof GET_ALL_RAILS;
+  payload: any;
+}
+interface SetRails {
+  type: typeof SET_RAILS;
   payload: any;
 }
 interface getShipmentById {
@@ -132,7 +183,10 @@ interface SetRequestNumber {
 interface RefreshShipment {
   type: typeof REFRESH_SHIPMENT;
 }
-
+interface setType {
+  type: typeof SET_TYPE;
+  payload: string;
+}
 interface GetTerminals {
   type: typeof GET_TERMINAL;
   payload: any;
@@ -194,6 +248,39 @@ interface SetNotificationAction {
     type: string;
   };
 }
+interface GetTerminalsOtherNames {
+  type: typeof GET_TERMINAL_OTHER_NAMES;
+  payload: any;
+}
+interface AddTerminalsOtherNames {
+  type: typeof ADD_TERMINAL_OTHER_NAMES;
+}
+interface GetPortsOtherNames {
+  type: typeof GET_PORT_OTHER_NAMES;
+  payload: any;
+}
+interface GetRailsOtherNames {
+  type: typeof GET_RAILS_OTHER_NAMES;
+  payload: any;
+}
+interface AddRailsOtherNames {
+  type: typeof ADD_RAILS_OTHER_NAMES;
+}
+interface AddPortsOtherNames {
+  type: typeof ADD_PORT_OTHER_NAMES;
+}
+interface SetLoadingOtherName {
+  type: typeof SET_LOADING_OTHER_NAME;
+  payload: boolean;
+}
+interface SetLoadingPortName {
+  type: typeof SET_LOADING_PORT_NAME;
+  payload: boolean;
+}
+interface SetLoadingRailsName {
+  type: typeof SET_LOADING_RAILS_NAME;
+  payload: boolean;
+}
 export type TerminalListAction =
   | GetTerminals
   | SetErrorAction
@@ -202,7 +289,23 @@ export type TerminalListAction =
   | SetTerminalFirms
   | SetTerminalName
   | SetBol
-  | SetContainerNumber;
+  | GetTerminalsOtherNames
+  | SetLoadingOtherName
+  | AddTerminalsOtherNames
+  | GetAllTerminals
+  | GetAllPorts
+  | SetContainerNumber
+  | GetPortsOtherNames
+  | SetLoadingPortName
+  | AddRailsOtherNames
+  | SetLoadingRailsName
+  | GetRailsOtherNames
+  | GetAllRails
+  | setType
+  | AddPortsOtherNames
+  | AddMetro
+  | GetMetro_Area
+  | SetRails;
 
 export type ShipmentListAction =
   | GetShipments

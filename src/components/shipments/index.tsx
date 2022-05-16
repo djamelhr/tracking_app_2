@@ -82,6 +82,9 @@ const MainShipments = () => {
                 shipping_lines={shipment.shipping_lines}
                 updated_at={shipment.updated_at}
                 vessel={shipment.vessel}
+                port_of_discharge={shipment.port_of_discharge}
+                port_of_lading={shipment.port_of_lading}
+                destination={shipment.destination}
               />
             ))}
       </div>

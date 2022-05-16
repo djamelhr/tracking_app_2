@@ -9,11 +9,34 @@ import {
   SET_BOL,
   SET_LOADING,
   SET_ERROR,
+  GET_TERMINAL_OTHER_NAMES,
+  SET_LOADING_OTHER_NAME,
+  ADD_TERMINAL_OTHER_NAMES,
+  GET_ALL_TERMINALS,
+  GET_PORT_OTHER_NAMES,
+  GET_ALL_PORTS,
+  ADD_PORT_OTHER_NAMES,
+  SET_LOADING_PORT_NAME,
+  SET_TYPE,
+  GET_RAILS_OTHER_NAMES,
+  GET_ALL_RAILS,
+  ADD_RAILS_OTHER_NAMES,
+  SET_LOADING_RAILS_NAME,
+  GET_ALL_METRO,
+  SET_RAILS,
 } from "../types";
 
 const initialState: terminalState = {
+  allPorts: [],
+  allMetro: [],
+  loadingOtherNamesPort: false,
+  type: "rail_ramp",
+  portsNames: [],
+  allTerminals: [],
   data: {},
   loading: false,
+  names: [],
+  loadingOtherNames: false,
   error: "",
   success: "",
   message: "",
@@ -22,6 +45,9 @@ const initialState: terminalState = {
   terminal_description: "",
   contianer_number: "",
   bol: "",
+  allRails: [],
+  loadingOtherNamesRail: false,
+  railsNames: [],
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -36,7 +62,81 @@ export default (
         data: action.payload,
         loading: false,
       };
+    case GET_TERMINAL_OTHER_NAMES: {
+      return {
+        ...state,
+        names: action.payload,
+        loadingOtherNames: false,
+      };
+    }
+    case SET_TYPE: {
+      return {
+        ...state,
+        type: action.payload,
+      };
+    }
+    case GET_ALL_TERMINALS: {
+      return {
+        ...state,
+        allTerminals: action.payload,
+      };
+    }
+    case ADD_TERMINAL_OTHER_NAMES: {
+      return {
+        ...state,
+      };
+    }
+    case GET_PORT_OTHER_NAMES: {
+      return {
+        ...state,
+        portsNames: action.payload,
+        loadingOtherNamesPort: false,
+      };
+    }
+    case GET_ALL_PORTS: {
+      return {
+        ...state,
+        allPorts: action.payload,
+        loadingOtherNamesPort: false,
+      };
+    }
+    case GET_ALL_METRO: {
+      return {
+        ...state,
+        allMetro: action.payload,
+      };
+    }
+    case ADD_PORT_OTHER_NAMES: {
+      return {
+        ...state,
+      };
+    }
 
+    case GET_RAILS_OTHER_NAMES: {
+      return {
+        ...state,
+        railsNames: action.payload,
+        loadingOtherNamesRail: false,
+      };
+    }
+    case GET_ALL_RAILS: {
+      return {
+        ...state,
+        allRails: action.payload,
+        loadingOtherNamesRail: false,
+      };
+    }
+    case SET_RAILS: {
+      return {
+        ...state,
+        allRails: action.payload,
+      };
+    }
+    case ADD_RAILS_OTHER_NAMES: {
+      return {
+        ...state,
+      };
+    }
     case SET_TERMINAL_NAME:
       let objNames = terminalsAvailable.find(
         ({ name }: any) => name === action.payload
@@ -73,6 +173,21 @@ export default (
       return {
         ...state,
         loading: action.payload,
+      };
+    case SET_LOADING_OTHER_NAME:
+      return {
+        ...state,
+        loadingOtherNames: action.payload,
+      };
+    case SET_LOADING_PORT_NAME:
+      return {
+        ...state,
+        loadingOtherNamesPort: action.payload,
+      };
+    case SET_LOADING_RAILS_NAME:
+      return {
+        ...state,
+        loadingOtherNamesRail: action.payload,
       };
     case SET_ERROR:
       return {

@@ -67,6 +67,46 @@ export default function ShipmentPage(shipment: any) {
 
     return pol;
   };
+  const destination_date = () => {
+    let pol = "";
+    if (shipment.voyage) {
+      if (
+        shipment.voyage.destination_ata_at === null &&
+        shipment.voyage.destination_eta_at === null
+      ) {
+        pol = "";
+      } else if (
+        shipment.voyage.destination_ata_at === null &&
+        shipment.voyage.destination_eta_at !== null
+      ) {
+        pol =
+          "ETA : " +
+          moment(shipment.voyage.destination_eta_at).format(
+            "MMM DD YYYY ,h:mma"
+          );
+      } else if (
+        shipment.voyage.destination_ata_at !== null &&
+        shipment.voyage.destination_eta_at === null
+      ) {
+        pol =
+          "ATA : " +
+          moment(shipment.voyage.destination_ata_at).format(
+            "MMM DD YYYY ,h:mma"
+          );
+      } else if (
+        shipment.voyage.destination_ata_at !== null &&
+        shipment.voyage.destination_eta_at !== null
+      ) {
+        pol =
+          "ATA : " +
+          moment(shipment.voyage.destination_ata_at).format(
+            "MMM DD YYYY ,h:mma"
+          );
+      }
+    }
+
+    return pol;
+  };
 
   const pod_date = () => {
     let pol = "";
@@ -102,6 +142,7 @@ export default function ShipmentPage(shipment: any) {
 
     return pol;
   };
+
   const trackShipmentAtTerminal = async (e: React.FormEvent) => {
     try {
       let request_type = "update_request";
@@ -119,6 +160,28 @@ export default function ShipmentPage(shipment: any) {
           },
         }
       );
+
+      if (res.status < 300) {
+        setLoading(false);
+        refreshData();
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch(setNotification("error", "danger"));
+    }
+
+    //dispatch(setNotification("updated!!", "green"));
+  };
+  const refresheShipment = async (e: React.FormEvent) => {
+    try {
+      setLoading(true);
+      const res = await fetch(`${proxy}/v2/shipments/${shipment.id}`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.status < 300) {
         setLoading(false);
@@ -225,18 +288,76 @@ export default function ShipmentPage(shipment: any) {
           </div>
         </div>
       </div>
+      {/* the first card in slug  */}
+      <div className="m-2 p-3 bg-white w-2/3">
+        <div id="pol" className="flex flex-row   items-center my-2">
+          <div className="w-1/2">
+            {shipment.port_of_lading
+              ? shipment.port_of_lading?.name +
+                "," +
+                shipment.port_of_lading?.country_code
+              : shipment.port_of_lading_name + "*"}
+          </div>
 
-      <div className="m-2 p-3 bg-white w-2/3  ">
-        <div id="pol">
-          <p>{shipment.port_of_lading_name}</p>
-
-          <p>{pol_date()}</p>
+          <div className="bg-gray-200 p-2 rounded-lg">{pol_date()}</div>
         </div>
-        <div id="pod">
-          <p>{shipment.port_of_discharge_name}</p>
+        <div id="pod" className="flex flex-row    items-center ">
+          <div className="w-1/2">
+            {shipment.port_of_discharge
+              ? shipment.port_of_discharge?.name +
+                "," +
+                shipment.port_of_discharge?.country_code
+              : shipment.port_of_discharge_name + "*"}
+          </div>
 
-          <p>{pod_date()}</p>
+          <div className="bg-gray-200 p-2 rounded-lg">{pod_date()}</div>
         </div>
+        {shipment.destination || shipment.destination_terminal ? (
+          <div id="destination" className="flex flex-row   items-center my-2">
+            <div className="flex flex-col w-1/2">
+              <div>
+                {shipment.destination?.port || shipment.destination?.metro_area
+                  ? shipment.destination?.metro_area
+                    ? shipment.destination?.metro_area.name +
+                      "," +
+                      shipment.destination?.metro_area?.state
+                    : "" || shipment.destination?.port
+                    ? shipment.destination?.port?.name +
+                      "," +
+                      shipment.destination?.port?.country_code
+                    : ""
+                  : shipment.destination_name + "*"}
+              </div>
+              <div className="w-1/2">
+                {shipment.destination_terminal?.rail ? (
+                  <div className="flex items-center gap-2">
+                    <p>{shipment.destination_terminal?.rail?.name}</p>
+                    <p className="p-1 bg-gray-200 rounded-lg">
+                      {shipment.destination_terminal?.rail?.frims_code}
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {shipment.destination_terminal?.terminal
+                  ? shipment.destination_terminal?.terminal.name +
+                    "," +
+                    (
+                      <p className="p-1 bg-gray-200">
+                        {shipment.destination_terminal?.terminal?.frims_code}
+                      </p>
+                    )
+                  : ""}
+              </div>
+            </div>
+
+            <div className="bg-gray-200 p-2 rounded-lg">
+              {destination_date()}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
 
         <div>
           <strong>
@@ -247,13 +368,12 @@ export default function ShipmentPage(shipment: any) {
           </strong>{" "}
         </div>
       </div>
-
+      {/* the first card in slug  */}
       <div className="flex flex-wrap  w-3/12 mb-2">
         <div className=" md:w-1/2 px-3 mb-6 md:mb-0">
           <button
-            disabled
-            onClick={() => dispatch(refresheShipment(shipment.id))}
-            className="block cursor-not-allowed appearance-none w-full bg-gray-900 border text-center border-gray-200 text-white py-3 px-4 pr-8 rounded-full leading-tight focus:outline-none focus:bg-blue-900 focus:border-gray-500"
+            onClick={() => refresheShipment(shipment.id)}
+            className="block  appearance-none w-full bg-gray-900 border text-center border-gray-200 text-white py-3 px-4 pr-8 rounded-full leading-tight focus:outline-none focus:bg-blue-900 focus:border-gray-500"
           >
             Track on carrier
           </button>

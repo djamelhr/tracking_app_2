@@ -110,15 +110,19 @@ export interface PodTerminal {
 export interface Ishipment {
   id: string;
   number: string | null;
-  port_of_discharge_name: string | null;
-  port_of_lading_name: string | null;
-  pod_terminal_name: string | null;
+  port_of_discharge?: any;
+  port_of_lading?: any;
+  port_of_discharge_name?: string | null;
+  port_of_lading_name?: string | null;
+  pod_terminal_name?: string | null;
   destination_name?: string | null;
-  created_at: Date;
-  updated_at: Date;
+  destination?: any;
+
+  created_at?: Date;
+  updated_at?: Date;
   voyage: Voyage | null;
-  shipping_lines: ShippingLines | null;
-  vessel: Vessel | null;
+  shipping_lines?: ShippingLines | null;
+  vessel?: Vessel | null;
   containers: Container[];
   pod_terminal: PodTerminal | null;
 }

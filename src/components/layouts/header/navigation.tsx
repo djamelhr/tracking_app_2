@@ -27,6 +27,12 @@ const Navigation = () => {
             <a className="dark:text-skin-white">Tracking Requests</a>
           </Link>
         </div>
+        <div className="py-2 border-b-2 border-opacity-10 border-gray-100	lg:border-0">
+          <Link href="/terminals">
+            <a className="dark:text-skin-white">Data</a>
+          </Link>
+        </div>
+
         <div className="place-self-center py-2 border-gray-100 lg:border-0">
           <Toggle />
         </div>

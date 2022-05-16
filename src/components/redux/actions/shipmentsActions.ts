@@ -221,6 +221,7 @@ export const addShipmentNotracking = (
         body: JSON.stringify(data),
       });
       const content = await res.json();
+
       if (content.status === 200) {
         dispatch({
           type: ADD_SHIPMENT_NO_TRACKING,
@@ -302,14 +303,17 @@ export const addShipment = (
         },
         body: JSON.stringify(data),
       });
+      const content = await res.json();
+      console.log(content, "ferr");
 
       dispatch({
         type: ADD_SHIPMENT,
       });
+
       dispatch({
         type: SET_NOTIFICATION,
         payload: {
-          msg: "added !!",
+          msg: "done.",
           type: "succss",
         },
       });
