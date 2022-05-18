@@ -164,9 +164,13 @@ export default function ShipmentPage(shipment: any) {
       if (res.status < 300) {
         setLoading(false);
         refreshData();
+      } else {
+        setLoading(false);
+        dispatch(setNotification(res.statusText, "danger"));
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
       dispatch(setNotification("error", "danger"));
     }
 
@@ -186,6 +190,9 @@ export default function ShipmentPage(shipment: any) {
       if (res.status < 300) {
         setLoading(false);
         refreshData();
+      } else {
+        setLoading(false);
+        dispatch(setNotification(res.statusText, "danger"));
       }
     } catch (error) {
       console.log(error);
@@ -312,7 +319,9 @@ export default function ShipmentPage(shipment: any) {
 
           <div className="bg-gray-200 p-2 rounded-lg">{pod_date()}</div>
         </div>
-        {shipment.destination || shipment.destination_terminal ? (
+        {shipment.destination ||
+        shipment.destination_terminal ||
+        shipment.destination_name ? (
           <div id="destination" className="flex flex-row   items-center my-2">
             <div className="flex flex-col w-1/2">
               <div>

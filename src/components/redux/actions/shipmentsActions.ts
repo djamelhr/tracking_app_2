@@ -304,19 +304,38 @@ export const addShipment = (
         body: JSON.stringify(data),
       });
       const content = await res.json();
-      console.log(content, "ferr");
+      console.log(content, "hennannana");
 
-      dispatch({
-        type: ADD_SHIPMENT,
-      });
-
-      dispatch({
-        type: SET_NOTIFICATION,
-        payload: {
-          msg: "done.",
-          type: "succss",
-        },
-      });
+      if (content.errors) {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: content.errors[0].code,
+            type: "danger",
+          },
+        });
+      } else {
+        dispatch({
+          type: ADD_SHIPMENT,
+        });
+        if (content.status === "created") {
+          dispatch({
+            type: SET_NOTIFICATION,
+            payload: {
+              msg: content.status,
+              type: "succss",
+            },
+          });
+        } else {
+          dispatch({
+            type: SET_NOTIFICATION,
+            payload: {
+              msg: content.status,
+              type: "danger",
+            },
+          });
+        }
+      }
     } catch (error: any) {
       dispatch({
         type: SET_ERROR,

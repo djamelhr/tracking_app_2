@@ -3,7 +3,7 @@ import Table from "../components/Rails";
 
 // import styles from '../styles/Home.module.css'
 
-export default function Rails() {
+export default function Metro() {
   return (
     <div>
       <DataNav />

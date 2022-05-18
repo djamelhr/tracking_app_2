@@ -4,6 +4,7 @@ import React, { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../config/theme";
 import {
+  getAllMetro,
   getAllPorts,
   getPortNames,
   setType,
@@ -29,15 +30,18 @@ interface onEditParamNew {
 }
 const Table = () => {
   const dispatch = useDispatch();
-  const { portsNames, allPorts, loadingOtherNamesPort, type } = useSelector(
-    (state: RootState) => state.terminal
-  );
+  const { portsNames, allPorts, loadingOtherNamesPort, type, allMetro } =
+    useSelector((state: RootState) => state.terminal);
   const [currentPage, setCurrentPage] = useState(1);
 
   const [paramsPerPage] = useState(10);
   const [port_id, setPort_id] = useState<any>();
+  const [metro_id, setMetro_id] = useState<any>();
+
   const [name, setName] = useState<any>();
   const [port, setPort] = useState<any>();
+  const [metro, setMetro] = useState<any>();
+
   const [option, setOption] = useState<string>("1");
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -57,6 +61,7 @@ const Table = () => {
     setIsRefreshing(false);
     dispatch(getPortNames(option));
     dispatch(getAllPorts());
+    dispatch(getAllMetro());
   }, [dispatch, option, type]);
 
   let currentParams: any[] = [];
@@ -74,6 +79,14 @@ const Table = () => {
     const selectedIndex = event.currentTarget.options.selectedIndex;
 
     setPort_id(
+      event.currentTarget.options[selectedIndex].getAttribute("data-id")
+    );
+  };
+  const getMetroId = (event: React.FormEvent<HTMLSelectElement>) => {
+    setMetro(event.currentTarget.value);
+    const selectedIndex = event.currentTarget.options.selectedIndex;
+
+    setMetro_id(
       event.currentTarget.options[selectedIndex].getAttribute("data-id")
     );
   };
@@ -107,7 +120,7 @@ const Table = () => {
   const onSave = async ({ id }: onEditParamNew) => {
     console.log(id, name, port_id);
     setLoading(true);
-    let res;
+    let res: any;
     if (inEditMode.keyToUpdate === "name") {
       res = await fetch(`${proxy}/v1/ports/addnames`, {
         method: "POST",
@@ -118,7 +131,7 @@ const Table = () => {
 
         body: JSON.stringify([{ id, name }]),
       });
-    } else {
+    } else if (inEditMode.keyToUpdate === "port") {
       const port = port_id ? { id: port_id } : null;
       res = await fetch(`${proxy}/v1/ports/addnames`, {
         method: "POST",
@@ -128,6 +141,17 @@ const Table = () => {
         },
 
         body: JSON.stringify([{ id, port }]),
+      });
+    } else if (inEditMode.keyToUpdate === "metro_area") {
+      const metro_area = metro_id ? { id: metro_id } : null;
+      res = await fetch(`${proxy}/v1/ports/addnames`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify([{ id, metro_area }]),
       });
     }
 
@@ -158,6 +182,9 @@ const Table = () => {
 
     // reset the unit price state value
   };
+
+  console.log("choooff", inEditMode.keyToUpdate);
+
   return (
     <div className="container">
       <div className="flex px-1 mb-6 md:mb-0  items-center ">
@@ -194,7 +221,9 @@ const Table = () => {
             <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Port
             </th>
-
+            <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+              Metro Area
+            </th>
             <th className=" px-2 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               {loading && (
                 <svg
@@ -256,11 +285,11 @@ const Table = () => {
               <td
                 onDoubleClick={() => {
                   el.port ? setPort(el.port.name) : setPort("");
-                  console.log(Object.keys(el)[2]);
+
                   onEdit({
                     id: el.id,
                     col: el.port,
-                    key: Object.keys(el)[2],
+                    key: Object.keys(el)[3],
                   });
                   //  ulRef.current.children[1].children[0];
                 }}
@@ -269,7 +298,7 @@ const Table = () => {
                 {inEditMode.status &&
                 inEditMode.rowKey === el.id &&
                 inEditMode.colKey === el.port &&
-                inEditMode.keyToUpdate === Object.keys(el)[2] ? (
+                inEditMode.keyToUpdate === Object.keys(el)[3] ? (
                   <div className="select">
                     <select
                       onKeyPress={(e: KeyboardEvent) =>
@@ -298,7 +327,63 @@ const Table = () => {
                   <input
                     className="w-full"
                     type="text"
-                    value={el.port ? el.port.code + " " + el.port?.name : ""}
+                    value={el.port ? el.port.name + " / " + el.port?.code : ""}
+                    style={{ color: Theme.colors.dark }}
+                    disabled
+                  />
+                )}
+              </td>
+
+              <td
+                onDoubleClick={() => {
+                  el.metro_area ? setMetro(el.metro_area.name) : setMetro("");
+                  onEdit({
+                    id: el.id,
+                    col: el.metro_area,
+                    key: Object.keys(el)[4],
+                  });
+                  //  ulRef.current.children[1].children[0];
+                }}
+                className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 "
+              >
+                {inEditMode.status &&
+                inEditMode.rowKey === el.id &&
+                inEditMode.colKey === el.metro_area &&
+                inEditMode.keyToUpdate === Object.keys(el)[4] ? (
+                  <div className="select">
+                    <select
+                      onKeyPress={(e: KeyboardEvent) =>
+                        e.key === "Enter"
+                          ? onSave({
+                              id: el.id,
+                            })
+                          : console.log(e.key)
+                      }
+                      onKeyDown={(e) => {
+                        e.key === "Escape" ? onCancel() : console.log(e.key);
+                      }}
+                      value={port}
+                      onChange={getMetroId}
+                    >
+                      <option>Select Metro</option>
+                      {allMetro?.map((metro_area: any) => (
+                        <option data-id={metro_area.id} key={metro_area.id}>
+                          {metro_area.name}{" "}
+                          {metro_area.state ? " - " + metro_area.state : ""}{" "}
+                          {" - "} {metro_area.code}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                ) : (
+                  <input
+                    className="w-full"
+                    type="text"
+                    value={
+                      el.metro_area
+                        ? el.metro_area.name + " / " + el.metro_area?.code
+                        : ""
+                    }
                     style={{ color: Theme.colors.dark }}
                     disabled
                   />

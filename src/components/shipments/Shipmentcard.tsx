@@ -67,14 +67,17 @@ const Shipmentcard = ({
                 : port_of_discharge.country_code)
             : "-"}
           <p>
-            {destination?.metro_area
-              ? destination?.metro_area?.name +
-                "," +
-                destination?.metro_area?.state
-              : ""}
-            {destination?.port
-              ? destination?.port + "," + destination?.metro_area?.country_code
-              : ""}
+            {destination
+              ? destination?.metro_area
+                ? destination?.metro_area?.name +
+                  "," +
+                  destination?.metro_area?.state
+                : "" && destination?.port
+                ? destination?.port +
+                  "," +
+                  destination?.metro_area?.country_code
+                : ""
+              : destination_name}
           </p>
         </div>
 

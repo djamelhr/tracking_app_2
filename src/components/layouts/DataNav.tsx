@@ -53,16 +53,16 @@ const DataNav = () => {
           </Link>
         </li> */}
         <li className="mr-1">
-          <Link href="/metro_area">
+          <Link href="/rails">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
-                pathname === "/metro_area"
+                pathname === "/rails"
                   ? "text-black bg-gray-300"
                   : "text-blue-700"
               }`}
               href="#"
             >
-              Metro Area
+              Rails
             </a>
           </Link>
         </li>

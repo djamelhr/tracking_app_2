@@ -37,7 +37,7 @@ const Notification: FC<NotificationProps> = ({ msg }) => {
           ? `${
               type === "danger"
                 ? "bg-red-100 w-full  text-red-700 px-4 py-3  relative"
-                : "bg-teal-100  w-full text-teal-900 px-4 py-3  bg-green-400"
+                : "bg-green-300  w-full text-teal-900 px-4 py-3 relative "
             }`
           : "notification hidden"
       }

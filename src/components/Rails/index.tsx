@@ -5,14 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../config/theme";
 import {
   getAllRails,
-  getRailsNames,
-  setType,
+  getAllMetro,
+  SetRails,
 } from "../redux/actions/terminalsActions";
 import { proxy } from "../redux/proxy";
 import { RootState } from "../redux/store";
-import NewRailName from "./NewRailName";
+import NewMetroArea from "./NewMetroArea";
 import Pagination from "./Pagination";
-
+import _ from "lodash";
 interface Iditstatus {
   status: boolean;
   rowKey: string;
@@ -28,16 +28,20 @@ interface onEditParamNew {
   id: string;
 }
 const Table = () => {
+  let currentParams: any[] = [];
+
   const dispatch = useDispatch();
-  const { railsNames, allRails, loadingOtherNamesRail, type } = useSelector(
+  const { allMetro, allRails, loadingOtherNamesRail, type } = useSelector(
     (state: RootState) => state.terminal
   );
   const [currentPage, setCurrentPage] = useState(1);
 
   const [paramsPerPage] = useState(10);
-  const [rail_id, setRail_id] = useState<any>();
-  const [name, setName] = useState<any>();
+  const [metro_id, setMetro_id] = useState<any>();
+  const [metro, setMetro] = useState<any>();
   const [rail, setRail] = useState<any>();
+  const [search, setSearch] = useState<string>("");
+
   const [option, setOption] = useState<string>("1");
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -55,27 +59,25 @@ const Table = () => {
   };
   useEffect(() => {
     setIsRefreshing(false);
-    dispatch(getRailsNames(option));
+    dispatch(getAllMetro());
     dispatch(getAllRails());
   }, [dispatch, option, type]);
 
-  let currentParams: any[] = [];
   const indexOfLastPost = currentPage * paramsPerPage;
   const indexOfFirstPost = indexOfLastPost - paramsPerPage;
 
-  currentParams = railsNames.slice(indexOfFirstPost, indexOfLastPost);
+  currentParams = allRails.slice(indexOfFirstPost, indexOfLastPost);
 
   //console.log('current ', currentParams, indexOfLastPost, indexOfFirstPost);
 
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   const getId = (event: React.FormEvent<HTMLSelectElement>) => {
-    setRail(event.currentTarget.value);
-    const selectedIndex = event.currentTarget.options.selectedIndex;
+    console.log("this metro", event.currentTarget.value);
+    console.log("params", currentParams);
+    console.log("rail", rail);
 
-    setRail_id(
-      event.currentTarget.options[selectedIndex].getAttribute("data-id")
-    );
+    setMetro_id(event.currentTarget.value);
   };
   const onEdit = ({ id, col, key }: onEditParamCurrent) => {
     setInEditMode({
@@ -85,56 +87,25 @@ const Table = () => {
       keyToUpdate: key,
     });
   };
-  const removeName = async (id: string) => {
+  const Drop = async (id: string) => {
     setLoading(true);
-    const res = await fetch(`${proxy}/v2/rails/names/${id}`, {
-      method: "DELETE",
+    let res = await fetch(`${proxy}/v2/rails/`, {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+
+      body: JSON.stringify([
+        {
+          id,
+          metro_area: null,
+        },
+      ]),
     });
     if (res.status < 300) {
       setLoading(false);
-      dispatch(getRailsNames(option));
-      refreshData();
-    }
-  };
-  const getOptions = (event: React.FormEvent<HTMLSelectElement>) => {
-    setOption(event.currentTarget.value);
-    dispatch(getRailsNames(event.currentTarget.value));
-  };
-
-  const onSave = async ({ id }: onEditParamNew) => {
-    console.log(id, name, rail_id);
-    setLoading(true);
-    let res;
-    if (inEditMode.keyToUpdate === "name") {
-      res = await fetch(`${proxy}/v2/rails/addnames`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify([{ id, name }]),
-      });
-    } else {
-      const rail = rail_id ? { id: rail_id } : null;
-      res = await fetch(`${proxy}/v2/rails/addnames`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify([{ id, rail }]),
-      });
-    }
-
-    if (res.status < 300) {
-      setLoading(false);
-      dispatch(getRailsNames(option));
+      dispatch(getAllRails());
       refreshData();
       setInEditMode({
         status: false,
@@ -142,8 +113,42 @@ const Table = () => {
         colKey: "",
         keyToUpdate: "",
       });
-      setName("");
-      setRail_id("");
+    }
+  };
+
+  const onSave = async ({ id }: onEditParamNew) => {
+    console.log("this the id", id, metro_id);
+    setLoading(true);
+    let res;
+    res = await fetch(`${proxy}/v2/rails/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify([
+        {
+          id: rail.id,
+          metro_area: {
+            id: metro_id,
+          },
+        },
+      ]),
+    });
+
+    if (res.status < 300) {
+      setLoading(false);
+      dispatch(getAllRails());
+      refreshData();
+      setInEditMode({
+        status: false,
+        rowKey: "",
+        colKey: "",
+        keyToUpdate: "",
+      });
+      // setName("");
+      // setRail_id("");
     }
   };
   const onCancel = () => {
@@ -159,41 +164,42 @@ const Table = () => {
 
     // reset the unit price state value
   };
+  const filterByfrimsCode = (e: React.ChangeEvent<{ value: string }>) => {
+    if (!e.target.value) {
+      dispatch(getAllRails());
+    }
+    setSearch(e.target.value);
+    const arr = allRails.filter(
+      ({ frims_code }: any) => frims_code === e.target.value
+    );
+    dispatch(SetRails(arr));
+  };
   return (
     <div className="container">
-      <div className="flex px-1 mb-6 md:mb-0 items-center">
-        <div className=" flex relative  w-1/8 my-4  ">
-          <select
-            className="block  appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-state"
-            value={option}
-            onChange={getOptions}
-          >
-            <option value="1">All</option>
-            <option value="0">No Rail</option>
-          </select>
-        </div>
-        <NewRailName option={option} />
+      <div className="flex px-1 mb-6 md:mb-0 items-center ">
+        <NewMetroArea />
 
         <div className=" ml-3  flex w-1/8 my-4">
-          {" "}
-          {loadingOtherNamesRail && (
-            <svg
-              className="animate-spin  h-5 w-5 mr-3 border-t-2 border-b-2 border-black"
-              viewBox="0 0 24 24"
-            ></svg>
-          )}
+          <input
+            className="shadow appearance-none border rounded-full p-1.5  text-black"
+            type="text"
+            value={search}
+            onChange={filterByfrimsCode}
+            placeholder=" Search by frims code"
+          />
         </div>
       </div>
-
       <table className="items-center bg-transparent w-4/5 border-solid border-black border-2">
         <thead>
           <tr className=" border-solid border-black border-2">
             <th className=" py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
-              Name
+              RAIL
+            </th>
+            <th className=" py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+              Frims code
             </th>
             <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
-              RAIL
+              Metro Area
             </th>
 
             <th className=" px-2 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
@@ -209,61 +215,21 @@ const Table = () => {
 
         <tbody>
           {currentParams.map((el: any, index: number) => (
-            <tr
-              key={index}
-              className="border-solid border-black border-2 items-center justify-center"
-            >
-              <td
-                onDoubleClick={() => {
-                  el.name ? setName(el.name) : setName("");
-                  console.log(Object.keys(el)[1]);
-
-                  onEdit({
-                    id: el.id,
-                    col: el.name,
-                    key: Object.keys(el)[1],
-                  });
-                  //  ulRef.current.children[1].children[0];
-                }}
-                className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 "
-              >
-                {inEditMode.status &&
-                inEditMode.rowKey === el.id &&
-                inEditMode.colKey === el.name &&
-                inEditMode.keyToUpdate === Object.keys(el)[1] ? (
-                  <input
-                    className="w-full h-full p-2"
-                    onKeyPress={(e: KeyboardEvent) =>
-                      e.key === "Enter"
-                        ? onSave({
-                            id: el.id,
-                          })
-                        : console.log(e.key)
-                    }
-                    onKeyDown={(e) => {
-                      e.key === "Escape" ? onCancel() : console.log(e.key);
-                    }}
-                    type="text"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                  />
-                ) : (
-                  <input
-                    className="w-full"
-                    type="text"
-                    value={el.name}
-                    style={{ color: Theme.colors.dark }}
-                    disabled
-                  />
-                )}
+            <tr key={index} className="border-solid border-black border-2">
+              <td className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
+                {el.name}
+              </td>
+              <td className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
+                {el.frims_code}
               </td>
               <td
                 onDoubleClick={() => {
-                  el.rail ? setRail(el.rail.name) : setRail("");
+                  setRail(el);
+                  el.metro ? setMetro(el.metro.name) : setMetro("");
                   console.log(Object.keys(el)[2]);
                   onEdit({
                     id: el.id,
-                    col: el.rail,
+                    col: el.metro,
                     key: Object.keys(el)[2],
                   });
                   //  ulRef.current.children[1].children[0];
@@ -272,7 +238,7 @@ const Table = () => {
               >
                 {inEditMode.status &&
                 inEditMode.rowKey === el.id &&
-                inEditMode.colKey === el.rail &&
+                inEditMode.colKey === el.metro &&
                 inEditMode.keyToUpdate === Object.keys(el)[2] ? (
                   <div className="select">
                     <select
@@ -286,14 +252,14 @@ const Table = () => {
                       onKeyDown={(e) => {
                         e.key === "Escape" ? onCancel() : console.log(e.key);
                       }}
-                      value={rail}
                       onChange={getId}
                     >
-                      <option>Select Rail</option>
-                      {allRails?.map((rail: any) => (
-                        <option data-id={rail.id} key={rail.id}>
-                          {rail.name} {rail.state ? " - " + rail.state : ""}{" "}
-                          {" - "} {rail.frims_code}
+                      <option>Select Metro</option>
+
+                      {allMetro?.map((metro: any) => (
+                        <option value={metro.id} key={metro.id}>
+                          {metro.name} {metro.state ? " - " + metro.state : ""}{" "}
+                          {" - "} {metro.code}
                         </option>
                       ))}
                     </select>
@@ -302,15 +268,13 @@ const Table = () => {
                   <input
                     className="w-full"
                     type="text"
-                    value={
-                      el.rail ? el.rail.frims_code + " " + el.rail?.name : ""
-                    }
+                    value={el.metro_area ? el.metro_area.name : ""}
                     style={{ color: Theme.colors.dark }}
                     disabled
                   />
                 )}
               </td>
-              <td className="w-1/5 text-center ">
+              <td className="w-1/5 text-center">
                 {inEditMode.status && inEditMode.rowKey === el.id ? (
                   <React.Fragment>
                     <button
@@ -338,10 +302,10 @@ const Table = () => {
                   </React.Fragment>
                 ) : (
                   <button
-                    onClick={() => removeName(el.id)}
-                    className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2"
+                    onClick={() => Drop(el.id)}
+                    className="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 my-2"
                   >
-                    Delete
+                    DROP
                   </button>
                 )}
               </td>
@@ -354,7 +318,7 @@ const Table = () => {
         <div className="grid grid-rows-4">
           <Pagination
             postsPerPage={paramsPerPage}
-            totalPosts={railsNames.length}
+            totalPosts={allRails.length}
             paginate={paginate}
           />
         </div>
