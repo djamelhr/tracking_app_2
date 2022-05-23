@@ -2,9 +2,9 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getShipments } from "../redux/actions/shipmentsActions";
-import { Ishipment } from "../redux/interfaces";
-import { RootState } from "../redux/store";
+import { getShipments } from "../../redux/actions/shipmentsActions";
+import { Ishipment } from "../../redux/interfaces";
+import { RootState } from "../../redux/store";
 import Shipmentcard from "./Shipmentcard";
 
 const MainShipments = () => {

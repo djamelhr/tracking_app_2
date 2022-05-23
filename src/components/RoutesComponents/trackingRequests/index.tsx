@@ -2,9 +2,9 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getShipments } from "../redux/actions/shipmentsActions";
-import { getTrackingRequests } from "../redux/actions/trackingRequestsActions";
-import { RootState } from "../redux/store";
+import { getShipments } from "../../redux/actions/shipmentsActions";
+import { getTrackingRequests } from "../../redux/actions/trackingRequestsActions";
+import { RootState } from "../../redux/store";
 import TrackingRequestsCard from "./TrackingRequestsCard";
 
 const MainTrakingRequests = () => {

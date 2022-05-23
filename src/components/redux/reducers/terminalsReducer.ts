@@ -24,9 +24,14 @@ import {
   SET_LOADING_RAILS_NAME,
   GET_ALL_METRO,
   SET_RAILS,
+  COUNT_PORTS,
+  COUNT_METRO,
+  SET_TERMINALS,
 } from "../types";
 
 const initialState: terminalState = {
+  MetroNumber: 0,
+  PortsNumber: 0,
   allPorts: [],
   allMetro: [],
   loadingOtherNamesPort: false,
@@ -73,6 +78,18 @@ export default (
       return {
         ...state,
         type: action.payload,
+      };
+    }
+    case COUNT_PORTS: {
+      return {
+        ...state,
+        PortsNumber: action.payload,
+      };
+    }
+    case COUNT_METRO: {
+      return {
+        ...state,
+        MetroNumber: action.payload,
       };
     }
     case GET_ALL_TERMINALS: {
@@ -130,6 +147,12 @@ export default (
       return {
         ...state,
         allRails: action.payload,
+      };
+    }
+    case SET_TERMINALS: {
+      return {
+        ...state,
+        allTerminals: action.payload,
       };
     }
     case ADD_RAILS_OTHER_NAMES: {

@@ -8,7 +8,7 @@ import {
   refresheShipment,
   removeShipment,
 } from "../../components/redux/actions/shipmentsActions";
-import Containershipment from "../../components/shipments/ContainerData";
+import Containershipment from "../../components/RoutesComponents/shipments/ContainerData";
 import { useEffect, useState } from "react";
 import { RootState } from "../../components/redux/store";
 import { terminalsAvailable } from "../../components/redux/terminalsData";

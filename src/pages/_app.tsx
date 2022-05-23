@@ -5,10 +5,11 @@ import Header from "../components/layouts/header/header";
 import Footer from "../components/layouts/Footer/footer";
 import store from "../components/redux/store";
 import { Provider } from "react-redux";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true);
-
+  const queryClient = new QueryClient();
   useEffect(() => {
     setTimeout(function () {
       setLoading(false);
@@ -29,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             loading === true ? "dark:animate-none animate-Loading " : ""
           }
         >
-          <Component {...pageProps} />
+          <QueryClientProvider client={queryClient}>
+            <Component {...pageProps} />
+          </QueryClientProvider>
         </section>
       </Provider>
     </>

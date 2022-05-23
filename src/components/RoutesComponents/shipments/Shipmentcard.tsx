@@ -3,7 +3,7 @@ import moment from "moment";
 
 import Link from "next/link";
 import Containercard from "./containerCard";
-import { Ishipment } from "../redux/interfaces";
+import { Ishipment } from "../../redux/interfaces";
 
 const Shipmentcard = ({
   containers,

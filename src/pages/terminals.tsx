@@ -1,5 +1,5 @@
 import DataNav from "../components/layouts/DataNav";
-import Table from "../components/TerminalNames";
+import Table from "../components/RoutesComponents/Terminals";
 
 // import styles from '../styles/Home.module.css'
 

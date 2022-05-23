@@ -2,14 +2,14 @@ import Router, { useRouter } from "next/router";
 
 import React, { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Theme } from "../config/theme";
+import { Theme } from "../../config/theme";
 import {
   getAllRails,
   getAllMetro,
   SetRails,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { RootState } from "../redux/store";
+} from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 import NewMetroArea from "./NewMetroArea";
 import Pagination from "./Pagination";
 import _ from "lodash";

@@ -28,7 +28,7 @@ const Navigation = () => {
           </Link>
         </div>
         <div className="py-2 border-b-2 border-opacity-10 border-gray-100	lg:border-0">
-          <Link href="/terminals">
+          <Link href="/terminals_names">
             <a className="dark:text-skin-white">Data</a>
           </Link>
         </div>

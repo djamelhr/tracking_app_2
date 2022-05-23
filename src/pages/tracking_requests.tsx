@@ -1,4 +1,4 @@
-import MainTrakingRequests from "../components/trackingRequests";
+import MainTrakingRequests from "../components/RoutesComponents/trackingRequests";
 // import styles from '../styles/Home.module.css'
 
 export default function tracking_requests() {

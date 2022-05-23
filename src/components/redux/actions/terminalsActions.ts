@@ -25,6 +25,9 @@ import {
   GET_ALL_RAILS,
   GET_ALL_METRO,
   SET_RAILS,
+  COUNT_PORTS,
+  COUNT_METRO,
+  SET_TERMINALS,
 } from "../types";
 
 export const getContainer = (
@@ -197,6 +200,89 @@ export const getAllPorts = (): ThunkAction<
     }
   };
 };
+export const getAllPortsPaginate = (
+  page: number,
+  per_page: number
+): ThunkAction<void, RootState, null, TerminalListAction> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        `${proxy}/v1/ports/page/${page}/per_page/${per_page}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      dispatch({
+        type: GET_ALL_PORTS,
+        payload: await res.json(),
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const countPorts = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  TerminalListAction
+> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v1/ports/count_ports`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      dispatch({
+        type: COUNT_PORTS,
+        payload: Number(await res.json()),
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const countMetros = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  TerminalListAction
+> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v1/ports/count_metro`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      dispatch({
+        type: COUNT_METRO,
+        payload: Number(await res.json()),
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
 
 export const getAllRails = (): ThunkAction<
   void,
@@ -259,6 +345,23 @@ export const SetRails = (
     try {
       dispatch({
         type: SET_RAILS,
+        payload: data,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const SetTerminals = (
+  data: any
+): ThunkAction<void, RootState, null, TerminalListAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: SET_TERMINALS,
         payload: data,
       });
     } catch (error: any) {

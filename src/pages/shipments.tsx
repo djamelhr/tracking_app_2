@@ -1,4 +1,4 @@
-import MainShipments from "../components/shipments";
+import MainShipments from "../components/RoutesComponents/shipments";
 // import styles from '../styles/Home.module.css'
 
 export default function shipments() {

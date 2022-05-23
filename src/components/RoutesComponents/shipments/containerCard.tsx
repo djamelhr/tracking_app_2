@@ -1,14 +1,7 @@
-import React, { useEffect, useState } from "react";
-import moment from "moment";
+import React from "react";
 import _ from "lodash";
 
 const Containercard = ({ container }: any) => {
-  console.log(container, "ffff");
-  const [lfd, setLfd] = useState(null);
-  const [events, setEvents] = useState<any[]>([]);
-
-  if (container.cntnr) {
-  }
   return (
     <div className=" bg-gray-50 shadow-lg  overflow-hidden p-3">
       <div className="flex justify-between  w-full  bg-white items-center rounded-lg  p-4">

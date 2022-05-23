@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 // import { tracking_requests_at_terminal } from "../redux/actions/shipmentsActions";
 // import { terminalsAvailable } from "../redux/terminalsData";
 
@@ -8,10 +6,7 @@ import TableEvent from "./Eventstable";
 import HistoryAtTerminal from "./HistoryAtTerminal";
 const ContainerData = ({ container, shipmentId }: any) => {
   console.log(container, "ffff");
-  const dispatch = useDispatch();
-  const router = useRouter();
   const [isActive, setIsActive] = useState(false);
-  const [frims_code, setTerminalFrims] = useState("default");
 
   return (
     <div className=" accordion min-w-full bg-gray-50 shadow-lg m-2 overflow-hidden p-3">

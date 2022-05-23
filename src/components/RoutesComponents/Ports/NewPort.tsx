@@ -1,32 +1,35 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  AddOtherNames,
-  getOtherNames,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { RootState } from "../redux/store";
+import { getAllRails, getAllMetro } from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 
-const NewTerminalName = ({ option }: any) => {
+const NewPort = () => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
-  const [name, setName] = useState("");
-  const [terminalId, setTerminalId] = useState("");
+  const [name, setName] = useState<string>("");
+  const [state, setState] = useState<string>("");
+  const [contry_code, setContry_code] = useState<string>("");
+  const [time_zone, setTime_zone] = useState<string>("");
+  const [code, setCode] = useState<string>("");
+
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const { allTerminals } = useSelector((state: RootState) => state.terminal);
-  console.log("id", terminalId);
+  const { allRails, type } = useSelector((state: RootState) => state.terminal);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsRefreshing(false);
+  }, [dispatch, type]);
   const refreshData = () => {
     console.log(router.asPath);
-
     router.replace(router.asPath);
     setIsRefreshing(true);
   };
-  const addName = async () => {
-    const res = await fetch(`${proxy}/v2/terminals/addnames`, {
+  const addMetroArea = async () => {
+    const res = await fetch(`${proxy}/v1/ports/metro_area/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -36,26 +39,34 @@ const NewTerminalName = ({ option }: any) => {
       body: JSON.stringify([
         {
           name,
-          terminal: {
-            id: terminalId,
-          },
+          state,
+          code,
+          time_zone,
+          contry_code,
         },
       ]),
     });
     if (res.status < 300) {
       setShowModal(false);
-      dispatch(getOtherNames(option));
+      dispatch(getAllRails());
+      dispatch(getAllMetro());
       refreshData();
     }
+    setCode("");
+    setState("");
+    setName("");
+    setTime_zone("");
+    setContry_code("");
   };
+
   return (
     <>
       <button
-        className=" ml-4 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-3 py-2 mr-2 h-10 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+        className="ml-4 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-3 py-2 mr-2 h-10 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         type="button"
         onClick={() => setShowModal(true)}
       >
-        New Terminal Name
+        Add Metro Area
       </button>
       {showModal ? (
         <>
@@ -78,36 +89,48 @@ const NewTerminalName = ({ option }: any) => {
                     <label className="block text-black text-sm font-bold mb-1">
                       Name
                     </label>
-
                     <input
                       onChange={(event) => setName(event.target.value)}
+                      value={name}
                       className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
                     />
                     <label className="block text-black text-sm font-bold mb-1">
-                      Select Terminal
+                      State
                     </label>
-                    <div className="relative">
-                      <select
-                        onChange={(event) => setTerminalId(event.target.value)}
-                        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-                      >
-                        <option>Select Terminal</option>
-                        {allTerminals?.map((terminal: any, index: number) => (
-                          <option value={terminal.id} key={terminal.id}>
-                            {terminal.nickname} {terminal.frims_code}
-                          </option>
-                        ))}
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg
-                          className="fill-current h-4 w-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                      </div>
-                    </div>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                      type="text"
+                      value={state}
+                      onChange={(event) => setState(event.target.value)}
+                    />
+                    <label className="block text-black text-sm font-bold mb-1">
+                      Code
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                      type="text"
+                      value={code}
+                      onChange={(event) => setCode(event.target.value)}
+                    />{" "}
+                    <label className="block text-black text-sm font-bold mb-1">
+                      Contry Code
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                      type="text"
+                      value={contry_code}
+                      onChange={(event) => setContry_code(event.target.value)}
+                    />{" "}
+                    <label className="block text-black text-sm font-bold mb-1">
+                      Time Zone
+                    </label>
+                    <input
+                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                      type="text"
+                      value={time_zone}
+                      onChange={(event) => setTime_zone(event.target.value)}
+                    />
+                    <div className="flex px-1 mb-6 md:mb-0 "></div>
                   </form>
                 </div>
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -121,7 +144,7 @@ const NewTerminalName = ({ option }: any) => {
                   <button
                     className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={addName}
+                    onClick={addMetroArea}
                   >
                     Submit
                   </button>
@@ -135,4 +158,4 @@ const NewTerminalName = ({ option }: any) => {
   );
 };
 
-export default NewTerminalName;
+export default NewPort;

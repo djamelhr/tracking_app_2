@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Theme } from "../config/theme";
+import { Theme } from "../../config/theme";
 interface Foo {
   postsPerPage: number;
   totalPosts: number;

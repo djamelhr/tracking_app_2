@@ -11,16 +11,30 @@ const DataNav = () => {
       {/* <div className="ml-10 flex items-baseline space-x-4 gap-4"> */}
       <ul className="flex ">
         <li className="-mb-px mr-1">
-          <Link href="/terminals">
+          <Link href="/terminals_names">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
-                pathname === "/terminals"
+                pathname === "/terminals_names"
                   ? "text-black bg-gray-300"
                   : "text-blue-700"
               }`}
               href="#"
             >
               Terminals Names
+            </a>
+          </Link>
+        </li>
+        <li className="mr-1">
+          <Link href="/ports_metro_names">
+            <a
+              className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
+                pathname === "/ports_metro_names"
+                  ? "text-black bg-gray-300"
+                  : "text-blue-700"
+              }`}
+              href="#"
+            >
+              Ports & Metro Names
             </a>
           </Link>
         </li>
@@ -34,24 +48,39 @@ const DataNav = () => {
               }`}
               href="#"
             >
-              Ports Names
+              Ports
             </a>
           </Link>
         </li>
-        {/* <li className="mr-1">
-          <Link href="/rails">
+        <li className="mr-1">
+          <Link href="/metro_area">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
-                pathname === "/rails"
+                pathname === "/metro_area"
                   ? "text-black bg-gray-300"
                   : "text-blue-700"
               }`}
               href="#"
             >
-              Rails Names
+              Metro
             </a>
           </Link>
-        </li> */}
+        </li>
+
+        <li className="mr-1">
+          <Link href="/terminals">
+            <a
+              className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
+                pathname === "/terminals"
+                  ? "text-black bg-gray-300"
+                  : "text-blue-700"
+              }`}
+              href="#"
+            >
+              terminals
+            </a>
+          </Link>
+        </li>
         <li className="mr-1">
           <Link href="/rails">
             <a

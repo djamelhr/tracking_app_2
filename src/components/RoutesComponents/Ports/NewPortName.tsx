@@ -5,9 +5,9 @@ import {
   setType,
   getPortNames,
   getAllPorts,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { RootState } from "../redux/store";
+} from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 
 const NewPortName = ({ option }: any) => {
   const dispatch = useDispatch();

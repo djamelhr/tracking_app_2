@@ -1,5 +1,5 @@
 import DataNav from "../components/layouts/DataNav";
-import Table from "../components/RoutesComponents/Ports/PortsData";
+import Table from "../components/RoutesComponents/MetroArea/MetrosData";
 
 // import styles from '../styles/Home.module.css'
 

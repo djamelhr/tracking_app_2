@@ -1,5 +1,5 @@
 import DataNav from "../components/layouts/DataNav";
-import Table from "../components/Rails";
+import Table from "../components/RoutesComponents/Rails";
 
 // import styles from '../styles/Home.module.css'
 

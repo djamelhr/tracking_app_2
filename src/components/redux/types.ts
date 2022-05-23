@@ -40,6 +40,10 @@ export const ADD_METRO = "ADD_METRO";
 export const SET_LOADING_RAILS_NAME = "SET_LOADING_RAILS_NAME";
 export const SET_TYPE = "SET_TYPE";
 export const SET_RAILS = "SET_RAILS";
+export const SET_TERMINALS = "SET_TERMINALS";
+
+export const COUNT_PORTS = "COUNT_PORTS";
+export const COUNT_METRO = "COUNT_METRO";
 
 export interface ResponseData {
   request_type: string;
@@ -86,6 +90,9 @@ export interface trackingRequestsState {
   trackingRequestsMessage: string;
 }
 export interface terminalState {
+  PortsNumber: number;
+  MetroNumber: number;
+
   allTerminals: any;
   allPorts: any;
   allRails: any;
@@ -138,6 +145,14 @@ interface GetAllPorts {
   type: typeof GET_ALL_PORTS;
   payload: any;
 }
+interface CountPorts {
+  type: typeof COUNT_PORTS;
+  payload: number;
+}
+interface CountMetro {
+  type: typeof COUNT_METRO;
+  payload: number;
+}
 interface GetAllRails {
   type: typeof GET_ALL_RAILS;
   payload: any;
@@ -146,6 +161,11 @@ interface SetRails {
   type: typeof SET_RAILS;
   payload: any;
 }
+interface SetTerminals {
+  type: typeof SET_TERMINALS;
+  payload: any;
+}
+
 interface getShipmentById {
   type: typeof GET_SHIPMENT_BY_ID;
   payload: any;
@@ -294,6 +314,7 @@ export type TerminalListAction =
   | AddTerminalsOtherNames
   | GetAllTerminals
   | GetAllPorts
+  | SetTerminals
   | SetContainerNumber
   | GetPortsOtherNames
   | SetLoadingPortName
@@ -305,6 +326,8 @@ export type TerminalListAction =
   | AddPortsOtherNames
   | AddMetro
   | GetMetro_Area
+  | CountPorts
+  | CountMetro
   | SetRails;
 
 export type ShipmentListAction =

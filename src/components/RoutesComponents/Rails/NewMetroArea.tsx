@@ -1,14 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setType,
-  getRailsNames,
-  getAllRails,
-  getAllMetro,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { RootState } from "../redux/store";
+import { getAllRails, getAllMetro } from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 
 const NewMetroArea = () => {
   const dispatch = useDispatch();
@@ -20,7 +15,6 @@ const NewMetroArea = () => {
   const [time_zone, setTime_zone] = useState<string>("");
   const [code, setCode] = useState<string>("");
 
-  const [railId, setRailId] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const { allRails, type } = useSelector((state: RootState) => state.terminal);

@@ -2,15 +2,15 @@ import Router, { useRouter } from "next/router";
 
 import React, { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Theme } from "../config/theme";
+import { Theme } from "../../config/theme";
 import {
   getAllMetro,
   getAllPorts,
   getPortNames,
   setType,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { RootState } from "../redux/store";
+} from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 import NewPortName from "./NewPortName";
 import Pagination from "./Pagination";
 

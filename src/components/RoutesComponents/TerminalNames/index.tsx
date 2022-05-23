@@ -8,18 +8,15 @@ import React, {
   useState,
 } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Theme } from "../config/theme";
-import { SetShippingLinesName } from "../redux/actions/shipmentsActions";
+import { Theme } from "../../config/theme";
 import {
   AddOtherNames,
   getAllTerminals,
   getOtherNames,
   getAllRails,
-} from "../redux/actions/terminalsActions";
-import { proxy } from "../redux/proxy";
-import { ShippingLinesAvailable } from "../redux/shipmentsData";
-import { RootState } from "../redux/store";
-import { terminalsAvailable } from "../redux/terminalsData";
+} from "../../redux/actions/terminalsActions";
+import { proxy } from "../../redux/proxy";
+import { RootState } from "../../redux/store";
 import NewTerminalName from "./NewTerminalName";
 import Pagination from "./Pagination";
 
@@ -387,7 +384,7 @@ const Table = () => {
                     disabled
                   />
                 )}
-              </td>{" "}
+              </td>
               <td className="w-1/5 text-center">
                 {inEditMode.status && inEditMode.rowKey === el.id ? (
                   <React.Fragment>
