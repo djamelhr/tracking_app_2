@@ -1,16 +1,10 @@
 /* eslint-disable @next/next/link-passhref */
-import { debounce } from "lodash";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getMoreShipments,
-  getShipments,
-} from "../../redux/actions/shipmentsActions";
+
 import { Ishipment } from "../../redux/interfaces";
 import { proxy } from "../../redux/proxy";
-import { RootState } from "../../redux/store";
 import Shipmentcard from "./Shipmentcard";
 
 const MainShipments = () => {
@@ -88,7 +82,7 @@ const MainShipments = () => {
           <p>Error</p>
         ) : (
           <>
-            {data.pages.map((group, i) => (
+            {data?.pages.map((group, i) => (
               <React.Fragment key={i}>
                 {group.data.map((shipment: Ishipment) => (
                   <Shipmentcard
