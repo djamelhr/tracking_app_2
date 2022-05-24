@@ -3,6 +3,7 @@ import {
   ADD_SHIPMENT,
   ADD_SHIPMENT_NO_TRACKING,
   ADD_TERMINAL_TO_SHIPMENT,
+  GET_MORE_SHIPMENTS,
   GET_SHIPMENTS,
   GET_SHIPMENT_BY_ID,
   GET_SHIPPING_LINES,
@@ -17,7 +18,7 @@ import {
 } from "../types";
 
 const initialState: shipmentState = {
-  data: null,
+  data: [],
   loadingShipments: false,
   error: "",
   success: "",
@@ -40,7 +41,12 @@ export default (
         data: action.payload,
         loadingShipments: false,
       };
-
+    case GET_MORE_SHIPMENTS:
+      return {
+        ...state,
+        data: [...state.data, ...action.payload],
+        loadingShipments: false,
+      };
     case ADD_SHIPMENT:
     case ADD_TERMINAL_TO_SHIPMENT:
     case ADD_SHIPMENT_NO_TRACKING:

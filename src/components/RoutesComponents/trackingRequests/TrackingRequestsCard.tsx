@@ -11,12 +11,12 @@ const TrackingRequestsCard = ({ trackingRequest }: any) => {
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {trackingRequest.scac}
         </div>
-        {trackingRequest.status === "not found" ? (
+        {trackingRequest.status === "failed" ? (
           <div className=" text-xs uppercase px-2 py-1   text-red-500 font-bold">
-            {trackingRequest.status}
+            {trackingRequest.failed_reason}
           </div>
         ) : (
-          <div className=" text-xs uppercase px-2 py-1   text-black-200 font-bold">
+          <div className=" text-xs uppercase px-2 py-1   text-green-500 font-bold">
             {trackingRequest.status}
           </div>
         )}

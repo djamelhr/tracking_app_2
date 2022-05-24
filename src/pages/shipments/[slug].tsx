@@ -269,7 +269,7 @@ export default function ShipmentPage(shipment: any) {
               </p>
             ) : (
               selectTerminal
-            )}{" "}
+            )}
             <span className="text-xs">
               {shipment.pod_terminal?.frims_code
                 ? shipment.pod_terminal?.frims_code

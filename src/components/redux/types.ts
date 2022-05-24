@@ -44,6 +44,7 @@ export const SET_TERMINALS = "SET_TERMINALS";
 
 export const COUNT_PORTS = "COUNT_PORTS";
 export const COUNT_METRO = "COUNT_METRO";
+export const GET_MORE_SHIPMENTS = "GET_MORE_SHIPMENTS";
 
 export interface ResponseData {
   request_type: string;
@@ -71,7 +72,7 @@ export interface Holds_Released {
   status: string;
 }
 export interface shipmentState {
-  data: any[] | null;
+  data: any[];
   loadingShipments: boolean;
   error: string;
   success: string;
@@ -135,6 +136,10 @@ interface GetMetro_Area {
 }
 interface GetShipments {
   type: typeof GET_SHIPMENTS;
+  payload: any;
+}
+interface GetMoreShipments {
+  type: typeof GET_MORE_SHIPMENTS;
   payload: any;
 }
 interface GetAllTerminals {
@@ -332,6 +337,7 @@ export type TerminalListAction =
 
 export type ShipmentListAction =
   | GetShipments
+  | GetMoreShipments
   | SetShippingLinesName
   | SetRequestNumber
   | RefreshShipment

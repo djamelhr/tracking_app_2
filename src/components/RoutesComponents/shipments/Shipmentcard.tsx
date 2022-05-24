@@ -11,6 +11,7 @@ const Shipmentcard = ({
   number,
   pod_terminal,
   voyage,
+
   port_of_lading_name,
   port_of_discharge_name,
   destination_name,

@@ -21,8 +21,8 @@ import {
   NotificationAction,
   ADD_TERMINAL_TO_SHIPMENT,
   GET_SHIPMENT_BY_ID,
+  GET_MORE_SHIPMENTS,
 } from "../types";
-
 export const getShipments = (): ThunkAction<
   void,
   RootState,
@@ -35,17 +35,54 @@ export const getShipments = (): ThunkAction<
         type: SET_LOADING_SHIPMENTS,
         payload: true,
       });
-      const res = await fetch(`${proxy}/v2/shipments`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `${proxy}/v2/shipments/page_number/1/page_size/5`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const content = await res.json();
 
       dispatch({
         type: GET_SHIPMENTS,
+        payload: content,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const getMoreShipments = (
+  page_number: number,
+  page_size: number
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: SET_LOADING_SHIPMENTS,
+        payload: true,
+      });
+      const res = await fetch(
+        `${proxy}/v2/shipments/page_number/${page_number}/page_size/${page_size}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const content = await res.json();
+
+      dispatch({
+        type: GET_MORE_SHIPMENTS,
         payload: content,
       });
     } catch (error: any) {
@@ -304,7 +341,6 @@ export const addShipment = (
         body: JSON.stringify(data),
       });
       const content = await res.json();
-      console.log(content, "hennannana");
 
       if (content.errors) {
         dispatch({
