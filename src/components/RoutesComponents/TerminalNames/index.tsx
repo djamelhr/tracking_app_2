@@ -17,6 +17,7 @@ import {
 } from "../../redux/actions/terminalsActions";
 import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
+import NewTerminal from "./newTerminal";
 import NewTerminalName from "./NewTerminalName";
 import Pagination from "./Pagination";
 
@@ -193,8 +194,8 @@ const Table = () => {
             <option value="0">No Terminal</option>
           </select>
         </div>
+        <NewTerminal />
         <NewTerminalName option={option} />
-
         <div className=" ml-3  flex w-1/8 my-4">
           {loadingOtherNames && (
             <svg
@@ -205,7 +206,7 @@ const Table = () => {
         </div>
       </div>
 
-      <table className="items-center bg-transparent w-4/5 border-solid border-black border-2">
+      <table className="items-center bg-transparent w-full border-solid border-black border-2">
         <thead>
           <tr className=" border-solid border-black border-2 ">
             <th className=" py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
@@ -312,7 +313,8 @@ const Table = () => {
                       <option>Select Terminal</option>
                       {allTerminals?.map((terminal: any, index: number) => (
                         <option data-id={terminal.id} key={terminal.id}>
-                          {terminal.nickname} {" - "} {terminal.frims_code}
+                          {terminal.nickname} {" - "} {terminal.frims_code}{" "}
+                          {" - "} {terminal.port?.state}
                         </option>
                       ))}
                     </select>

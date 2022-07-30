@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import TableEvent from "./Eventstable";
 import HistoryAtTerminal from "./HistoryAtTerminal";
 const ContainerData = ({ container, shipmentId }: any) => {
-  console.log(container, "ffff");
+  // console.log(container, "ffff");
   const [isActive, setIsActive] = useState(false);
 
   return (

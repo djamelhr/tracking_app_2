@@ -7,6 +7,7 @@ import {
   getAllTerminals,
   getAllPorts,
   SetTerminals,
+  getOtherNames,
 } from "../../redux/actions/terminalsActions";
 import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
@@ -136,6 +137,8 @@ const Table = () => {
       ]),
     });
 
+    removeTerminal;
+
     if (res.status < 300) {
       setLoading(false);
       dispatch(getAllTerminals());
@@ -172,6 +175,21 @@ const Table = () => {
       ({ frims_code }: any) => frims_code === e.target.value
     );
     dispatch(SetTerminals(arr));
+  };
+  const removeTerminal = async (id: string) => {
+    setLoading(true);
+    const res = await fetch(`${proxy}/v2/terminals/${id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.status < 300) {
+      setLoading(false);
+      dispatch(getAllTerminals());
+      refreshData();
+    }
   };
   return (
     <div className="container">
@@ -272,6 +290,15 @@ const Table = () => {
                     disabled
                   />
                 )}
+              </td>
+
+              <td className="w-1/5 text-center">
+                <button
+                  onClick={() => removeTerminal(el.id)}
+                  className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2"
+                >
+                  Delete
+                </button>
               </td>
               {/* <td className="w-1/5 text-center">
                 {inEditMode.status && inEditMode.rowKey === el.id ? (

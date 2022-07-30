@@ -145,28 +145,32 @@ export default function ShipmentPage(shipment: any) {
 
   const trackShipmentAtTerminal = async (e: React.FormEvent) => {
     try {
-      let request_type = "update_request";
-      if (shipment.containers[0].cntnr === null) {
-        request_type = "initial_request";
-      }
-      setLoading(true);
-      const res = await fetch(
-        `${proxy}/v2/cargo/${request_type}/${shipment.id}`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (res.status < 300) {
-        setLoading(false);
-        refreshData();
+      if (!shipment.pod_terminal) {
+        alert("no pod terminal");
       } else {
-        setLoading(false);
-        dispatch(setNotification(res.statusText, "danger"));
+        let request_type = "update_request";
+        if (shipment.containers[0].cntnr === null) {
+          request_type = "initial_request";
+        }
+        setLoading(true);
+        const res = await fetch(
+          `${proxy}/v2/cargo/${request_type}/${shipment.id}`,
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (res.status < 300) {
+          setLoading(false);
+          refreshData();
+        } else {
+          setLoading(false);
+          dispatch(setNotification(res.statusText, "danger"));
+        }
       }
     } catch (error) {
       console.log(error);

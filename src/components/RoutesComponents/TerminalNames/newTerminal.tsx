@@ -1,23 +1,29 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRails, getAllMetro } from "../../redux/actions/terminalsActions";
+import {
+  getAllRails,
+  getAllMetro,
+  getAllTerminals,
+  getAllPorts,
+} from "../../redux/actions/terminalsActions";
 import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
 
-const NewMetroArea = () => {
+const NewTerminal = () => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState<string>("");
-  const [state, setState] = useState<string>("");
   const [country_code, setCountry_code] = useState<string>("");
-  const [time_zone, setTime_zone] = useState<string>("");
-  const [code, setCode] = useState<string>("");
+  const [frims_code, setFrims_code] = useState<string>("");
+  const [portId, setPortId] = useState<string>("");
 
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const { allRails, type } = useSelector((state: RootState) => state.terminal);
+  const { allPorts, allTerminals, type } = useSelector(
+    (state: RootState) => state.terminal
+  );
   const router = useRouter();
 
   useEffect(() => {
@@ -28,8 +34,8 @@ const NewMetroArea = () => {
     router.replace(router.asPath);
     setIsRefreshing(true);
   };
-  const addMetroArea = async () => {
-    const res = await fetch(`${proxy}/v1/ports/metro_area/`, {
+  const addTerminal = async () => {
+    const res = await fetch(`${proxy}/v2/terminals/addterminal/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -39,23 +45,23 @@ const NewMetroArea = () => {
       body: JSON.stringify([
         {
           name,
-          state,
-          code,
-          time_zone,
+          frims_code,
           country_code,
+          port: {
+            id: portId,
+          },
         },
       ]),
     });
     if (res.status < 300) {
       setShowModal(false);
       dispatch(getAllRails());
-      dispatch(getAllMetro());
+      dispatch(getAllPorts());
+      dispatch(getAllTerminals());
       refreshData();
     }
-    setCode("");
-    setState("");
+    setFrims_code("");
     setName("");
-    setTime_zone("");
     setCountry_code("");
   };
 
@@ -66,7 +72,7 @@ const NewMetroArea = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Add Metro Area
+        New Terminal
       </button>
       {showModal ? (
         <>
@@ -95,25 +101,16 @@ const NewMetroArea = () => {
                       className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
                     />
                     <label className="block text-black text-sm font-bold mb-1">
-                      State
+                      frims_code
                     </label>
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
                       type="text"
-                      value={state}
-                      onChange={(event) => setState(event.target.value)}
-                    />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Code
-                    </label>
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-                      type="text"
-                      value={code}
-                      onChange={(event) => setCode(event.target.value)}
+                      value={frims_code}
+                      onChange={(event) => setFrims_code(event.target.value)}
                     />{" "}
                     <label className="block text-black text-sm font-bold mb-1">
-                      Contry Code
+                      nickname
                     </label>
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
@@ -122,14 +119,30 @@ const NewMetroArea = () => {
                       onChange={(event) => setCountry_code(event.target.value)}
                     />{" "}
                     <label className="block text-black text-sm font-bold mb-1">
-                      Time Zone
+                      Port
                     </label>
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-                      type="text"
-                      value={time_zone}
-                      onChange={(event) => setTime_zone(event.target.value)}
-                    />
+                    <div className="relative">
+                      <select
+                        onChange={(event) => setPortId(event.target.value)}
+                        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                      >
+                        <option>Select Port</option>
+                        {allPorts?.map((port: any, index: number) => (
+                          <option value={port.id} key={port.id}>
+                            {port.name} {port.code}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg
+                          className="fill-current h-4 w-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </div>
+                    </div>
                     <div className="flex px-1 mb-6 md:mb-0 "></div>
                   </form>
                 </div>
@@ -144,7 +157,7 @@ const NewMetroArea = () => {
                   <button
                     className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={addMetroArea}
+                    onClick={addTerminal}
                   >
                     Submit
                   </button>
@@ -158,4 +171,4 @@ const NewMetroArea = () => {
   );
 };
 
-export default NewMetroArea;
+export default NewTerminal;

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import _ from "lodash";
 
 const TableEvent = ({ events }: any) => {
-  console.log(" TableHigh ", events);
+  // console.log(" TableHigh ", events);
   events = _.orderBy(events, ["actual_at", "estimated_at"], ["desc", "desc"]);
   return (
     <table className="items-center bg-transparent m-4 w-2/4 border-solid border-gray-300 border-1">

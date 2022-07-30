@@ -30,7 +30,7 @@ const NewPortName = ({ option }: any) => {
   };
   const addName = async () => {
     if (!portId) {
-      alert("select Rail");
+      alert("select Port");
     }
     const res = await fetch(`${proxy}/v1/ports/addnames`, {
       method: "POST",

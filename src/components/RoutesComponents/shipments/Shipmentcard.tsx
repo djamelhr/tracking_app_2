@@ -24,16 +24,40 @@ const Shipmentcard = ({
   port_of_lading,
   destination,
 }: Ishipment) => {
-  const diffEta = (eta: string, orginalEta: string) => {
-    const diff = Math.floor(
-      moment.duration(moment(eta).diff(moment(orginalEta))).asDays()
-    );
+  // const diffEta = (eta: string, orginalEta: string) => {
+  //   const diff = Math.floor(
+  //     moment.duration(moment(eta).diff(moment(orginalEta))).asDays()
+  //   );
 
-    return diff === 0 ? "" : "(" + diff + "d)";
+  //   return diff === 0 ? "" : "(" + diff + "d)";
+  // };
+  const destination1 = () => {
+    if (destination) {
+      if (destination.metro_area) {
+        return (
+          <p>
+            {destination?.metro_area?.name +
+              "," +
+              destination?.metro_area?.state}
+          </p>
+        );
+      } else if (destination.port) {
+        return (
+          <p>
+            {destination?.port.name + "," + destination?.port?.country_code}
+          </p>
+        );
+      }
+    } else {
+      return <p>{destination_name ? destination_name : ""}</p>;
+    }
   };
-
   return (
     <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
+      <p className="mt-2 ml-2 text-xs">
+        {" "}
+        {voyage ? moment(voyage.last_status_refresh_at).fromNow() : ""}
+      </p>
       <div className="flex justify-between items-center px-6 py-4">
         <div className="bg-orange-600  uppercase px-2 py-1 text-green-500   ">
           <Link key={id} href={`/shipments/${id}`}>
@@ -67,19 +91,7 @@ const Shipmentcard = ({
                 ? port_of_discharge.state
                 : port_of_discharge.country_code)
             : "-"}
-          <p>
-            {destination
-              ? destination?.metro_area
-                ? destination?.metro_area?.name +
-                  "," +
-                  destination?.metro_area?.state
-                : "" && destination?.port
-                ? destination?.port +
-                  "," +
-                  destination?.metro_area?.country_code
-                : ""
-              : destination_name}
-          </p>
+          <p>{destination1()}</p>
         </div>
 
         {voyage ? (
@@ -91,10 +103,10 @@ const Shipmentcard = ({
                 {moment(voyage.pod_eta_at).format("MMM DD ")}
 
                 <span className="text-yellow-600">
-                  {diffEta(
+                  {/* {diffEta(
                     voyage.pod_eta_at,
                     voyage.pod_original_eta_at ? voyage.pod_original_eta_at : ""
-                  )}
+                  )} */}
                 </span>
               </div>
             ) : (
@@ -108,12 +120,12 @@ const Shipmentcard = ({
                 <div>
                   {moment(voyage.destination_eta_at).format("MMM DD ")}{" "}
                   <span className="text-yellow-600">
-                    {diffEta(
+                    {/* {diffEta(
                       voyage.destination_eta_at,
                       voyage.destination_original_eta_at
                         ? voyage.destination_original_eta_at
                         : ""
-                    )}
+                    )} */}
                   </span>
                 </div>
               ) : (

@@ -10,7 +10,7 @@ import Shipmentcard from "./Shipmentcard";
 const MainShipments = () => {
   const fetchShipments = async ({ pageParam = 1 }) => {
     const res = await fetch(
-      `${proxy}/v2/shipments/page_number/${pageParam}/page_size/5`,
+      `${proxy}/v2/shipments/page_number/${pageParam}/page_size/10`,
       {
         method: "GET",
         headers: {
