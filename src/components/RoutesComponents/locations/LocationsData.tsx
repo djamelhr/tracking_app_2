@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { proxy } from "../../redux/proxy";
 
 import _ from "lodash";
 import { useQuery } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 
 const LocationsTable = () => {
   const [page, setPage] = useState(0);
@@ -37,7 +35,6 @@ const LocationsTable = () => {
       keepPreviousData: true,
     }
   );
-  console.log("this the data", data);
 
   const nextPage = () => {
     setNumberOfPorts(page * 10 + data.data.length);
