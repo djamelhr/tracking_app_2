@@ -207,9 +207,9 @@ const Table = () => {
       )
     );
   };
-  console.log("choooff", currentParams);
-  console.log("selectedddd!!!", metro_id, value);
-  console.log("this the data", data);
+  // console.log("choooff", currentParams);
+  // console.log("selectedddd!!!", metro_id, value);
+  // console.log("this the data", data);
 
   return (
     <div className="container">

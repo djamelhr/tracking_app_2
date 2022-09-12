@@ -20,7 +20,7 @@ const DataNav = () => {
               }`}
               href="#"
             >
-              Locatins Names
+              Locations Names
             </a>
           </Link>
         </li>

@@ -1,10 +1,6 @@
 import React from "react";
 import Toggle from "../../toggle";
-import GithubIcon from "../../icons/github";
 import Link from "next/link";
-import { RootState } from "../../redux/store";
-import { useSelector } from "react-redux";
-import Notification from "./Notification";
 
 const Navigation = () => {
   return (
