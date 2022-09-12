@@ -2,30 +2,33 @@
 import Link from "next/link";
 import { Router, useRouter } from "next/router";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NewBlNav from "../components/layouts/NewBlNav";
 import {
   addShipment,
+  getShippingLines,
   SetRequestNumber,
   SetShippingLinesName,
 } from "../components/redux/actions/shipmentsActions";
-import { ShippingLinesAvailable } from "../components/redux/shipmentsData";
 import { RootState } from "../components/redux/store";
 
 const newShipment = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { error, request_number, shipping_line_name } = useSelector(
-    (state: RootState) => state.shipments
-  );
+  const { error, request_number, shipping_line_name, shipping_lines } =
+    useSelector((state: RootState) => state.shipments);
+
+  useEffect(() => {
+    dispatch(getShippingLines());
+  }, [dispatch]);
   const addTrackingRequest = async (e: React.FormEvent) => {
     console.log("tracking");
 
     e.preventDefault();
     if (request_number?.length !== 0 && shipping_line_name?.length !== 0) {
       console.log(request_number, shipping_line_name);
-      const scac = ShippingLinesAvailable.find(
+      const scac = shipping_lines.find(
         ({ name }) => shipping_line_name === name
       )?.scac;
       dispatch(
@@ -85,11 +88,9 @@ const newShipment = () => {
                 }
               >
                 <option>Select Shipping Line</option>
-                {ShippingLinesAvailable?.map(
-                  (shipping_line: any, index: number) => (
-                    <option key={index}>{shipping_line.name}</option>
-                  )
-                )}
+                {shipping_lines?.map((shipping_line: any) => (
+                  <option key={shipping_line.id}>{shipping_line.name}</option>
+                ))}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg

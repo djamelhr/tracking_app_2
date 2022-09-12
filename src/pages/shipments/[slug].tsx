@@ -259,11 +259,13 @@ export default function ShipmentPage(shipment: any) {
         <div className="flex justify-between  items-center  py-2">
           <div className="bg-orange-600 text-base uppercase  py-1   text-black-200 ">
             Shipment
-            <p className="font-bold text-2xl">{shipment.number}</p>
+            <p className="font-bold text-2xl">{shipment?.number}</p>
           </div>
           <div className="text-base">
             Shipping Line
-            <p className="font-bold text-2xl">{shipment.shipping_lines.name}</p>
+            <p className="font-bold text-2xl">
+              {shipment.shipping_lines?.name}
+            </p>
           </div>
           <div className="text-base">
             Terminal
@@ -306,7 +308,7 @@ export default function ShipmentPage(shipment: any) {
             {shipment.port_of_lading
               ? shipment.port_of_lading?.name +
                 "," +
-                shipment.port_of_lading?.country_code
+                shipment.port_of_lading?.country?.country_code
               : shipment.port_of_lading_name + "*"}
           </div>
 
@@ -317,7 +319,7 @@ export default function ShipmentPage(shipment: any) {
             {shipment.port_of_discharge
               ? shipment.port_of_discharge?.name +
                 "," +
-                shipment.port_of_discharge?.country_code
+                shipment.port_of_discharge?.country?.country_code
               : shipment.port_of_discharge_name + "*"}
           </div>
 
@@ -410,7 +412,7 @@ export default function ShipmentPage(shipment: any) {
       </div>
 
       <div className="m-2 p-3 bg-white w-2/3   items-center mt-1   border-lg">
-        {shipment.containers.map((con: any) => (
+        {shipment.containers?.map((con: any) => (
           <Containershipment
             key={con.id}
             container={con}
@@ -482,7 +484,7 @@ export async function getServerSideProps(context: any) {
   });
   const content = await shipment.json();
   // const mdxSource = await renderToString(content);
-  //  console.log(content);
+  //console.log("contentrsss", content);
   return {
     props: {
       ...content,

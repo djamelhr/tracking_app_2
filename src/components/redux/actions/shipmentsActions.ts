@@ -22,6 +22,7 @@ import {
   ADD_TERMINAL_TO_SHIPMENT,
   GET_SHIPMENT_BY_ID,
   GET_MORE_SHIPMENTS,
+  GET_ALL_SHIPPING_LINES,
 } from "../types";
 export const getShipments = (): ThunkAction<
   void,
@@ -93,7 +94,53 @@ export const getMoreShipments = (
     }
   };
 };
+export const getShippingLines = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  ShipmentListAction
+> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        `${proxy}/v2/tracking_requests/shipping_lines_trackable`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const content = await res.json();
+      console.log("rresss", content);
 
+      if (res.status === 200) {
+        dispatch({
+          type: GET_ALL_SHIPPING_LINES,
+          payload: content,
+        });
+      } else {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: res.statusText,
+            type: "danger",
+          },
+        });
+        dispatch({
+          type: SET_ERROR,
+          payload: "error.message",
+        });
+      }
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
 export const tracking_requests_at_terminal = (
   data: any
 ): ThunkAction<void, RootState, null, ShipmentListAction> => {

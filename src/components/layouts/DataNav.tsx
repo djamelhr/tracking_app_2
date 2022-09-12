@@ -10,6 +10,20 @@ const DataNav = () => {
     <>
       {/* <div className="ml-10 flex items-baseline space-x-4 gap-4"> */}
       <ul className="flex ">
+        <li className="mr-1">
+          <Link href="/locations_names">
+            <a
+              className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
+                pathname === "/locations_names"
+                  ? "text-black bg-gray-300"
+                  : "text-blue-700"
+              }`}
+              href="#"
+            >
+              Locatins Names
+            </a>
+          </Link>
+        </li>
         <li className="-mb-px mr-1">
           <Link href="/terminals_names">
             <a
@@ -24,21 +38,22 @@ const DataNav = () => {
             </a>
           </Link>
         </li>
+
         <li className="mr-1">
-          <Link href="/ports_metro_names">
+          <Link href="/locations">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
-                pathname === "/ports_metro_names"
+                pathname === "/locations"
                   ? "text-black bg-gray-300"
                   : "text-blue-700"
               }`}
               href="#"
             >
-              Ports & Metro Names
+              Locations
             </a>
           </Link>
         </li>
-        <li className="mr-1">
+        {/* <li className="mr-1">
           <Link href="/ports">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
@@ -51,8 +66,8 @@ const DataNav = () => {
               Ports
             </a>
           </Link>
-        </li>
-        <li className="mr-1">
+        </li> */}
+        {/* <li className="mr-1">
           <Link href="/metro_area">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
@@ -65,7 +80,7 @@ const DataNav = () => {
               Metro
             </a>
           </Link>
-        </li>
+        </li> */}
 
         <li className="mr-1">
           <Link href="/terminals">

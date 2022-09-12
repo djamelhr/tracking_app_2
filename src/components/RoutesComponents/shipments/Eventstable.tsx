@@ -34,14 +34,10 @@ const TableEvent = ({ events }: any) => {
               {el.event ? el.event : el.original_event}
             </th>
             <td className="border-solid border-2 border-gray-300 px-6 align-middle  text-xs whitespace-nowrap p-3 ">
-              {el.location_raw?.metro_area || el.location_raw?.port
-                ? el.location_raw.metro_area
-                  ? el.location_raw.metro_area?.name +
-                    ", " +
-                    el.location_raw.metro_area?.country_code
-                  : el.location_raw.port?.name +
-                    ", " +
-                    el.location_raw.port?.country_code
+              {el.location_event
+                ? el.location_event.name +
+                  " " +
+                  el.location_event.country?.country_code
                 : el.scraper_location + "*"}
             </td>
             <td className="border-solid border-2 border-gray-300 px-6 align-center  text-xs whitespace-nowrap p-3">

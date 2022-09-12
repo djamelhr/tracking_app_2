@@ -41,6 +41,7 @@ export const SET_LOADING_RAILS_NAME = "SET_LOADING_RAILS_NAME";
 export const SET_TYPE = "SET_TYPE";
 export const SET_RAILS = "SET_RAILS";
 export const SET_TERMINALS = "SET_TERMINALS";
+export const GET_ALL_SHIPPING_LINES = "GET_ALL_SHIPPING_LINES";
 
 export const COUNT_PORTS = "COUNT_PORTS";
 export const COUNT_METRO = "COUNT_METRO";
@@ -78,6 +79,7 @@ export interface shipmentState {
   success: string;
   message: string;
   shipping_line_name?: string;
+  shipping_lines: any[];
   request_number?: string;
   shipment: any;
   res: any;
@@ -170,7 +172,10 @@ interface SetTerminals {
   type: typeof SET_TERMINALS;
   payload: any;
 }
-
+interface GetShippinsLines {
+  type: typeof GET_ALL_SHIPPING_LINES;
+  payload: any;
+}
 interface getShipmentById {
   type: typeof GET_SHIPMENT_BY_ID;
   payload: any;
@@ -351,6 +356,7 @@ export type ShipmentListAction =
   | SetNotificationAction
   | AddTermialToShipment
   | getShipmentById
+  | GetShippinsLines
   | RemoveShipment;
 export type TrackingRequestsListAction =
   | GetTracking_requests

@@ -1,5 +1,5 @@
 import Router, { useRouter } from "next/router";
-
+import Autocomplete from "react-autocomplete";
 import React, { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../../config/theme";
@@ -13,7 +13,7 @@ import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
 import NewPortName from "./NewPortName";
 import Pagination from "./Pagination";
-
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 interface Iditstatus {
   status: boolean;
   rowKey: string;
@@ -28,6 +28,12 @@ interface onEditParamCurrent {
 interface onEditParamNew {
   id: string;
 }
+async function findWords(value: string) {
+  const response = await fetch(`${proxy}/v1/locations/name/${value}`);
+  const json = await response.json();
+  console.log("this json", json);
+  return json;
+}
 const Table = () => {
   const dispatch = useDispatch();
   const { portsNames, allPorts, loadingOtherNamesPort, type, allMetro } =
@@ -39,6 +45,9 @@ const Table = () => {
   const [metro_id, setMetro_id] = useState<any>();
 
   const [name, setName] = useState<any>();
+  const [value, setValue] = useState<any>();
+  const [selectedvalue, setSelectedValue] = useState<any>();
+
   const [port, setPort] = useState<any>();
   const [metro, setMetro] = useState<any>();
 
@@ -52,6 +61,14 @@ const Table = () => {
     colKey: "",
     keyToUpdate: "",
   });
+  const queryClient = new QueryClient();
+  const { isLoading, isError, data, isFetching } = useQuery(
+    ["locations", value],
+    () => findWords(value),
+    {
+      keepPreviousData: true,
+    }
+  );
   const router = useRouter();
   const refreshData = () => {
     router.replace(router.asPath);
@@ -61,7 +78,7 @@ const Table = () => {
     setIsRefreshing(false);
     dispatch(getPortNames(option));
     dispatch(getAllPorts());
-    dispatch(getAllMetro());
+    //dispatch(getAllMetro());
   }, [dispatch, option, type]);
 
   let currentParams: any[] = [];
@@ -151,7 +168,7 @@ const Table = () => {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify([{ id, metro_area }]),
+        body: JSON.stringify([{ id, location: metro_area }]),
       });
     }
 
@@ -182,8 +199,17 @@ const Table = () => {
 
     // reset the unit price state value
   };
-
-  console.log("choooff", inEditMode.keyToUpdate);
+  const onSelectLocation = (val: any) => {
+    setMetro_id(val);
+    data.find((item: any) =>
+      setValue(
+        item.name + " " + item.state?.code + " " + item.country?.country_code
+      )
+    );
+  };
+  console.log("choooff", currentParams);
+  console.log("selectedddd!!!", metro_id, value);
+  console.log("this the data", data);
 
   return (
     <div className="container">
@@ -218,11 +244,11 @@ const Table = () => {
             <th className=" py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Scraped Name
             </th>
-            <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+            {/* <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Port
-            </th>
+            </th> */}
             <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
-              Metro Area
+              Locations
             </th>
             <th className=" px-2 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               {loading && (
@@ -282,7 +308,7 @@ const Table = () => {
                   />
                 )}
               </td>
-              <td
+              {/* <td
                 onDoubleClick={() => {
                   el.port ? setPort(el.port.name) : setPort("");
 
@@ -332,7 +358,7 @@ const Table = () => {
                     disabled
                   />
                 )}
-              </td>
+              </td> */}
 
               <td
                 onDoubleClick={() => {
@@ -344,14 +370,35 @@ const Table = () => {
                   });
                   //  ulRef.current.children[1].children[0];
                 }}
-                className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 "
+                className="bg-gray-100 border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 "
               >
                 {inEditMode.status &&
                 inEditMode.rowKey === el.id &&
                 inEditMode.colKey === el.metro_area &&
                 inEditMode.keyToUpdate === Object.keys(el)[4] ? (
                   <div className="select">
-                    <select
+                    <Autocomplete
+                      getItemValue={(item) => item.id}
+                      items={data}
+                      renderItem={(item, isHighlighted) => (
+                        <div
+                          style={{
+                            background: isHighlighted ? "lightgray" : "white",
+                          }}
+                        >
+                          {item.name +
+                            " " +
+                            item.country?.country_code +
+                            item.location +
+                            " " +
+                            item.state?.code}
+                        </div>
+                      )}
+                      value={value}
+                      onChange={(e) => setValue(e.target.value)}
+                      onSelect={onSelectLocation}
+                    />
+                    {/* <select
                       onKeyPress={(e: KeyboardEvent) =>
                         e.key === "Enter"
                           ? onSave({
@@ -373,15 +420,20 @@ const Table = () => {
                           {" - "} {metro_area.code}
                         </option>
                       ))}
-                    </select>
+                    </select> */}
                   </div>
                 ) : (
                   <input
                     className="w-full"
                     type="text"
                     value={
-                      el.metro_area
-                        ? el.metro_area.name + " / " + el.metro_area?.code
+                      el.location
+                        ? el.location.name +
+                          " " +
+                          el.location.state?.code +
+                          " " +
+                          el.location.country?.country_code +
+                          el.location.location
                         : ""
                     }
                     style={{ color: Theme.colors.dark }}

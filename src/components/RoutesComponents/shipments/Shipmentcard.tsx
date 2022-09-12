@@ -33,23 +33,15 @@ const Shipmentcard = ({
   // };
   const destination1 = () => {
     if (destination) {
-      if (destination.metro_area) {
+      if (destination.location) {
         return (
           <p>
-            {destination?.metro_area?.name +
+            {destination?.location?.name +
               "," +
-              destination?.metro_area?.state}
-          </p>
-        );
-      } else if (destination.port) {
-        return (
-          <p>
-            {destination?.port.name + "," + destination?.port?.country_code}
+              destination?.location?.state.name}
           </p>
         );
       }
-    } else {
-      return <p>{destination_name ? destination_name : ""}</p>;
     }
   };
   return (
@@ -80,8 +72,8 @@ const Shipmentcard = ({
         </div>
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {port_of_lading
-            ? port_of_lading.name + "," + port_of_lading?.country_code
-            : "-"}
+            ? port_of_lading.name + "," + port_of_lading?.country?.country_code
+            : port_of_lading_name + " *"}
         </div>
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {port_of_discharge
@@ -89,8 +81,8 @@ const Shipmentcard = ({
               "," +
               (port_of_discharge.state
                 ? port_of_discharge.state
-                : port_of_discharge.country_code)
-            : "-"}
+                : port_of_discharge.country?.country_code)
+            : port_of_discharge_name + " *"}
           <p>{destination1()}</p>
         </div>
 

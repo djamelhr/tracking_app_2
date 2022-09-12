@@ -36,7 +36,6 @@ const Table = () => {
     }
   );
 
-  console.log(data, page);
   const nextPage = () => {
     setNumberOfPorts(page * 10 + data.length);
     setPage((old) => old + 1);
