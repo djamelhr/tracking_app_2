@@ -36,8 +36,9 @@ async function findWords(value: string) {
 }
 const Table = () => {
   const dispatch = useDispatch();
-  const { portsNames, allPorts, loadingOtherNamesPort, type, allMetro } =
-    useSelector((state: RootState) => state.terminal);
+  const { portsNames, loadingOtherNamesPort, type } = useSelector(
+    (state: RootState) => state.terminal
+  );
   const [currentPage, setCurrentPage] = useState(1);
 
   const [paramsPerPage] = useState(10);
@@ -77,7 +78,7 @@ const Table = () => {
   useEffect(() => {
     setIsRefreshing(false);
     dispatch(getPortNames(option));
-    dispatch(getAllPorts());
+    // dispatch(getAllPorts());
     //dispatch(getAllMetro());
   }, [dispatch, option, type]);
 
@@ -429,8 +430,6 @@ const Table = () => {
                     value={
                       el.location
                         ? el.location.name +
-                          " " +
-                          el.location.state?.code +
                           " " +
                           el.location.country?.country_code +
                           el.location.location

@@ -114,7 +114,6 @@ export default (
       return {
         ...state,
         allPorts: action.payload,
-        loadingOtherNamesPort: false,
       };
     }
     case GET_ALL_METRO: {
