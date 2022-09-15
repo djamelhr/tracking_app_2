@@ -23,6 +23,7 @@ import {
   GET_SHIPMENT_BY_ID,
   GET_MORE_SHIPMENTS,
   GET_ALL_SHIPPING_LINES,
+  SET_LOADING_NEW_TR,
 } from "../types";
 export const getShipments = (): ThunkAction<
   void,
@@ -375,10 +376,10 @@ export const addShipment = (
 ): ThunkAction<void, RootState, null, ShipmentListAction> => {
   return async (dispatch) => {
     try {
-      // dispatch({
-      //   type: SET_LOADING,
-      //   payload: true,
-      // });
+      dispatch({
+        type: SET_LOADING_NEW_TR,
+        payload: true,
+      });
       const res = await fetch(`${proxy}/v2/tracking_requests`, {
         method: "POST",
         headers: {
@@ -391,6 +392,10 @@ export const addShipment = (
 
       if (content.errors) {
         dispatch({
+          type: SET_LOADING_NEW_TR,
+          payload: false,
+        });
+        dispatch({
           type: SET_NOTIFICATION,
           payload: {
             msg: content.errors[0].code,
@@ -398,6 +403,10 @@ export const addShipment = (
           },
         });
       } else {
+        dispatch({
+          type: SET_LOADING_NEW_TR,
+          payload: false,
+        });
         dispatch({
           type: ADD_SHIPMENT,
         });
@@ -410,6 +419,10 @@ export const addShipment = (
             },
           });
         } else {
+          dispatch({
+            type: SET_LOADING_NEW_TR,
+            payload: false,
+          });
           dispatch({
             type: SET_NOTIFICATION,
             payload: {

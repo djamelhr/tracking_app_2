@@ -10,6 +10,7 @@ import {
   GET_SHIPPING_LINES,
   REFRESHE_SHIPMENT,
   REMOVE_SHIPMENT,
+  SET_LOADING_NEW_TR,
   SET_LOADING_SHIPMENTS,
   SET_REQUEST_NUMBER,
   SET_SHIPPING_LINES,
@@ -23,6 +24,8 @@ const initialState: shipmentState = {
   shipping_lines: [],
 
   loadingShipments: false,
+  loadingNewTr: false,
+
   error: "",
   success: "",
   message: "",
@@ -92,7 +95,11 @@ export default (
         ...state,
         loadingShipments: action.payload,
       };
-
+    case SET_LOADING_NEW_TR:
+      return {
+        ...state,
+        loadingNewTr: action.payload,
+      };
     default:
       return state;
   }

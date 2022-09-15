@@ -1,5 +1,7 @@
 export const GET_TERMINAL = "GET_TERMINAL";
 export const SET_LOADING = "SET_LOADING";
+export const SET_LOADING_NEW_TR = "SET_LOADING_NEW_TR";
+
 export const SET_ERROR = "SET_ERROR";
 export const SET_SUCCESS = "SET_SUCCESS";
 export const SET_TERMINAL_NAME = "SET_TERMINAL_NAME";
@@ -75,6 +77,7 @@ export interface Holds_Released {
 export interface shipmentState {
   data: any[];
   loadingShipments: boolean;
+  loadingNewTr: boolean;
   error: string;
   success: string;
   message: string;
@@ -225,6 +228,11 @@ interface SetLoadingAction {
   type: typeof SET_LOADING;
   payload: boolean;
 }
+interface SetLoadingTrAction {
+  type: typeof SET_LOADING_NEW_TR;
+  payload: boolean;
+}
+
 interface SetLoadingShipmentsAction {
   type: typeof SET_LOADING_SHIPMENTS;
   payload: boolean;
@@ -357,6 +365,7 @@ export type ShipmentListAction =
   | AddTermialToShipment
   | getShipmentById
   | GetShippinsLines
+  | SetLoadingTrAction
   | RemoveShipment;
 export type TrackingRequestsListAction =
   | GetTracking_requests
