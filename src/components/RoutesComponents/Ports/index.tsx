@@ -43,7 +43,7 @@ const Table = () => {
 
   const [paramsPerPage] = useState(10);
   const [port_id, setPort_id] = useState<any>();
-  const [metro_id, setMetro_id] = useState<any>();
+  const [location_id, setlocation_id] = useState<any>();
 
   const [name, setName] = useState<any>();
   const [value, setValue] = useState<any>();
@@ -104,7 +104,7 @@ const Table = () => {
     setMetro(event.currentTarget.value);
     const selectedIndex = event.currentTarget.options.selectedIndex;
 
-    setMetro_id(
+    setlocation_id(
       event.currentTarget.options[selectedIndex].getAttribute("data-id")
     );
   };
@@ -139,6 +139,8 @@ const Table = () => {
     console.log(id, name, port_id);
     setLoading(true);
     let res: any;
+    console.log("idit key ", inEditMode.keyToUpdate);
+
     if (inEditMode.keyToUpdate === "name") {
       res = await fetch(`${proxy}/v1/ports/addnames`, {
         method: "POST",
@@ -149,8 +151,8 @@ const Table = () => {
 
         body: JSON.stringify([{ id, name }]),
       });
-    } else if (inEditMode.keyToUpdate === "port") {
-      const port = port_id ? { id: port_id } : null;
+    } else if (inEditMode.keyToUpdate === "location") {
+      const location = location_id ? { id: location_id } : null;
       res = await fetch(`${proxy}/v1/ports/addnames`, {
         method: "POST",
         headers: {
@@ -158,22 +160,11 @@ const Table = () => {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify([{ id, port }]),
-      });
-    } else if (inEditMode.keyToUpdate === "metro_area") {
-      const metro_area = metro_id ? { id: metro_id } : null;
-      res = await fetch(`${proxy}/v1/ports/addnames`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify([{ id, location: metro_area }]),
+        body: JSON.stringify([{ id, location }]),
       });
     }
 
-    if (res.status < 300) {
+    if (res?.status < 300) {
       setLoading(false);
       dispatch(getPortNames(option));
       refreshData();
@@ -201,15 +192,15 @@ const Table = () => {
     // reset the unit price state value
   };
   const onSelectLocation = (val: any) => {
-    setMetro_id(val);
+    setlocation_id(val);
     data.find((item: any) =>
       setValue(
         item.name + " " + item.state?.code + " " + item.country?.country_code
       )
     );
   };
-  // console.log("choooff", currentParams);
-  // console.log("selectedddd!!!", metro_id, value);
+  console.log("choooff", currentParams);
+  // console.log("selectedddd!!!", location_id, value);
   // console.log("this the data", data);
 
   return (
@@ -250,6 +241,9 @@ const Table = () => {
             </th> */}
             <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Locations
+            </th>
+            <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+              Shipping Line
             </th>
             <th className=" px-2 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               {loading && (
@@ -309,57 +303,6 @@ const Table = () => {
                   />
                 )}
               </td>
-              {/* <td
-                onDoubleClick={() => {
-                  el.port ? setPort(el.port.name) : setPort("");
-
-                  onEdit({
-                    id: el.id,
-                    col: el.port,
-                    key: Object.keys(el)[3],
-                  });
-                  //  ulRef.current.children[1].children[0];
-                }}
-                className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 "
-              >
-                {inEditMode.status &&
-                inEditMode.rowKey === el.id &&
-                inEditMode.colKey === el.port &&
-                inEditMode.keyToUpdate === Object.keys(el)[3] ? (
-                  <div className="select">
-                    <select
-                      onKeyPress={(e: KeyboardEvent) =>
-                        e.key === "Enter"
-                          ? onSave({
-                              id: el.id,
-                            })
-                          : console.log(e.key)
-                      }
-                      onKeyDown={(e) => {
-                        e.key === "Escape" ? onCancel() : console.log(e.key);
-                      }}
-                      value={port}
-                      onChange={getId}
-                    >
-                      <option>Select Port</option>
-                      {allPorts?.map((port: any) => (
-                        <option data-id={port.id} key={port.id}>
-                          {port.name} {port.state ? " - " + port.state : ""}{" "}
-                          {" - "} {port.code}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                ) : (
-                  <input
-                    className="w-full"
-                    type="text"
-                    value={el.port ? el.port.name + " / " + el.port?.code : ""}
-                    style={{ color: Theme.colors.dark }}
-                    disabled
-                  />
-                )}
-              </td> */}
 
               <td
                 onDoubleClick={() => {
@@ -367,7 +310,7 @@ const Table = () => {
                   onEdit({
                     id: el.id,
                     col: el.metro_area,
-                    key: Object.keys(el)[4],
+                    key: Object.keys(el)[3],
                   });
                   //  ulRef.current.children[1].children[0];
                 }}
@@ -376,7 +319,7 @@ const Table = () => {
                 {inEditMode.status &&
                 inEditMode.rowKey === el.id &&
                 inEditMode.colKey === el.metro_area &&
-                inEditMode.keyToUpdate === Object.keys(el)[4] ? (
+                inEditMode.keyToUpdate === Object.keys(el)[3] ? (
                   <div className="select">
                     <Autocomplete
                       getItemValue={(item) => item.id}
@@ -440,6 +383,10 @@ const Table = () => {
                   />
                 )}
               </td>
+              <td className="bg-gray-100 border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
+                {el.shipping_line?.name}
+              </td>
+
               <td className="w-1/5 text-center">
                 {inEditMode.status && inEditMode.rowKey === el.id ? (
                   <React.Fragment>

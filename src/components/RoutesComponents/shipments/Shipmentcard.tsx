@@ -32,16 +32,21 @@ const Shipmentcard = ({
   //   return diff === 0 ? "" : "(" + diff + "d)";
   // };
   const destination1 = () => {
+    console.log(destination);
+
     if (destination) {
-      if (destination.location) {
-        return (
-          <p>
-            {destination?.location?.name +
-              "," +
-              destination?.location?.state.name}
-          </p>
-        );
-      }
+      let statecode = destination?.state?.code
+        ? destination?.state?.code + ","
+        : destination_name;
+
+      return (
+        <p>
+          {destination?.name +
+            "," +
+            statecode +
+            destination?.country?.country_code}
+        </p>
+      );
     }
   };
   return (

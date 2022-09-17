@@ -107,7 +107,13 @@ export default function ShipmentPage(shipment: any) {
 
     return pol;
   };
+  const statecode = () => {
+    let state = shipment.destination?.state?.code
+      ? shipment.destination?.state?.code + ","
+      : "";
 
+    return state;
+  };
   const pod_date = () => {
     let pol = "";
     if (shipment.voyage) {
@@ -331,16 +337,11 @@ export default function ShipmentPage(shipment: any) {
           <div id="destination" className="flex flex-row   items-center my-2">
             <div className="flex flex-col w-1/2">
               <div>
-                {shipment.destination?.port || shipment.destination?.metro_area
-                  ? shipment.destination?.metro_area
-                    ? shipment.destination?.metro_area.name +
-                      "," +
-                      shipment.destination?.metro_area?.state
-                    : "" || shipment.destination?.port
-                    ? shipment.destination?.port?.name +
-                      "," +
-                      shipment.destination?.port?.country_code
-                    : ""
+                {shipment.destination
+                  ? shipment.destination?.name +
+                    "," +
+                    statecode() +
+                    shipment.destination?.country.country_code
                   : shipment.destination_name + "*"}
               </div>
               <div className="w-1/2">
