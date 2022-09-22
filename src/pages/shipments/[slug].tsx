@@ -105,7 +105,11 @@ export default function ShipmentPage(shipment: any) {
       }
     }
 
-    return pol;
+    return pol ? (
+      <div className="bg-gray-200 p-2 rounded-lg"> {pol}</div>
+    ) : (
+      <div className="bg-gray-200 p-2 rounded-lg"> ETA ~ N/A</div>
+    );
   };
   const statecode = () => {
     let state = shipment.destination?.state?.code
@@ -367,9 +371,7 @@ export default function ShipmentPage(shipment: any) {
               </div>
             </div>
 
-            <div className="bg-gray-200 p-2 rounded-lg">
-              {destination_date()}
-            </div>
+            {destination_date()}
           </div>
         ) : (
           ""

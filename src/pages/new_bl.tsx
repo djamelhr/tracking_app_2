@@ -38,7 +38,7 @@ const newShipment = () => {
       )?.scac;
       dispatch(
         addShipment({
-          request_number,
+          request_number: request_number?.trim(),
           scac,
           request_type: "bill_of_lading",
           type: "tracking_request",

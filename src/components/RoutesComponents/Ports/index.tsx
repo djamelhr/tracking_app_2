@@ -200,8 +200,8 @@ const Table = () => {
     );
   };
   console.log("choooff", currentParams);
-  // console.log("selectedddd!!!", location_id, value);
-  // console.log("this the data", data);
+  console.log("selectedddd!!!", location_id, value);
+  console.log("this the data", data);
 
   return (
     <div className="container">
@@ -306,10 +306,12 @@ const Table = () => {
 
               <td
                 onDoubleClick={() => {
-                  el.metro_area ? setMetro(el.metro_area.name) : setMetro("");
+                  console.log("the element", el);
+
+                  setValue(el.name.split(",")[0]);
                   onEdit({
                     id: el.id,
-                    col: el.metro_area,
+                    col: el.location,
                     key: Object.keys(el)[3],
                   });
                   //  ulRef.current.children[1].children[0];
@@ -318,7 +320,7 @@ const Table = () => {
               >
                 {inEditMode.status &&
                 inEditMode.rowKey === el.id &&
-                inEditMode.colKey === el.metro_area &&
+                inEditMode.colKey === el.location &&
                 inEditMode.keyToUpdate === Object.keys(el)[3] ? (
                   <div className="select">
                     <Autocomplete
@@ -416,7 +418,7 @@ const Table = () => {
                 ) : (
                   <button
                     onClick={() => removeName(el.id)}
-                    className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                    className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 my-1 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
                   >
                     Delete
                   </button>
