@@ -49,6 +49,7 @@ const Shipmentcard = ({
       );
     }
   };
+
   return (
     <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
       <p className="mt-2 ml-2 text-xs">
@@ -79,7 +80,17 @@ const Shipmentcard = ({
           {port_of_lading
             ? port_of_lading.name + "," + port_of_lading?.country?.country_code
             : port_of_lading_name + " *"}
+          <div className="text-xs text-gray-700 font-normal ">
+            {voyage?.pol_atd_at ? (
+              moment(voyage?.pol_atd_at).format("MMM DD ")
+            ) : voyage?.pol_etd_at ? (
+              <div>{moment(voyage?.pol_etd_at).format("MMM DD ")}</div>
+            ) : (
+              "No ETA"
+            )}
+          </div>
         </div>
+
         <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
           {port_of_discharge
             ? port_of_discharge.name +
@@ -112,7 +123,7 @@ const Shipmentcard = ({
 
             <div>
               {voyage.destination_ata_at ? (
-                voyage.destination_ata_at
+                moment(voyage.destination_ata_at).format("MMM DD ")
               ) : voyage.destination_eta_at ? (
                 <div>
                   {moment(voyage.destination_eta_at).format("MMM DD ")}{" "}
