@@ -47,6 +47,8 @@ const Shipmentcard = ({
             destination?.country?.country_code}
         </p>
       );
+    } else {
+      return <p>{destination_name ? destination_name + " *" : ""} </p>;
     }
   };
 
