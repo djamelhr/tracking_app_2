@@ -10,6 +10,7 @@ import {
   GET_SHIPPING_LINES,
   REFRESHE_SHIPMENT,
   REMOVE_SHIPMENT,
+  SAVE_SHIPPING_LINES,
   SET_LOADING_NEW_TR,
   SET_LOADING_SHIPMENTS,
   SET_REQUEST_NUMBER,
@@ -17,6 +18,7 @@ import {
   ShipmentListAction,
   shipmentState,
   TRACKING_REQUEST_AT_TERMINAL,
+  UPDATE_SHIPPING_LINES,
 } from "../types";
 
 const initialState: shipmentState = {
@@ -90,16 +92,37 @@ export default (
         ...state,
         shipping_lines: action.payload,
       };
+
     case SET_LOADING_SHIPMENTS:
       return {
         ...state,
         loadingShipments: action.payload,
       };
+    case UPDATE_SHIPPING_LINES:
+      const copyShippingLines = state.shipping_lines;
+
+      const newState = copyShippingLines.map((obj) =>
+        obj.id === action.payload
+          ? { ...obj, is_trackable: !obj.is_trackable }
+          : obj
+      );
+
+      return {
+        ...state,
+        shipping_lines: newState,
+      };
+    case SAVE_SHIPPING_LINES:
+      return {
+        ...state,
+        shipping_lines: action.payload,
+      };
+
     case SET_LOADING_NEW_TR:
       return {
         ...state,
         loadingNewTr: action.payload,
       };
+
     default:
       return state;
   }

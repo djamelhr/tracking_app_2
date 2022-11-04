@@ -1,5 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 import { proxy } from "../proxy";
+import Router from "next/router";
 
 import { RootState } from "../store";
 
@@ -24,6 +25,8 @@ import {
   GET_MORE_SHIPMENTS,
   GET_ALL_SHIPPING_LINES,
   SET_LOADING_NEW_TR,
+  UPDATE_SHIPPING_LINES,
+  SAVE_SHIPPING_LINES,
 } from "../types";
 export const getShipments = (): ThunkAction<
   void,
@@ -95,6 +98,113 @@ export const getMoreShipments = (
     }
   };
 };
+export const UpdateShippingLine = (
+  data: any
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: UPDATE_SHIPPING_LINES,
+        payload: data,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const SaveShippingLine = (
+  data: any
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v1/ports/shipping_lines/update`, {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const content = await res.json();
+      if (res.status === 200) {
+        dispatch({
+          type: SAVE_SHIPPING_LINES,
+          payload: content,
+        });
+        Router.replace(Router.asPath);
+        window.location.reload();
+      } else {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: res.statusText,
+            type: "danger",
+          },
+        });
+        dispatch({
+          type: SET_ERROR,
+          payload: "error.message",
+        });
+      }
+      console.log("rresss", content);
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const getAllShippingLines = (): ThunkAction<
+  void,
+  RootState,
+  null,
+  ShipmentListAction
+> => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(`${proxy}/v1/ports/shipping_lines`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const content = await res.json();
+      console.log("rresss", content);
+
+      if (res.status === 200) {
+        dispatch({
+          type: GET_ALL_SHIPPING_LINES,
+          payload: content,
+        });
+      } else {
+        dispatch({
+          type: SET_NOTIFICATION,
+          payload: {
+            msg: res.statusText,
+            type: "danger",
+          },
+        });
+        dispatch({
+          type: SET_ERROR,
+          payload: "error.message",
+        });
+      }
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
 export const getShippingLines = (): ThunkAction<
   void,
   RootState,
@@ -402,7 +512,7 @@ export const addShipment = (
             type: "danger",
           },
         });
-      } else {
+      } else if (content.data) {
         dispatch({
           type: SET_LOADING_NEW_TR,
           payload: false,
@@ -410,11 +520,11 @@ export const addShipment = (
         dispatch({
           type: ADD_SHIPMENT,
         });
-        if (content.status === "created") {
+        if (content.data.status === "created") {
           dispatch({
             type: SET_NOTIFICATION,
             payload: {
-              msg: content.status,
+              msg: content.data.status,
               type: "succss",
             },
           });
@@ -426,7 +536,7 @@ export const addShipment = (
           dispatch({
             type: SET_NOTIFICATION,
             payload: {
-              msg: content.status,
+              msg: content.data.failed_reason,
               type: "danger",
             },
           });

@@ -10,7 +10,7 @@ import { RootState } from "../../redux/store";
 import Autocomplete from "react-autocomplete";
 import { QueryClient, useQuery } from "react-query";
 
-const NewTerminal = () => {
+const NewRail = () => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
@@ -23,9 +23,7 @@ const NewTerminal = () => {
   const [value, setValue] = useState<any>();
   const [allowedToFetch, setAllowedToFetch] = useState(true);
 
-  const { allPorts, allTerminals, type } = useSelector(
-    (state: RootState) => state.terminal
-  );
+  const { type } = useSelector((state: RootState) => state.terminal);
   const router = useRouter();
 
   useEffect(() => {
@@ -48,7 +46,7 @@ const NewTerminal = () => {
   );
 
   const addTerminal = async () => {
-    const res = await fetch(`${proxy}/v2/terminals/addterminal/`, {
+    const res = await fetch(`${proxy}/v2/rails/`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -96,7 +94,7 @@ const NewTerminal = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        New Terminal
+        New Rail
       </button>
       {showModal ? (
         <>
@@ -199,4 +197,4 @@ const NewTerminal = () => {
   );
 };
 
-export default NewTerminal;
+export default NewRail;

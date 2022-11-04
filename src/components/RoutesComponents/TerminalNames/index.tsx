@@ -1,22 +1,16 @@
 import Router, { useRouter } from "next/router";
-
-import React, {
-  FC,
-  FormEvent,
-  KeyboardEvent,
-  useEffect,
-  useState,
-} from "react";
+//we save el direct
+import React, { KeyboardEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../../config/theme";
 import {
-  AddOtherNames,
   getAllTerminals,
   getOtherNames,
   getAllRails,
 } from "../../redux/actions/terminalsActions";
 import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
+import NewRail from "./newRail";
 import NewTerminal from "./newTerminal";
 import NewTerminalName from "./NewTerminalName";
 import Pagination from "./Pagination";
@@ -34,6 +28,8 @@ interface onEditParamCurrent {
 }
 interface onEditParamNew {
   id: string;
+  terminal: any;
+  rail: any;
 }
 const Table = () => {
   const dispatch = useDispatch();
@@ -44,6 +40,8 @@ const Table = () => {
   const [paramsPerPage] = useState(10);
   const [terminal_id, setTerminal_id] = useState<any>();
   const [railterminal_id, setRailTerminal_id] = useState<any>();
+  const [value, setValue] = useState<any>();
+  const [location_id, setlocation_id] = useState<any>();
 
   const [name, setName] = useState<any>();
   const [terminal, setTerminal] = useState<any>();
@@ -59,6 +57,7 @@ const Table = () => {
     colKey: "",
     keyToUpdate: "",
   });
+
   const router = useRouter();
   const refreshData = () => {
     router.replace(router.asPath);
@@ -77,8 +76,6 @@ const Table = () => {
 
   currentParams = names.slice(indexOfFirstPost, indexOfLastPost);
 
-  console.log("current ", currentParams, indexOfLastPost, indexOfFirstPost);
-
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   const getId = (event: React.FormEvent<HTMLSelectElement>) => {
@@ -89,6 +86,7 @@ const Table = () => {
       event.currentTarget.options[selectedIndex].getAttribute("data-id")
     );
   };
+
   const onEdit = ({ id, col, key }: onEditParamCurrent) => {
     setInEditMode({
       status: true,
@@ -116,10 +114,17 @@ const Table = () => {
     dispatch(getOtherNames(event.currentTarget.value));
     setOption(event.currentTarget.value);
   };
-  const onSave = async ({ id }: onEditParamNew) => {
-    console.log(id, name, terminal_id);
+  const onSave = async ({ id, terminal, rail }: onEditParamNew) => {
+    console.log(
+      "we save ",
+      inEditMode.keyToUpdate,
+      id,
+      terminal,
+      rail,
+      location_id
+    );
     setLoading(true);
-    let res;
+    let res: any;
     if (inEditMode.keyToUpdate === "name") {
       res = await fetch(`${proxy}/v2/terminals/addnames`, {
         method: "POST",
@@ -130,10 +135,8 @@ const Table = () => {
 
         body: JSON.stringify([{ id, name }]),
       });
-    } else {
+    } else if (inEditMode.keyToUpdate === "terminal") {
       const terminal = terminal_id ? { id: terminal_id } : null;
-      const rail = railterminal_id ? { id: railterminal_id } : null;
-
       res = await fetch(`${proxy}/v2/terminals/addnames`, {
         method: "POST",
         headers: {
@@ -141,11 +144,22 @@ const Table = () => {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify([{ id, terminal, rail }]),
+        body: JSON.stringify([{ id, terminal }]),
+      });
+    } else if (inEditMode.keyToUpdate === "rail") {
+      const rail = railterminal_id ? { id: railterminal_id } : null;
+      res = await fetch(`${proxy}/v2/terminals/addnames`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify([{ id, rail }]),
       });
     }
 
-    if (res.status < 300) {
+    if (res?.status < 300) {
       setLoading(false);
       dispatch(getOtherNames(option));
       refreshData();
@@ -180,6 +194,7 @@ const Table = () => {
     });
     // reset the unit price state value
   };
+
   return (
     <div className="container">
       <div className="flex px-1 mb-6 md:mb-0 items-center">
@@ -194,8 +209,9 @@ const Table = () => {
             <option value="0">No Terminal</option>
           </select>
         </div>
-        <NewTerminal />
         <NewTerminalName option={option} />
+        <NewTerminal />
+        <NewRail />
         <div className=" ml-3  flex w-1/8 my-4">
           {loadingOtherNames && (
             <svg
@@ -218,6 +234,9 @@ const Table = () => {
             <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Set Rail Terminal
             </th>
+            <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+              locations
+            </th>
             <th className=" px-2 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               {loading && (
                 <svg
@@ -235,7 +254,7 @@ const Table = () => {
               <td
                 onDoubleClick={() => {
                   el.name ? setName(el.name) : setName("");
-                  console.log("thisss", Object.keys(el)[1]);
+                  console.log("hre", el);
 
                   onEdit({
                     id: el.id,
@@ -256,6 +275,8 @@ const Table = () => {
                       e.key === "Enter"
                         ? onSave({
                             id: el.id,
+                            terminal: el.terminal,
+                            rail: el.rail,
                           })
                         : console.log(e.key)
                     }
@@ -280,7 +301,6 @@ const Table = () => {
               <td
                 onDoubleClick={() => {
                   el.terminal ? setTerminal(el.terminal.name) : setTerminal("");
-                  console.log("herrr djo", Object.keys(el)[3]);
 
                   onEdit({
                     id: el.id,
@@ -301,6 +321,8 @@ const Table = () => {
                         e.key === "Enter"
                           ? onSave({
                               id: el.id,
+                              terminal: el.terminal,
+                              rail: el.rail,
                             })
                           : console.log(e.key)
                       }
@@ -314,7 +336,7 @@ const Table = () => {
                       {allTerminals?.map((terminal: any, index: number) => (
                         <option data-id={terminal.id} key={terminal.id}>
                           {terminal.nickname} {" - "} {terminal.frims_code}{" "}
-                          {" - "} {terminal.port?.state}
+                          {" - "} {terminal.location?.state}
                         </option>
                       ))}
                     </select>
@@ -337,7 +359,7 @@ const Table = () => {
               <td
                 onDoubleClick={() => {
                   el.rail ? setRail(el.rail.name) : setRail("");
-                  console.log("herrr djo", Object.keys(el)[4]);
+
                   onEdit({
                     id: el.id,
                     col: el.rail,
@@ -357,6 +379,8 @@ const Table = () => {
                         e.key === "Enter"
                           ? onSave({
                               id: el.id,
+                              terminal: el.terminal,
+                              rail: el.rail,
                             })
                           : console.log(e.key)
                       }
@@ -387,6 +411,21 @@ const Table = () => {
                   />
                 )}
               </td>
+              <td className="border-solid border-2 border-black px-6 align-middle text-gray-400  font-bold text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
+                {el.terminal?.location
+                  ? el.terminal?.location?.name +
+                    " " +
+                    el.terminal?.location?.state?.code +
+                    " " +
+                    el.terminal?.location?.country?.country_code
+                  : el.rail?.location
+                  ? el.rail?.location?.name +
+                    " " +
+                    el.rail?.location?.state?.code +
+                    " " +
+                    el.rail?.location?.country?.county_code
+                  : ""}
+              </td>
               <td className="w-1/5 text-center">
                 {inEditMode.status && inEditMode.rowKey === el.id ? (
                   <React.Fragment>
@@ -397,6 +436,8 @@ const Table = () => {
                       onClick={() =>
                         onSave({
                           id: el.id,
+                          terminal: el.terminal,
+                          rail: el.rail,
                         })
                       }
                     >

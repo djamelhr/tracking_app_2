@@ -1,18 +1,14 @@
 import Router, { useRouter } from "next/router";
 import Autocomplete from "react-autocomplete";
-import React, { KeyboardEvent, useEffect, useState } from "react";
+import React, { KeyboardEvent, useEffect, useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../../config/theme";
-import {
-  getAllMetro,
-  getAllPorts,
-  getPortNames,
-  setType,
-} from "../../redux/actions/terminalsActions";
-import { proxy } from "../../redux/proxy";
+import { getPortNames } from "../../redux/actions/terminalsActions";
+import { findLocations, proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
 import NewPortName from "./NewPortName";
 import Pagination from "./Pagination";
+
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 interface Iditstatus {
   status: boolean;
@@ -28,12 +24,7 @@ interface onEditParamCurrent {
 interface onEditParamNew {
   id: string;
 }
-async function findWords(value: string) {
-  const response = await fetch(`${proxy}/v1/locations/name/${value}`);
-  const json = await response.json();
-  console.log("this json", json);
-  return json;
-}
+
 const Table = () => {
   const dispatch = useDispatch();
   const { portsNames, loadingOtherNamesPort, type } = useSelector(
@@ -41,19 +32,15 @@ const Table = () => {
   );
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [paramsPerPage] = useState(10);
+  const [paramsPerPage] = useState(8);
   const [port_id, setPort_id] = useState<any>();
   const [location_id, setlocation_id] = useState<any>();
 
   const [name, setName] = useState<any>();
   const [value, setValue] = useState<any>();
-  const [selectedvalue, setSelectedValue] = useState<any>();
-
-  const [port, setPort] = useState<any>();
-  const [metro, setMetro] = useState<any>();
 
   const [option, setOption] = useState<string>("1");
-
+  const [allowedToFetch, setAllowedToFetch] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [inEditMode, setInEditMode] = useState<Iditstatus>({
@@ -65,9 +52,10 @@ const Table = () => {
   const queryClient = new QueryClient();
   const { isLoading, isError, data, isFetching } = useQuery(
     ["locations", value],
-    () => findWords(value),
+    () => findLocations(value),
     {
       keepPreviousData: true,
+      enabled: allowedToFetch,
     }
   );
   const router = useRouter();
@@ -92,22 +80,7 @@ const Table = () => {
 
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-  const getId = (event: React.FormEvent<HTMLSelectElement>) => {
-    setPort(event.currentTarget.value);
-    const selectedIndex = event.currentTarget.options.selectedIndex;
 
-    setPort_id(
-      event.currentTarget.options[selectedIndex].getAttribute("data-id")
-    );
-  };
-  const getMetroId = (event: React.FormEvent<HTMLSelectElement>) => {
-    setMetro(event.currentTarget.value);
-    const selectedIndex = event.currentTarget.options.selectedIndex;
-
-    setlocation_id(
-      event.currentTarget.options[selectedIndex].getAttribute("data-id")
-    );
-  };
   const onEdit = ({ id, col, key }: onEditParamCurrent) => {
     setInEditMode({
       status: true,
@@ -115,6 +88,10 @@ const Table = () => {
       colKey: col,
       keyToUpdate: key,
     });
+  };
+  const OnChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    setAllowedToFetch(true);
   };
   const removeName = async (id: string) => {
     setLoading(true);
@@ -198,10 +175,12 @@ const Table = () => {
         item.name + " " + item.state?.code + " " + item.country?.country_code
       )
     );
+    setAllowedToFetch(false);
   };
-  console.log("choooff", currentParams);
-  console.log("selectedddd!!!", location_id, value);
-  console.log("this the data", data);
+  // console.log("choooff", currentParams);
+  // console.log("selectedddd!!!", location_id, value);
+  // console.log("this the data", data);
+  // console.log("is isFetching", isFetching);
 
   return (
     <div className="container">
@@ -341,32 +320,9 @@ const Table = () => {
                         </div>
                       )}
                       value={value}
-                      onChange={(e) => setValue(e.target.value)}
+                      onChange={OnChangeValue}
                       onSelect={onSelectLocation}
                     />
-                    {/* <select
-                      onKeyPress={(e: KeyboardEvent) =>
-                        e.key === "Enter"
-                          ? onSave({
-                              id: el.id,
-                            })
-                          : console.log(e.key)
-                      }
-                      onKeyDown={(e) => {
-                        e.key === "Escape" ? onCancel() : console.log(e.key);
-                      }}
-                      value={port}
-                      onChange={getMetroId}
-                    >
-                      <option>Select Metro</option>
-                      {allMetro?.map((metro_area: any) => (
-                        <option data-id={metro_area.id} key={metro_area.id}>
-                          {metro_area.name}{" "}
-                          {metro_area.state ? " - " + metro_area.state : ""}{" "}
-                          {" - "} {metro_area.code}
-                        </option>
-                      ))}
-                    </select> */}
                   </div>
                 ) : (
                   <input

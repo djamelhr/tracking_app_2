@@ -28,8 +28,6 @@ const newShipment = () => {
     dispatch(getShippingLines());
   }, [dispatch]);
   const addTrackingRequest = async (e: React.FormEvent) => {
-    console.log("tracking");
-
     e.preventDefault();
     if (request_number?.length !== 0 && shipping_line_name?.length !== 0) {
       console.log(request_number, shipping_line_name);

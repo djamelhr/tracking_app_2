@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Theme } from "../../config/theme";
 import {
   getAllTerminals,
-  getAllPorts,
   SetTerminals,
-  getOtherNames,
 } from "../../redux/actions/terminalsActions";
 import { proxy } from "../../redux/proxy";
 import { RootState } from "../../redux/store";
-import NewMetroArea from "./NewMetroArea";
 import Pagination from "./Pagination";
 import _ from "lodash";
 interface Iditstatus {
@@ -60,7 +57,6 @@ const Table = () => {
   };
   useEffect(() => {
     setIsRefreshing(false);
-    dispatch(getAllPorts());
     dispatch(getAllTerminals());
   }, [dispatch, option, type]);
 
@@ -74,9 +70,6 @@ const Table = () => {
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
   const getId = (event: React.FormEvent<HTMLSelectElement>) => {
-    console.log("this metro", event.currentTarget.value);
-    console.log("params", currentParams);
-
     setPort_id(event.currentTarget.value);
   };
   const onEdit = ({ id, col, key }: onEditParamCurrent) => {
@@ -117,7 +110,6 @@ const Table = () => {
   };
 
   const onSave = async ({ id }: onEditParamNew) => {
-    console.log("this the id", id, port_id);
     setLoading(true);
     let res;
     res = await fetch(`${proxy}/v2/rails/`, {
@@ -239,7 +231,7 @@ const Table = () => {
               <td className="border-solid border-2 border-black px-6 align-middle  text-xs whitespace-nowrap p-3 text-left text-blueGray-700 ">
                 {el.frims_code}
               </td>
-              <td
+              {/* <td
                 onDoubleClick={() => {
                   setTerminal(el);
                   el.metro ? setPort(el.metro.name) : setPort("");
@@ -290,7 +282,7 @@ const Table = () => {
                     disabled
                   />
                 )}
-              </td>
+              </td> */}
 
               <td className="w-1/5 text-center">
                 <button

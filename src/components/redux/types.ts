@@ -1,6 +1,8 @@
 export const GET_TERMINAL = "GET_TERMINAL";
 export const SET_LOADING = "SET_LOADING";
 export const SET_LOADING_NEW_TR = "SET_LOADING_NEW_TR";
+export const UPDATE_SHIPPING_LINES = "UPDATE_SHIPPING_LINES";
+export const SAVE_SHIPPING_LINES = "SAVE_SHIPPING_LINES";
 
 export const SET_ERROR = "SET_ERROR";
 export const SET_SUCCESS = "SET_SUCCESS";
@@ -179,6 +181,15 @@ interface GetShippinsLines {
   type: typeof GET_ALL_SHIPPING_LINES;
   payload: any;
 }
+interface updateShippinsLines {
+  type: typeof UPDATE_SHIPPING_LINES;
+  payload: any;
+}
+interface saveShippinsLines {
+  type: typeof SAVE_SHIPPING_LINES;
+  payload: any;
+}
+
 interface getShipmentById {
   type: typeof GET_SHIPMENT_BY_ID;
   payload: any;
@@ -359,12 +370,14 @@ export type ShipmentListAction =
   | SetSuccessAction
   | refresheShipment
   | AddShipment
+  | saveShippinsLines
   | tracking_requests_at_terminal
   | AddShipmentNotracking
   | SetNotificationAction
   | AddTermialToShipment
   | getShipmentById
   | GetShippinsLines
+  | updateShippinsLines
   | SetLoadingTrAction
   | RemoveShipment;
 export type TrackingRequestsListAction =

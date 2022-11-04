@@ -6,8 +6,10 @@ import Footer from "../components/layouts/Footer/footer";
 import store from "../components/redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
-
+import { SessionProvider } from "next-auth/react";
 function MyApp({ Component, pageProps }: AppProps) {
+  const [interval, setInterval] = useState(0);
+
   const [loading, setLoading] = useState<boolean>(true);
   const queryClient = new QueryClient();
   useEffect(() => {
@@ -19,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       setLoading(true);
     };
   }, [pageProps]);
-
   return (
     <>
       <Provider store={store}>
