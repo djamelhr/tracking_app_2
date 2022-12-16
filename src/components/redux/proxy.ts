@@ -9,3 +9,16 @@ export const findLocations = async (value: string) => {
   console.log("this json", json);
   return json;
 };
+export const matcherRoutes = [
+  "/",
+  "/shipments",
+  "/settings",
+  "/tracking_requests",
+  "/terminals",
+  "/new_bl_cntnrs",
+  "/new_bl",
+  "/locations_names",
+  "/locations",
+  "/rails",
+  "/terminals_names",
+];

@@ -6,21 +6,18 @@ import store from "../components/redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { SessionProvider } from "next-auth/react";
+import { matcherRoutes } from "../components/redux/proxy";
 function MyApp({ Component, pageProps, ...appProps }: AppProps) {
-  const [interval, setInterval] = useState(0);
-
-  const [loading, setLoading] = useState<boolean>(true);
   const queryClient = new QueryClient();
 
   const getContent = () => {
-    if ([`/auth/signin`].includes(appProps.router.pathname))
-      return <Component {...pageProps} />;
-
-    return (
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    );
+    if (matcherRoutes.includes(appProps.router.pathname))
+      return (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      );
+    return <Component {...pageProps} />;
   };
   return (
     <>

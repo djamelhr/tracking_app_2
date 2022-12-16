@@ -29,6 +29,7 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  //fixe nav with error page
   secret: process.env.NEXTAUTH_SECRET,
 
   pages: {

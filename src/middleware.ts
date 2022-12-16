@@ -1,4 +1,5 @@
 import { withAuth } from "next-auth/middleware";
+import { matcherRoutes } from "./components/redux/proxy";
 
 // More on how NextAuth.js middleware works: https://next-auth.js.org/configuration/nextjs#middleware
 export default withAuth({
