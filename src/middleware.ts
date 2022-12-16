@@ -14,4 +14,18 @@ export default withAuth({
   },
 });
 
-export const config = { matcher: ["/", "/shipments"] };
+export const config = {
+  matcher: [
+    "/",
+    "/shipments",
+    "/settings",
+    "/tracking_requests",
+    "/terminals",
+    "/new_bl_cntnrs",
+    "/new_bl",
+    "/locations_names",
+    "/locations",
+    "/rails",
+    "/terminals_names",
+  ],
+};
