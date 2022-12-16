@@ -16,15 +16,15 @@ const authOptions: NextAuthOptions = {
         };
         // perform you login logic
         // find out user from db
-        if (email !== "djo@gmail.com" || password !== "bp8XT@MMsNV$Z*Jz") {
+        if (email !== "djamel@shifl.com" || password !== "bp8XT@MMsNV$Z*Jz") {
           throw new Error("invalid credentials");
         }
         // if everything is fine
         return {
           id: "1234",
           name: "djamel",
-          email: "djo@gmail.com",
-          role: "admin",
+          email: "djamel@shifl.com",
+          userRole: "admin",
         };
       },
     }),
@@ -34,16 +34,11 @@ const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
     // error: '/auth/error',
-    // signOut: '/auth/signout'
   },
   callbacks: {
-    jwt(params) {
-      // update token
-      if (params.user?.email) {
-        params.token.role = params.user.email;
-      }
-      // return final_token
-      return params.token;
+    jwt({ token }) {
+      token.userRole = "admin";
+      return token;
     },
   },
 };

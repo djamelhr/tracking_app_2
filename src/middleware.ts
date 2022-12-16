@@ -1,18 +1,17 @@
 import { withAuth } from "next-auth/middleware";
-import { NextRequest, NextResponse } from "next/server";
 
-export default withAuth(
-  function middleware(req: NextRequest) {
-    // return NextResponse
-    return NextResponse.rewrite(new URL("/shipments", req.url));
-  },
-  {
-    callbacks: {
-      authorized({ token }) {
-        return token?.role === "admin";
-      },
+// More on how NextAuth.js middleware works: https://next-auth.js.org/configuration/nextjs#middleware
+export default withAuth({
+  callbacks: {
+    authorized({ req, token }) {
+      // `/admin` requires admin role
+      if (req.nextUrl.pathname === "/") {
+        return token?.userRole === "admin";
+      }
+      // `/me` only requires the user to be logged in
+      return !!token;
     },
-  }
-);
+  },
+});
 
 export const config = { matcher: ["/", "/shipments"] };
