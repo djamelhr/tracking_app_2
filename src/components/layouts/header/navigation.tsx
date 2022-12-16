@@ -8,7 +8,6 @@ import { signOut } from "next-auth/react";
 const Navigation = () => {
   const handleSingOut = (e: any) => {
     e.preventDefault();
-
     signOut({
       callbackUrl: "/auth/signin",
       redirect: true,

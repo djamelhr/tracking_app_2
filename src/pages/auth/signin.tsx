@@ -48,6 +48,7 @@ const SingIn: NextPage = () => {
       password: data.get("password"),
       redirect: false,
     });
+    console.log(res);
 
     router.push("/shipments");
   };

@@ -37,7 +37,7 @@ const authOptions: NextAuthOptions = {
     // signOut: '/auth/signout'
   },
   callbacks: {
-    jwt(params: any) {
+    jwt(params) {
       // update token
       if (params.user?.role) {
         params.token.role = params.user.role;
