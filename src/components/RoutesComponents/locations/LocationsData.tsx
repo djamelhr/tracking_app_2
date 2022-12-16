@@ -9,19 +9,16 @@ const LocationsTable = () => {
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [count, setCount] = useState(0);
-  const [type, setType] = useState("1");
   const [country, setCountry] = useState("");
-  const [location, setLocation] = useState("");
+  const [name, setName] = useState("");
 
   const [numberOfPorts, setNumberOfPorts] = useState(0);
 
   const fetchLocations = async (data: any) => {
     const res = await fetch(
-      `${proxy}/v1/locations/type/${data.type}/country_code/${
+      `${proxy}/v1/locations/country_code/${
         data.country ? data.country : "null"
-      }/location/${data.location ? data.location : "null"}/page/${
-        data.page
-      }/per_page/10`
+      }/name/${data.name ? data.name : "null"}/page/${data.page}/per_page/10`
     );
     const content = await res.json();
     setCount(content.count);
@@ -29,8 +26,8 @@ const LocationsTable = () => {
   };
 
   const { isLoading, isError, data, isFetching } = useQuery(
-    ["locations", { page, type, country, location }],
-    () => fetchLocations({ page, type, country, location }),
+    ["locations", { page, country, name }],
+    () => fetchLocations({ page, country, name }),
     {
       keepPreviousData: true,
     }
@@ -47,6 +44,7 @@ const LocationsTable = () => {
     setPage((old) => Math.max(old - 1, 0));
     setHasMore(false);
   };
+  console.log(data);
 
   return (
     <div>
@@ -58,21 +56,11 @@ const LocationsTable = () => {
         ) : (
           <div>
             <div className=" flex relative  w-1/8 my-4  ">
-              <select
-                className="block  appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
-                value={type}
-                onChange={(event) => setType(event.currentTarget.value)}
-              >
-                <option value="1">Port</option>
-                <option value="2">Rail</option>
-              </select>
-            </div>
-            <div className=" flex relative  w-1/8 my-4  ">
               <input
                 className="block  appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
                 value={country}
+                placeholder="US"
                 onChange={(event) => setCountry(event.currentTarget.value)}
               ></input>
             </div>
@@ -80,8 +68,9 @@ const LocationsTable = () => {
               <input
                 className="block  appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
-                value={location}
-                onChange={(event) => setLocation(event.currentTarget.value)}
+                placeholder="New York"
+                value={name}
+                onChange={(event) => setName(event.currentTarget.value)}
               ></input>
             </div>
             <table className="">

@@ -209,10 +209,10 @@ const Table = () => {
         </div>
       </div>
 
-      <table className="items-center bg-transparent w-4/5 border-solid border-black border-2">
+      <table className="items-center bg-transparent w-full border-solid border-black border-2">
         <thead>
           <tr className=" border-solid border-black border-2">
-            <th className=" py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
+            <th className="py-4 px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
               Scraped Name
             </th>
             {/* <th className=" px-6 bg-blueGray-50 text-blueGray-500 align-middle  border-solid border-blueGraborder-solid border-2 border-black text-xs uppercase  whitespace-nowrap font-semibold text-left">
@@ -274,7 +274,7 @@ const Table = () => {
                   />
                 ) : (
                   <input
-                    className="w-full"
+                    className="w-full "
                     type="text"
                     value={el.name}
                     style={{ color: Theme.colors.dark }}
@@ -285,9 +285,11 @@ const Table = () => {
 
               <td
                 onDoubleClick={() => {
-                  console.log("the element", el);
+                  console.log("the element here", el);
 
                   setValue(el.name.split(",")[0]);
+                  setAllowedToFetch(true);
+
                   onEdit({
                     id: el.id,
                     col: el.location,

@@ -1,5 +1,5 @@
 import DataNav from "../components/layouts/DataNav";
-import Table from "../components/RoutesComponents/locations";
+import TableLocations from "../components/form/TableLocations";
 
 // import styles from '../styles/Home.module.css'
 
@@ -7,7 +7,8 @@ export default function Locations() {
   return (
     <div>
       <DataNav />
-      <Table />
+      <div></div>
+      <TableLocations />
     </div>
   );
 }

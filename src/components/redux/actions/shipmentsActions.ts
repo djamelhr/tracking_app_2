@@ -27,6 +27,7 @@ import {
   SET_LOADING_NEW_TR,
   UPDATE_SHIPPING_LINES,
   SAVE_SHIPPING_LINES,
+  SET_SELECTED_LOCATION,
 } from "../types";
 export const getShipments = (): ThunkAction<
   void,
@@ -559,6 +560,23 @@ export const SetRequestNumber = (
       dispatch({
         type: SET_REQUEST_NUMBER,
         payload: Name,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: SET_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+export const SetSelectedLocation = (
+  id: string
+): ThunkAction<void, RootState, null, ShipmentListAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: SET_SELECTED_LOCATION,
+        payload: id,
       });
     } catch (error: any) {
       dispatch({

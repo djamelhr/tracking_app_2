@@ -5,7 +5,8 @@ import Navigation from "./navigation";
 import Notification from "./Notification";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-const Header = () => {
+
+const Header = ({ children }: any) => {
   // let clicked = "clicked";
   // const [classes, setClasses] = useState<string>("clicked")
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState<boolean>(false);
@@ -42,6 +43,7 @@ const Header = () => {
       <li className="md:block lg:flex lg:gap-8">
         <Notification msg={message} />
       </li>
+      <section>{children}</section>
     </>
   );
 };

@@ -1,40 +1,35 @@
 import { useState, useEffect } from "react";
 import "../../styles/globals.css";
 import type { AppProps } from "next/app";
-import Header from "../components/layouts/header/header";
-import Footer from "../components/layouts/Footer/footer";
+import Layout from "../components/layouts/header/header";
 import store from "../components/redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { SessionProvider } from "next-auth/react";
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const [interval, setInterval] = useState(0);
 
   const [loading, setLoading] = useState<boolean>(true);
   const queryClient = new QueryClient();
-  useEffect(() => {
-    setTimeout(function () {
-      setLoading(false);
-    }, 250);
 
-    return () => {
-      setLoading(true);
-    };
-  }, [pageProps]);
+  const getContent = () => {
+    if ([`/auth/signin`].includes(appProps.router.pathname))
+      return <Component {...pageProps} />;
+
+    return (
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    );
+  };
   return (
     <>
       <Provider store={store}>
-        <Header />
-
-        <section
-          className={
-            loading === true ? "dark:animate-none animate-Loading " : ""
-          }
-        >
+        <SessionProvider session={pageProps.session}>
           <QueryClientProvider client={queryClient}>
-            <Component {...pageProps} />
+            {getContent()}
           </QueryClientProvider>
-        </section>
+        </SessionProvider>
       </Provider>
     </>
   );

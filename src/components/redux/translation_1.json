@@ -1,0 +1,57 @@
+{
+  "title": "TABLEAU DE BORD",
+  "monitor-panel": {
+    "title": "Suivi",
+    "summary_title": "Véhicules ({0})",
+    "description": "Suivez vos véhicules en temps réel et obtenez l’historique des trajets",
+    "links": {
+      "tracks": "Suivi",
+      "events": "Événements",
+      "reports": "Rapports"
+    },
+    "statuses": {
+      "active": "En ligne",
+      "idle": "GPS non mis à jour",
+      "offline": "Hors-ligne",
+      "etc": "Autre"
+    }
+  },
+  "tasks-panel": {
+    "title": "Missions",
+    "summary_title": "Missions ({0})",
+    "description": "Planifier des missions aux employés et contrôler leur mise en œuvre",
+    "links": {
+      "add": "Ajouter",
+      "control": "En cours",
+      "statistics": "Résumé"
+    },
+    "statuses": {
+      "done": "Terminée",
+      "assigned": "Assignée",
+      "failed": "Échouée",
+      "etc": "Autre"
+    }
+  },
+  "fleet-panel": {
+    "title": "Flotte",
+    "summary_title": "Entretien ({0})",
+    "description": "Contrôlez l'éco-conduite des véhicules et gérez vos entretiens ainsi que vos dépenses",
+    "links": {
+      "vehicles": "Flotte",
+      "maintenance": "Entretien",
+      "ecodriving": "Eco conduite"
+    },
+    "statuses": {
+      "done": "Terminé",
+      "created": "En cours",
+      "expired": "Expiré",
+      "etc": "Autres"
+    }
+  },
+  "mileage-panel": {
+    "title": "Kilométrage ({from} - {to})",
+    "yaxis_title": "Kilométrage {unit}",
+    "xaxis_title": "jours"
+  },
+  "test_string": "Tiges d’essai"
+}

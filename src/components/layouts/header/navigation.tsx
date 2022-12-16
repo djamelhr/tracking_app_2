@@ -1,8 +1,19 @@
 import React from "react";
 import Toggle from "../../toggle";
 import Link from "next/link";
+import IconButton from "@mui/material/IconButton";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { signOut } from "next-auth/react";
 
 const Navigation = () => {
+  const handleSingOut = (e: any) => {
+    e.preventDefault();
+
+    signOut({
+      callbackUrl: "/auth/signin",
+      redirect: true,
+    });
+  };
   return (
     <>
       {/* <div className="ml-10 flex items-baseline space-x-4 gap-4"> */}
@@ -33,8 +44,14 @@ const Navigation = () => {
             <a className="dark:text-skin-white">Settings</a>
           </Link>
         </div>
-        <div className="place-self-center py-2 border-gray-100 lg:border-0">
+
+        <div className="place-self-center py-2 border-b-2 border-opacity-10 border-gray-100 border-gray-100 lg:border-0">
           <Toggle />
+        </div>
+        <div className=" border-b-2 border-opacity-10 border-gray-100	lg:border-0">
+          <IconButton className="dark:text-skin-white" onClick={handleSingOut}>
+            <LogoutIcon></LogoutIcon>
+          </IconButton>
         </div>
       </div>
     </>
