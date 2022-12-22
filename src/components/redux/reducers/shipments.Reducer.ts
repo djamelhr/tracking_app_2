@@ -15,6 +15,7 @@ import {
   SET_LOADING_SHIPMENTS,
   SET_REQUEST_NUMBER,
   SET_SELECTED_LOCATION,
+  SET_SELECTED_TERMINAL,
   SET_SHIPPING_LINES,
   ShipmentListAction,
   shipmentState,
@@ -25,7 +26,8 @@ import {
 const initialState: shipmentState = {
   data: [],
   shipping_lines: [],
-  selected_locations: "",
+  selected_locations: null,
+  selected_terminal: null,
   loadingShipments: false,
   loadingNewTr: false,
 
@@ -82,6 +84,11 @@ export default (
       return {
         ...state,
         selected_locations: action.payload,
+      };
+    case SET_SELECTED_TERMINAL:
+      return {
+        ...state,
+        selected_terminal: action.payload,
       };
     case GET_SHIPMENT_BY_ID:
       return {

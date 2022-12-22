@@ -13,15 +13,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { SetSelectedLocation } from "../redux/actions/shipmentsActions";
 import { RootState } from "../redux/store";
 
-const AutoComplete = ({ cell }: any) => {
+const AutocompleteTerminal = () => {
   const dispatch = useDispatch();
 
   const { selected_locations } = useSelector(
     (state: RootState) => state.shipments
   );
-  const [value, setValue] = useState<string>(cell.split(",")[0]);
+  const [value, setValue] = useState<string | null>(null);
   const [allowedToFetch, setAllowedToFetch] = useState(true);
   const [location_id, setlocation_id] = useState<any>();
+  console.log("from new terminal");
 
   const { isLoading, isError, data, isFetching } = useQuery(
     ["locations", value],
@@ -51,20 +52,10 @@ const AutoComplete = ({ cell }: any) => {
     );
     setAllowedToFetch(false);
   };
-  useEffect(() => {
-    setAllowedToFetch(true);
-  }, [cell]);
-  // const enterFunction = (e: React.KeyboardEvent<HTMLDivElement>) => {
-  //   e.key === 'Enter' && ::this.handleSelect(e.target.value)
-  // };
 
   return (
     <div className="select  ">
       <Autocomplete
-        // selectOnBlur={() => console.log("djo")}
-
-        getItemValue={(item) => item.id}
-        items={data ?? []}
         menuStyle={{
           borderRadius: "3px",
           boxShadow: "0 2px 12px rgba(0, 0, 0, 0.1)",
@@ -76,7 +67,9 @@ const AutoComplete = ({ cell }: any) => {
           overflow: "auto",
           maxHeight: "35%", // TODO: don't cheat, let it flow to the bottom
         }}
-        renderInput={(props) => {
+        getItemValue={(item) => item.id}
+        items={data ?? []}
+        renderInput={(props: any) => {
           return (
             <TextField
               inputProps={props}
@@ -95,7 +88,7 @@ const AutoComplete = ({ cell }: any) => {
           <div
             key={item.id}
             style={{
-              background: isHighlighted ? "lightgray" : "white",
+              background: isHighlighted ? "gray" : "white",
             }}
           >
             {item.name +
@@ -111,4 +104,4 @@ const AutoComplete = ({ cell }: any) => {
   );
 };
 
-export default AutoComplete;
+export default AutocompleteTerminal;

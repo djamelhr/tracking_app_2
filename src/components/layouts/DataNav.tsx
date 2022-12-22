@@ -92,11 +92,11 @@ const DataNav = () => {
               }`}
               href="#"
             >
-              terminals
+              Terminals
             </a>
           </Link>
         </li>
-        <li className="mr-1">
+        {/* <li className="mr-1">
           <Link href="/rails">
             <a
               className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
@@ -110,6 +110,34 @@ const DataNav = () => {
             </a>
           </Link>
         </li>
+        <li className="mr-1">
+          <Link href="/terminals_rails">
+            <a
+              className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
+                pathname === "/terminals_rails"
+                  ? "text-black bg-gray-300"
+                  : "text-blue-700"
+              }`}
+              href="#"
+            >
+              terminals_rails
+            </a>
+          </Link>
+        </li>
+        <li className="mr-1">
+          <Link href="/terminals_rails_names">
+            <a
+              className={`bg-white inline-block  rounded-t py-2 px-4  font-semibold ${
+                pathname === "/terminals_rails_names"
+                  ? "text-black bg-gray-300"
+                  : "text-blue-700"
+              }`}
+              href="#"
+            >
+              terminals_rails_names
+            </a>
+          </Link>
+        </li> */}
       </ul>
       {/* <div className="md:block lg:flex lg:gap-8 ">
         <div className="py-2 border-b-2 border-opacity-10 border-gray-100	lg:border-0">

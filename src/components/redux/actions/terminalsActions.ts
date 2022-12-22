@@ -292,7 +292,7 @@ export const getAllRails = (): ThunkAction<
 > => {
   return async (dispatch) => {
     try {
-      const res = await fetch(`${proxy}/v2/rails/all`, {
+      const res = await fetch(`${proxy}/v2/terminal_rail/all`, {
         method: "GET",
         headers: {
           Accept: "application/json",

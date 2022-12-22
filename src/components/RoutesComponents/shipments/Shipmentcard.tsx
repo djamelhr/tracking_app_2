@@ -11,15 +11,9 @@ const Shipmentcard = ({
   number,
   pod_terminal,
   voyage,
-
   port_of_lading_name,
   port_of_discharge_name,
   destination_name,
-  created_at,
-  pod_terminal_name,
-  shipping_lines,
-  updated_at,
-  vessel,
   port_of_discharge,
   port_of_lading,
   destination,
@@ -31,6 +25,7 @@ const Shipmentcard = ({
 
   //   return diff === 0 ? "" : "(" + diff + "d)";
   // };
+  const [open, setOpen] = useState(false);
   const destination1 = () => {
     console.log(destination);
 
@@ -68,10 +63,7 @@ const Shipmentcard = ({
               {number}
             </a>
           </Link>
-          <p className="text-gray-700 lowercase ">
-            {containers?.length}{" "}
-            {containers?.length === 1 ? "container" : "containers"}{" "}
-          </p>
+
           <p className="text-sm text-gray-700">
             {pod_terminal
               ? pod_terminal.nickname + " " + pod_terminal.frims_code
@@ -145,11 +137,27 @@ const Shipmentcard = ({
           </div>
         ) : null}
       </div>
-      <div>
-        {containers?.map((con: any) => (
-          <Containercard key={con.id} container={con} />
-        ))}
-      </div>
+
+      {containers?.length > 0 ? (
+        <div>
+          <button
+            type="button"
+            className="m-2 p-1 border-2 border-transparent bg-gray-100 rounded-xl "
+            onClick={() => setOpen(!open)}
+          >
+            {containers?.length === 1
+              ? containers?.length + " container"
+              : containers?.length + " containers"}
+          </button>
+          {open && (
+            <div>
+              {containers?.map((con: any) => (
+                <Containercard key={con.id} container={con} />
+              ))}
+            </div>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 };

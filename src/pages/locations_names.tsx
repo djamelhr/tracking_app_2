@@ -1,5 +1,5 @@
 import DataNav from "../components/layouts/DataNav";
-import TableLocations from "../components/form/TableLocations";
+import TableLocations from "../components/form/TableLocationsName";
 
 // import styles from '../styles/Home.module.css'
 

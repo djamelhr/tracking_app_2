@@ -1,3 +1,4 @@
+import Terminals_Rails_Components from "../components/form/TableTerminals";
 import DataNav from "../components/layouts/DataNav";
 import TerminalTable from "../components/RoutesComponents/Terminals/Terminal";
 
@@ -7,7 +8,7 @@ export default function Terminals() {
   return (
     <div>
       <DataNav />
-      <TerminalTable />
+      <Terminals_Rails_Components />;
     </div>
   );
 }

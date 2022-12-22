@@ -4,7 +4,7 @@ export const SET_LOADING_NEW_TR = "SET_LOADING_NEW_TR";
 export const UPDATE_SHIPPING_LINES = "UPDATE_SHIPPING_LINES";
 export const SAVE_SHIPPING_LINES = "SAVE_SHIPPING_LINES";
 export const SET_SELECTED_LOCATION = "SET_SELECTED_LOCATION";
-
+export const SET_SELECTED_TERMINAL = "SET_SELECTED_TERMINAL";
 export const SET_ERROR = "SET_ERROR";
 export const SET_SUCCESS = "SET_SUCCESS";
 export const SET_TERMINAL_NAME = "SET_TERMINAL_NAME";
@@ -89,7 +89,8 @@ export interface shipmentState {
   request_number?: string;
   shipment: any;
   res: any;
-  selected_locations: string;
+  selected_locations: string | null;
+  selected_terminal: string | null;
 }
 
 export interface trackingRequestsState {
@@ -181,6 +182,10 @@ interface SetTerminals {
 }
 interface SetSelectedLocations {
   type: typeof SET_SELECTED_LOCATION;
+  payload: any;
+}
+interface SetSelectedTerminal {
+  type: typeof SET_SELECTED_TERMINAL;
   payload: any;
 }
 interface GetShippinsLines {
@@ -386,6 +391,7 @@ export type ShipmentListAction =
   | updateShippinsLines
   | SetLoadingTrAction
   | SetSelectedLocations
+  | SetSelectedTerminal
   | RemoveShipment;
 export type TrackingRequestsListAction =
   | GetTracking_requests

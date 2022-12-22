@@ -23,6 +23,7 @@ export const config = {
     "/tracking_requests",
     "/terminals",
     "/new_bl_cntnrs",
+    "/terminals_rails_names",
     "/new_bl",
     "/locations_names",
     "/locations",
