@@ -142,13 +142,28 @@ const Shipmentcard = ({
         <div>
           <button
             type="button"
-            className="m-2 p-1 border-2 border-transparent bg-gray-100 rounded-xl "
+            className="m-2 p-1 border-2 border-transparent bg-gray-100 rounded-xl text-center inline-flex items-center"
             onClick={() => setOpen(!open)}
           >
             {containers?.length === 1
               ? containers?.length + " container"
               : containers?.length + " containers"}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1"
+              stroke="currentColor"
+              className=" ml-2 mt-1 w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
+              />
+            </svg>
           </button>
+
           {open && (
             <div>
               {containers?.map((con: any) => (

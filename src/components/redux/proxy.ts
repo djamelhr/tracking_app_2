@@ -17,6 +17,7 @@ export const matcherRoutes = [
   "/",
   "/terminals_rails_names",
   "/shipments",
+  "/shipments/[slug]",
   "/terminals_rails",
   "/settings",
   "/tracking_requests",

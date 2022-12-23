@@ -19,6 +19,7 @@ export const config = {
   matcher: [
     "/",
     "/shipments",
+    "/shipments/:path*",
     "/settings",
     "/tracking_requests",
     "/terminals",
