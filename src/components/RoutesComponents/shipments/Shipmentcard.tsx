@@ -35,15 +35,15 @@ const Shipmentcard = ({
         : destination_name;
 
       return (
-        <p>
+        <div>
           {destination?.name +
             "," +
             statecode +
             destination?.country?.country_code}
-        </p>
+        </div>
       );
     } else {
-      return <p>{destination_name ? destination_name + " *" : ""} </p>;
+      return <div>{destination_name ? destination_name + " *" : ""} </div>;
     }
   };
 
@@ -80,7 +80,7 @@ const Shipmentcard = ({
             ) : voyage?.pol_etd_at ? (
               <div>{moment(voyage?.pol_etd_at).format("MMM DD ")}</div>
             ) : (
-              "No ETA"
+              "No ETD"
             )}
           </div>
         </div>
@@ -93,7 +93,7 @@ const Shipmentcard = ({
                 ? port_of_discharge.state
                 : port_of_discharge.country?.country_code)
             : port_of_discharge_name + " *"}
-          <p>{destination1()}</p>
+          <div>{destination1()}</div>
         </div>
 
         {voyage ? (

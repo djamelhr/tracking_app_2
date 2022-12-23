@@ -1,42 +1,21 @@
 /* eslint-disable @next/next/link-passhref */
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
-
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import Divider from "@mui/material/Divider";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import DirectionsIcon from "@mui/icons-material/Directions";
 import { Ishipment } from "../../redux/interfaces";
 import { proxy } from "../../redux/proxy";
 import Shipmentcard from "./Shipmentcard";
+import { Box } from "@mui/system";
+import { IconButton, TextField } from "@mui/material";
+import { set } from "lodash";
 
 const MainShipments = () => {
-  const fetchShipments = async ({ pageParam = 1 }) => {
-    const res = await fetch(
-      `${proxy}/v2/shipments/page_number/${pageParam}/page_size/10`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const content = await res.json();
-    return content;
-  };
-
-  const {
-    data,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage,
-    status,
-  } = useInfiniteQuery("shipments", fetchShipments, {
-    getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage.meta.pagination.next);
-      return lastPage.meta.pagination.next;
-    },
-  });
   // useEffect(() => {
   //   let fetching = false;
   //   const onScroll = async (event) => {
@@ -52,6 +31,32 @@ const MainShipments = () => {
   //   };
   //   document.addEventListener("scroll", onScroll);
   // }, [fetchNextPage, hasNextPage]);
+  const [name, setName] = useState("");
+  const fetchShipments = async ({ pageParam = 1 }) => {
+    const url = new URL(`${proxy}/v2/shipments/query`);
+    url.searchParams.set("page_number", `${pageParam}`);
+    url.searchParams.set("page_size", `${10}`);
+    url.searchParams.set("name", `${name}`);
+    const response = await fetch(url.href);
+    const json = await response.json();
+    return json;
+  };
+  console.log(name);
+
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery("shipments", fetchShipments, {
+    getNextPageParam: (lastPage, pages) => {
+      console.log(lastPage.meta.pagination.next);
+      return lastPage.meta.pagination.next;
+    },
+  });
 
   return (
     <div>
@@ -62,6 +67,27 @@ const MainShipments = () => {
       </Link>
 
       <div className="  grid grid-rows-1 gap-5 place-items-center">
+        {/* <Paper
+          component="form"
+          className=" gap-5 "
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: 400,
+            marginY: "10px",
+          }}
+        >
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search "
+            inputProps={{ "aria-label": "search " }}
+            onChange={(e) => setName(e.currentTarget.value)}
+          />
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+        </Paper> */}
         <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
