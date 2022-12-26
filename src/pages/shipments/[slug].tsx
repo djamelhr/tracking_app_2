@@ -46,27 +46,21 @@ export default function ShipmentPage(shipment: any) {
       ) {
         pol =
           "ETD : " +
-          moment
-            .parseZone(shipment.voyage.pol_etd_at)
-            .format("MMM DD YYYY ,h:mma");
+          moment.parseZone(shipment.voyage.pol_etd_at).format("MMM DD YYYY");
       } else if (
         shipment.voyage.pol_atd_at !== null &&
         shipment.voyage.pol_etd_at === null
       ) {
         pol =
           "ATD : " +
-          moment
-            .parseZone(shipment.voyage.pol_atd_at)
-            .format("MMM DD YYYY ,h:mma");
+          moment.parseZone(shipment.voyage.pol_atd_at).format("MMM DD YYYY");
       } else if (
         shipment.voyage.pol_atd_at !== null &&
         shipment.voyage.pol_etd_at !== null
       ) {
         pol =
           "ATD : " +
-          moment
-            .parseZone(shipment.voyage.pol_atd_at)
-            .format("MMM DD YYYY ,h:mma");
+          moment.parseZone(shipment.voyage.pol_atd_at).format("MMM DD YYYY");
       }
     }
 
@@ -88,7 +82,7 @@ export default function ShipmentPage(shipment: any) {
           "ETA : " +
           moment
             .parseZone(shipment.voyage.destination_eta_at)
-            .format("MMM DD YYYY ,h:mma");
+            .format("MMM DD YYYY");
       } else if (
         shipment.voyage.destination_ata_at !== null &&
         shipment.voyage.destination_eta_at === null
@@ -97,7 +91,7 @@ export default function ShipmentPage(shipment: any) {
           "ATA : " +
           moment
             .parseZone(shipment.voyage.destination_ata_at)
-            .format("MMM DD YYYY ,h:mma");
+            .format("MMM DD YYYY");
       } else if (
         shipment.voyage.destination_ata_at !== null &&
         shipment.voyage.destination_eta_at !== null
@@ -106,7 +100,7 @@ export default function ShipmentPage(shipment: any) {
           "ATA : " +
           moment
             .parseZone(shipment.voyage.destination_ata_at)
-            .format("MMM DD YYYY ,h:mma");
+            .format("MMM DD YYYY");
       }
     }
 
@@ -137,18 +131,14 @@ export default function ShipmentPage(shipment: any) {
       ) {
         pol =
           "ETA : " +
-          moment
-            .parseZone(shipment.voyage.pod_eta_at)
-            .format("MMM DD YYYY ,h:mma");
+          moment.parseZone(shipment.voyage.pod_eta_at).format("MMM DD YYYY");
       } else if (
         shipment.voyage.pod_ata_at !== null &&
         shipment.voyage.pod_eta_at === null
       ) {
         pol =
           "ATA : " +
-          moment
-            .parseZone(shipment.voyage.pod_ata_at)
-            .format("MMM DD YYYY ,h:mma");
+          moment.parseZone(shipment.voyage.pod_ata_at).format("MMM DD YYYY");
       } else if (
         shipment.voyage.pod_ata_at !== null &&
         shipment.voyage.pod_eta_at !== null

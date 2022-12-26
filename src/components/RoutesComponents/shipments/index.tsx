@@ -33,7 +33,7 @@ const MainShipments = () => {
   // }, [fetchNextPage, hasNextPage]);
   const [name, setName] = useState("");
   const fetchShipments = async ({ pageParam = 1 }) => {
-    const url = new URL(`${proxy}/v2/shipments/query`);
+    const url = new URL(`${proxy}/v2/shipments`);
     url.searchParams.set("page_number", `${pageParam}`);
     url.searchParams.set("page_size", `${10}`);
     url.searchParams.set("name", `${name}`);
@@ -42,7 +42,18 @@ const MainShipments = () => {
     return json;
   };
   console.log(name);
-
+  const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
+    refetch();
+  };
+  const handleKeyUP = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
+    refetch();
+  };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
+    refetch();
+  };
   const {
     data,
     error,
@@ -51,12 +62,14 @@ const MainShipments = () => {
     isFetching,
     isFetchingNextPage,
     status,
+    isLoading,
+    refetch,
   } = useInfiniteQuery("shipments", fetchShipments, {
     getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage.meta.pagination.next);
-      return lastPage.meta.pagination.next;
+      return lastPage.meta.pagination?.next;
     },
   });
+  console.log("status", status, isLoading);
 
   return (
     <div>
@@ -66,29 +79,100 @@ const MainShipments = () => {
         </button>
       </Link>
 
-      <div className="  grid grid-rows-1 gap-5 place-items-center">
-        {/* <Paper
-          component="form"
-          className=" gap-5 "
-          sx={{
-            p: "2px 4px",
-            display: "flex",
-            alignItems: "center",
-            width: 400,
-            marginY: "10px",
-          }}
-        >
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Search "
-            inputProps={{ "aria-label": "search " }}
-            onChange={(e) => setName(e.currentTarget.value)}
-          />
-          <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-            <SearchIcon />
-          </IconButton>
-        </Paper> */}
-        <div className="w-4/5   bg-white shadow-lg rounded-lg overflow-hidden ">
+      <div className="  grid grid-rows-1 gap-1 place-items-center">
+        <div className="w-4/5    rounded-lg overflow-hidden ">
+          <div className="flex justify-between items-center ">
+            <Paper
+              component="form"
+              className=""
+              sx={{
+                p: "2px 4px",
+                display: "flex",
+                alignItems: "center",
+                width: 250,
+                marginX: "10px",
+                marginY: "10px",
+              }}
+            >
+              <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="BOL "
+                value={name}
+                inputProps={{ "aria-label": "search " }}
+                onKeyUp={handleKeyUP}
+                onKeyDown={handleKeyDown}
+                onChange={handleChangeName}
+              />
+            </Paper>
+            <Paper
+              component="form"
+              className=""
+              sx={{
+                p: "2px 4px",
+                display: "flex",
+                alignItems: "center",
+                width: 250,
+                marginX: "10px",
+                marginY: "10px",
+              }}
+            >
+              <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Origin port "
+                disabled
+                inputProps={{ "aria-label": "search " }}
+                onKeyUp={handleKeyUP}
+                onKeyDown={handleKeyDown}
+                onChange={handleChangeName}
+              />
+            </Paper>
+            <Paper
+              component="form"
+              className=""
+              sx={{
+                p: "2px 4px",
+                display: "flex",
+                alignItems: "center",
+                width: 250,
+                marginX: "10px",
+                marginY: "10px",
+              }}
+            >
+              <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Destination port "
+                disabled
+                inputProps={{ "aria-label": "search " }}
+                onKeyUp={handleKeyUP}
+                onKeyDown={handleKeyDown}
+                onChange={handleChangeName}
+              />
+            </Paper>
+            <Paper
+              component="form"
+              className=""
+              sx={{
+                p: "2px 4px",
+                display: "flex",
+                alignItems: "center",
+                width: 250,
+                marginX: "10px",
+                marginY: "10px",
+              }}
+            >
+              <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Arrival Date "
+                disabled
+                inputProps={{ "aria-label": "search " }}
+                onKeyUp={handleKeyUP}
+                onKeyDown={handleKeyDown}
+                onChange={handleChangeName}
+              />
+            </Paper>
+          </div>
+        </div>
+        <div className="w-4/5  bg-gray-200 mb-2 shadow-lg rounded-lg overflow-hidden ">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="bg-orange-600 text-xs uppercase px-2 py-1   text-black-200 font-bold">
               Bol

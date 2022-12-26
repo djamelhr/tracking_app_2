@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import _ from "lodash";
+import moment from "moment";
 
 const TableEvent = ({ events }: any) => {
   // console.log(" TableHigh ", events);
@@ -44,7 +45,9 @@ const TableEvent = ({ events }: any) => {
               {el.voyage_num ? el.voyage_num : ""}
             </td>
             <td className="border-solid border-2 border-gray-300 px-6 align-center  text-xs whitespace-nowrap p-3">
-              {el.actual_at ? el.actual_at : el.estimated_at}
+              {el.actual_at
+                ? moment.parseZone(el.actual_at).format("MMM DD h:mm")
+                : moment.parseZone(el.estimated_at).format("MMM DD h:mm")}
             </td>
           </tr>
         ))}
